@@ -2,7 +2,7 @@
 title: "Proposal title"
 subtitle: "Proposal"
 author: 
-  - name: "Team Name - Team member 1, Team member 2,..."
+  - name: "Team Name - Saumya Gupta, Jeevana Sai Devi Sathwika Karri"
     affiliations:
       - name: "College of Information Science, University of Arizona"
 description: "Project description"
