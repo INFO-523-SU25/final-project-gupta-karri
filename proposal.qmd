@@ -43,3 +43,38 @@ The two questions you want to answer.
 ## Analysis plan
 
 -   A plan for answering each of the questions including the variables involved, variables to be created (if any), external data to be merged in (if any).
+
+## Data Dictionary
+
+| Variable | Description |
+|----------|-------------|
+| CUST_ID | Identification of Credit Card holder |
+| BALANCE | Balance amount left in their account to make purchases |
+| BALANCE_FREQUENCY | How frequently the Balance is updated, score between 0 and 1 (1 = frequently updated, 0 = not frequently updated) |
+| PURCHASES | Amount of purchases made from account |
+| ONEOFF_PURCHASES | Maximum purchase amount done in one-go |
+| INSTALLMENTS_PURCHASES | Amount of purchase done in installment |
+| CASH_ADVANCE | Cash in advance given by the user |
+| PURCHASES_FREQUENCY | How frequently the Purchases are being made, score between 0 and 1 (1 = frequently purchased, 0 = not frequently purchased) |
+| ONEOFFPURCHASESFREQUENCY | How frequently Purchases are happening in one-go (1 = frequently purchased, 0 = not frequently purchased) |
+| PURCHASESINSTALLMENTSFREQUENCY | How frequently purchases in installments are being done (1 = frequently done, 0 = not frequently done) |
+| CASHADVANCEFREQUENCY | How frequently the cash in advance is being paid |
+| CASHADVANCETRX | Number of Transactions made with "Cash in Advanced" |
+| PURCHASES_TRX | Number of purchase transactions made |
+| CREDIT_LIMIT | Limit of Credit Card for user |
+| PAYMENTS | Amount of Payment done by user |
+| MINIMUM_PAYMENTS | Minimum amount of payments made by user |
+| PRCFULLPAYMENT | Percent of full payment paid by user |
+| TENURE | Tenure of credit card service for user |
+
+
+## Plan of Attack
+
+| Week | Dates | Activity | Status |
+|------|-------|----------|--------|
+| Week 2 | 25 July 2025 | • Review the Dataset and finalize the team<br>• Select data mining techniques and clustering methods | Completed |
+| Week 3 | 1 August 2025 | • Proposal and Peer Review with other teams<br>• Data Preprocessing | In Progress |
+| Week 4 | 8 August 2025 | • Perform feature engineering/selection<br>• Transform and scale features<br>• Apply clustering algorithms | Not Completed |
+| Week 5 | 15 August 2025 | • Evaluate clustering performance<br>• Visualize our results | Not Completed |
+| Week 6 | 20 August 2025 | • Conduct a peer code review<br>• Present projects and turn in final write-up | Not Completed |
+
