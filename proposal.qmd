@@ -33,7 +33,7 @@ import numpy as np
 
 import pandas as pd
 
-credit_card = pd.read_csv("data/CC General.csv")
+credit_card = pd.read_csv("data/CC GENERAL.csv")
 
 print(credit_card.info())
 print('')
