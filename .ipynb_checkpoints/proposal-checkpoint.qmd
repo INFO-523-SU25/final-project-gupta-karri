@@ -1,0 +1,124 @@
+---
+title: "Behavioral Outlier Segmentation using credit card dataset "
+subtitle: "Proposal"
+author: 
+  - name: "Team Name - Saumya Gupta, Jeevana Sai Devi Sathwika Karri"
+    affiliations:
+      - name: "College of Information Science, University of Arizona"
+description: "Project description"
+format:
+  html:
+    code-tools: true
+    code-overflow: wrap
+    code-line-numbers: true
+    embed-resources: true
+editor: visual
+code-annotations: hover
+execute:
+  warning: false
+jupyter: python3
+---
+
+```{python}
+#| label: load-pkgs
+#| message: false
+import numpy as np
+```
+
+## Dataset
+
+```{python}
+#| label: load-dataset
+#| message: false
+
+import pandas as pd
+
+credit_card = pd.read_csv("data/CC General.csv")
+
+print(credit_card.info())
+print('')
+print("\nShape of the dataset:", credit_card.shape)
+print('')
+print("\nData types:\n", credit_card.dtypes)
+print('')
+print(credit_card.describe())
+
+```
+
+A brief description of your dataset including its provenance, dimensions, etc. as well as the reason why you chose this dataset.
+
+## Why we chose this dataset
+
+We chose this credit card dataset from Kaggle because it contains detailed information about nearly 9,000 credit card users. It includes data such as their spending habits, payment frequency, and cash advances. This makes it a good dataset for identifying different types of customers and detecting unusual behavior. Additionally, we can use it to predict customers who might stop using their cards or switch to other providers, assess the risk of issuing credit cards to customers, and identify opportunities for targeted offers and credit limit increases.
+
+## Aim 
+
+Our group is working on a project titled "Behavioral Outlier Segmentation," which involves analyzing credit card usage data from Kaggle to identify unusual customer behavior patterns. The primary goal of this project is to uncover customer segments that behave similarly but exhibit patterns that deviate from typical usage. These unusual behaviors may include excessive use of cash advances, irregular payment activity, abnormally high or low spending, or infrequent use of the credit card. Additionally, we aim to predict customers who may stop using their cards and switch to competitors.
+
+
+Make sure to load the data and use inline code for some of this information.
+
+This dataset has `{{ credit_card.shape[0] }}` rows and `{{ credit_card.shape[1] }}` columns.
+
+## Questions
+
+The two questions you want to answer.
+
+1. We identify clusters of credit card customers based on their transaction behavior (recency, frequency, and monetary value) to detect atypical patterns and classify customers into risk levels (high, medium, low). 
+
+2. We predict which customers might stop using their credit cards or switch to a competitor.
+
+## Dataset Overview
+
+Name: Credit Card Dataset 
+Source: https://www.kaggle.com/datasets/arjunbhasin2013/ccdata
+Size: 8950 instances of customer credit card details
+
+
+## Analysis plan
+
+-   A plan for answering each of the questions including the variables involved, variables to be created (if any), external data to be merged in (if any).
+
+We will use a type of machine learning called clustering to group customers who have similar spending and payment habits. This method helps us find clear groups of customers who behave alike. It also helps us spot customers who don’t fit into any group. 
+
+For the second part of our project, we want to predict which customers might stop using their credit cards or switch to a different company. To do this, we will use prediction models that learn data about customer behavior.
+
+| Question                | Variables Used                                                                                                     |
+|-------------------------|--------------------------------------------------------------------------------------------------------------------|
+|  Clustering             | BALANCE, BALANCE_FREQUENCY, PURCHASES, ONEOFF_PURCHASES, INSTALLMENTS_PURCHASES, CASH_ADVANCE, PURCHASES_FREQUENCY |
+|  Prediction             | TENURE, BALANCE, BALANCE_FREQUENCY, PURCHASES_FREQUENCY, PAYMENTS, MINIMUM_PAYMENTS, PRCFULLPAYMENT, CASH_ADVANCE  |
+
+## Data Dictionary
+
+| Variable                       | Description |
+|--------------------------------|-------------|
+| CUST_ID                        | Identification of Credit Card holder |
+| BALANCE                        | Balance amount left in their account to make purchases |
+| BALANCE_FREQUENCY              | How frequently the Balance is updated, score between 0 and 1 (1 = frequently updated, 0 = not frequently updated) |
+| PURCHASES                      | Amount of purchases made from account |
+| ONEOFF_PURCHASES               | Maximum purchase amount done in one-go |
+| INSTALLMENTS_PURCHASES         | Amount of purchase done in installment |
+| CASH_ADVANCE                   | Cash in advance given by the user |
+| PURCHASES_FREQUENCY            | How frequently the Purchases are being made, score between 0 and 1 (1 = frequently purchased, 0 = not frequently purchased) |
+| ONEOFFPURCHASESFREQUENCY       | How frequently Purchases are happening in one-go (1 = frequently purchased, 0 = not frequently purchased) |
+| PURCHASESINSTALLMENTSFREQUENCY | How frequently purchases in installments are being done (1 = frequently done, 0 = not frequently done) |
+| CASHADVANCEFREQUENCY           | How frequently the cash in advance is being paid |
+| CASHADVANCETRX                 | Number of Transactions made with "Cash in Advanced" |
+| PURCHASES_TRX                  | Number of purchase transactions made |
+| CREDIT_LIMIT                   | Limit of Credit Card for user |
+| PAYMENTS                       | Amount of Payment done by user |
+| MINIMUM_PAYMENTS               | Minimum amount of payments made by user |
+| PRCFULLPAYMENT                 | Percent of full payment paid by user |
+| TENURE                         | Tenure of credit card service for user |
+
+
+## Plan of Attack
+
+| Week   | Dates          | Activity                                                                                                   | Status |
+|--------|--------------- |------------------------------------------------------------------------------------------------------------|--------|
+| Week 2 | 25 July 2025   | • Review the Dataset and finalize the team<br>• Select data mining techniques and clustering methods       | Completed |
+| Week 3 | 1 August 2025  | • Proposal and Peer Review with other teams<br>• Data Preprocessing                                        | In Progress |
+| Week 4 | 8 August 2025  | • Perform feature engineering/selection<br>• Transform and scale features<br>• Apply clustering algorithms | Not Completed |
+| Week 5 | 15 August 2025 | • Evaluate clustering performance<br>• Visualize our results                                               | Not Completed |
+| Week 6 | 20 August 2025 | • Conduct a peer code review<br>• Present projects and turn in final write-up                              | Not Completed |
+
