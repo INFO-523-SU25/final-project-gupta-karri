@@ -2,10 +2,10 @@
 title: "Behavioral Outlier Segmentation using credit card dataset "
 subtitle: "Proposal"
 author: 
-  - name: "Team Name - Saumya Gupta, Jeevana Sai Devi Sathwika Karri"
+  - name: "The Classifiers - Saumya Gupta, Jeevana Sai Devi Sathwika Karri"
     affiliations:
       - name: "College of Information Science, University of Arizona"
-description: "Project description"
+description: "Project description- The project *Behavioral Outlier Segmentation* focuses on analyzing credit card usage data from Kaggle to identify customer segments that exhibit unusual behavior patterns. By uncovering deviations such as irregular payments, abnormal spending, or infrequent card usage, the project aims to detect behavioral outliers and predict customers who are likely to stop using their cards or switch to competitors."
 format:
   html:
     code-tools: true
@@ -22,7 +22,6 @@ jupyter: python3
 ```{python}
 #| label: load-pkgs
 #| message: false
-import numpy as np
 ```
 
 ## Dataset
@@ -31,9 +30,10 @@ import numpy as np
 #| label: load-dataset
 #| message: false
 
+import numpy as np
 import pandas as pd
 
-credit_card = pd.read_csv("data/CC General.csv")
+credit_card = pd.read_csv("data/CC GENERAL.csv")
 
 print(credit_card.info())
 print('')
@@ -46,6 +46,8 @@ print(credit_card.describe())
 ```
 
 A brief description of your dataset including its provenance, dimensions, etc. as well as the reason why you chose this dataset.
+
+The dataset used in this project is the **Credit Card Customer Data** sourced from Kaggle. It consists of **8,950 rows** and **18 columns**, each representing anonymized customer data related to credit card usage. The features include various behavioral indicators such as balance, purchase amounts, cash advances, credit limits, and payment patterns.
 
 ## Why we chose this dataset
 

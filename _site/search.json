@@ -1,0 +1,156 @@
+[
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "This project was developed by [Team Name] For INFO 523 - Data Mining and Discovery at the University of Arizona, taught by Dr. Greg Chism. The team is comprised of the following team members.\n\nTeam member 1: One sentence description of Team member 1 (e.g., year, major, etc.).\nTeam member 2: One sentence description of Team member 2 (e.g., year, major, etc.).\nTeam member 3: One sentence description of Team member 3 (e.g., year, major, etc.).\nTeam member 4: One sentence description of Team member 4 (e.g., year, major, etc.)."
+  },
+  {
+    "objectID": "presentation.html#quarto",
+    "href": "presentation.html#quarto",
+    "title": "Project title",
+    "section": "Quarto",
+    "text": "Quarto\n\nThe presentation is created using the Quarto CLI\n## sets the start of a new slide"
+  },
+  {
+    "objectID": "presentation.html#layouts",
+    "href": "presentation.html#layouts",
+    "title": "Project title",
+    "section": "Layouts",
+    "text": "Layouts\nYou can use plain text\n\n\n\nor bullet points1\n\n\nor in two columns\n\n\nlike\nthis\n\nAnd add footnotes"
+  },
+  {
+    "objectID": "presentation.html#code",
+    "href": "presentation.html#code",
+    "title": "Project title",
+    "section": "Code",
+    "text": "Code\n\n\n                            OLS Regression Results                            \n==============================================================================\nDep. Variable:                    mpg   R-squared:                       0.073\nModel:                            OLS   Adj. R-squared:                  0.070\nMethod:                 Least Squares   F-statistic:                     30.59\nDate:                Tue, 05 Aug 2025   Prob (F-statistic):           5.84e-08\nTime:                        10:01:16   Log-Likelihood:                -1346.4\nNo. Observations:                 392   AIC:                             2697.\nDf Residuals:                     390   BIC:                             2705.\nDf Model:                           1                                         \nCovariance Type:            nonrobust                                         \n==============================================================================\n                 coef    std err          t      P&gt;|t|      [0.025      0.975]\n------------------------------------------------------------------------------\nconst         35.8015      2.266     15.800      0.000      31.347      40.257\nspeed       -354.7055     64.129     -5.531      0.000    -480.788    -228.623\n==============================================================================\nOmnibus:                       27.687   Durbin-Watson:                   0.589\nProb(Omnibus):                  0.000   Jarque-Bera (JB):               18.976\nSkew:                           0.420   Prob(JB):                     7.57e-05\nKurtosis:                       2.323   Cond. No.                         169.\n==============================================================================\n\nNotes:\n[1] Standard Errors assume that the covariance matrix of the errors is correctly specified."
+  },
+  {
+    "objectID": "presentation.html#plots",
+    "href": "presentation.html#plots",
+    "title": "Project title",
+    "section": "Plots",
+    "text": "Plots"
+  },
+  {
+    "objectID": "presentation.html#plot-and-text",
+    "href": "presentation.html#plot-and-text",
+    "title": "Project title",
+    "section": "Plot and text",
+    "text": "Plot and text\n\n\n\nSome text\ngoes here"
+  },
+  {
+    "objectID": "presentation.html#tables",
+    "href": "presentation.html#tables",
+    "title": "Project title",
+    "section": "Tables",
+    "text": "Tables\nIf you want to generate a table, make sure it is in the HTML format (instead of Markdown or other formats), e.g.,\n\n\n\n\n\n\n\n\n\n\n\n\nspecies\n\n\n\nisland\n\n\n\nbill_length_mm\n\n\n\nbill_depth_mm\n\n\n\nflipper_length_mm\n\n\n\nbody_mass_g\n\n\n\nsex\n\n\n\n\n\n\n\n\n\n\n\n0\n\n\n\nAdelie\n\n\n\nTorgersen\n\n\n\n39.1\n\n\n\n18.7\n\n\n\n181.0\n\n\n\n3750.0\n\n\n\nMale\n\n\n\n\n\n\n\n1\n\n\n\nAdelie\n\n\n\nTorgersen\n\n\n\n39.5\n\n\n\n17.4\n\n\n\n186.0\n\n\n\n3800.0\n\n\n\nFemale\n\n\n\n\n\n\n\n2\n\n\n\nAdelie\n\n\n\nTorgersen\n\n\n\n40.3\n\n\n\n18.0\n\n\n\n195.0\n\n\n\n3250.0\n\n\n\nFemale\n\n\n\n\n\n\n\n4\n\n\n\nAdelie\n\n\n\nTorgersen\n\n\n\n36.7\n\n\n\n19.3\n\n\n\n193.0\n\n\n\n3450.0\n\n\n\nFemale\n\n\n\n\n\n\n\n5\n\n\n\nAdelie\n\n\n\nTorgersen\n\n\n\n39.3\n\n\n\n20.6\n\n\n\n190.0\n\n\n\n3650.0\n\n\n\nMale"
+  },
+  {
+    "objectID": "presentation.html#images",
+    "href": "presentation.html#images",
+    "title": "Project title",
+    "section": "Images",
+    "text": "Images\n\nImage credit: Danielle Navarro, Percolate."
+  },
+  {
+    "objectID": "presentation.html#math-expressions",
+    "href": "presentation.html#math-expressions",
+    "title": "Project title",
+    "section": "Math Expressions",
+    "text": "Math Expressions\nYou can write LaTeX math expressions inside a pair of dollar signs, e.g. $\\alpha+\\beta$ renders \\(\\alpha + \\beta\\). You can use the display style with double dollar signs:\n$$\\bar{X}=\\frac{1}{n}\\sum_{i=1}^nX_i$$\n\\[\n\\bar{X}=\\frac{1}{n}\\sum_{i=1}^nX_i\n\\]\nLimitations:\n\nThe source code of a LaTeX math expression must be in one line, unless it is inside a pair of double dollar signs, in which case the starting $$ must appear in the very beginning of a line, followed immediately by a non-space character, and the ending $$ must be at the end of a line, led by a non-space character;\nThere should not be spaces after the opening $ or before the closing $."
+  },
+  {
+    "objectID": "presentation.html#feeling-adventurous",
+    "href": "presentation.html#feeling-adventurous",
+    "title": "Project title",
+    "section": "Feeling adventurous?",
+    "text": "Feeling adventurous?\n\nYou are welcomed to use the default styling of the slides. In fact, that’s what I expect majority of you will do. You will differentiate yourself with the content of your presentation.\nBut some of you might want to play around with slide styling. Some solutions for this can be found at https://quarto.org/docs/presentations/revealjs."
+  },
+  {
+    "objectID": "proposal.html",
+    "href": "proposal.html",
+    "title": "Behavioral Outlier Segmentation using credit card dataset",
+    "section": "",
+    "text": "import numpy as np"
+  },
+  {
+    "objectID": "proposal.html#dataset",
+    "href": "proposal.html#dataset",
+    "title": "Behavioral Outlier Segmentation using credit card dataset",
+    "section": "Dataset",
+    "text": "Dataset\n\nimport pandas as pd\n\ncredit_card = pd.read_csv(\"data/CC GENERAL.csv\")\n\nprint(credit_card.info())\nprint('')\nprint(\"\\nShape of the dataset:\", credit_card.shape)\nprint('')\nprint(\"\\nData types:\\n\", credit_card.dtypes)\nprint('')\nprint(credit_card.describe())\n\n&lt;class 'pandas.core.frame.DataFrame'&gt;\nRangeIndex: 8950 entries, 0 to 8949\nData columns (total 18 columns):\n #   Column                            Non-Null Count  Dtype  \n---  ------                            --------------  -----  \n 0   CUST_ID                           8950 non-null   object \n 1   BALANCE                           8950 non-null   float64\n 2   BALANCE_FREQUENCY                 8950 non-null   float64\n 3   PURCHASES                         8950 non-null   float64\n 4   ONEOFF_PURCHASES                  8950 non-null   float64\n 5   INSTALLMENTS_PURCHASES            8950 non-null   float64\n 6   CASH_ADVANCE                      8950 non-null   float64\n 7   PURCHASES_FREQUENCY               8950 non-null   float64\n 8   ONEOFF_PURCHASES_FREQUENCY        8950 non-null   float64\n 9   PURCHASES_INSTALLMENTS_FREQUENCY  8950 non-null   float64\n 10  CASH_ADVANCE_FREQUENCY            8950 non-null   float64\n 11  CASH_ADVANCE_TRX                  8950 non-null   int64  \n 12  PURCHASES_TRX                     8950 non-null   int64  \n 13  CREDIT_LIMIT                      8949 non-null   float64\n 14  PAYMENTS                          8950 non-null   float64\n 15  MINIMUM_PAYMENTS                  8637 non-null   float64\n 16  PRC_FULL_PAYMENT                  8950 non-null   float64\n 17  TENURE                            8950 non-null   int64  \ndtypes: float64(14), int64(3), object(1)\nmemory usage: 1.2+ MB\nNone\n\n\nShape of the dataset: (8950, 18)\n\n\nData types:\n CUST_ID                              object\nBALANCE                             float64\nBALANCE_FREQUENCY                   float64\nPURCHASES                           float64\nONEOFF_PURCHASES                    float64\nINSTALLMENTS_PURCHASES              float64\nCASH_ADVANCE                        float64\nPURCHASES_FREQUENCY                 float64\nONEOFF_PURCHASES_FREQUENCY          float64\nPURCHASES_INSTALLMENTS_FREQUENCY    float64\nCASH_ADVANCE_FREQUENCY              float64\nCASH_ADVANCE_TRX                      int64\nPURCHASES_TRX                         int64\nCREDIT_LIMIT                        float64\nPAYMENTS                            float64\nMINIMUM_PAYMENTS                    float64\nPRC_FULL_PAYMENT                    float64\nTENURE                                int64\ndtype: object\n\n            BALANCE  BALANCE_FREQUENCY     PURCHASES  ONEOFF_PURCHASES  \\\ncount   8950.000000        8950.000000   8950.000000       8950.000000   \nmean    1564.474828           0.877271   1003.204834        592.437371   \nstd     2081.531879           0.236904   2136.634782       1659.887917   \nmin        0.000000           0.000000      0.000000          0.000000   \n25%      128.281915           0.888889     39.635000          0.000000   \n50%      873.385231           1.000000    361.280000         38.000000   \n75%     2054.140036           1.000000   1110.130000        577.405000   \nmax    19043.138560           1.000000  49039.570000      40761.250000   \n\n       INSTALLMENTS_PURCHASES  CASH_ADVANCE  PURCHASES_FREQUENCY  \\\ncount             8950.000000   8950.000000          8950.000000   \nmean               411.067645    978.871112             0.490351   \nstd                904.338115   2097.163877             0.401371   \nmin                  0.000000      0.000000             0.000000   \n25%                  0.000000      0.000000             0.083333   \n50%                 89.000000      0.000000             0.500000   \n75%                468.637500   1113.821139             0.916667   \nmax              22500.000000  47137.211760             1.000000   \n\n       ONEOFF_PURCHASES_FREQUENCY  PURCHASES_INSTALLMENTS_FREQUENCY  \\\ncount                 8950.000000                       8950.000000   \nmean                     0.202458                          0.364437   \nstd                      0.298336                          0.397448   \nmin                      0.000000                          0.000000   \n25%                      0.000000                          0.000000   \n50%                      0.083333                          0.166667   \n75%                      0.300000                          0.750000   \nmax                      1.000000                          1.000000   \n\n       CASH_ADVANCE_FREQUENCY  CASH_ADVANCE_TRX  PURCHASES_TRX  CREDIT_LIMIT  \\\ncount             8950.000000       8950.000000    8950.000000   8949.000000   \nmean                 0.135144          3.248827      14.709832   4494.449450   \nstd                  0.200121          6.824647      24.857649   3638.815725   \nmin                  0.000000          0.000000       0.000000     50.000000   \n25%                  0.000000          0.000000       1.000000   1600.000000   \n50%                  0.000000          0.000000       7.000000   3000.000000   \n75%                  0.222222          4.000000      17.000000   6500.000000   \nmax                  1.500000        123.000000     358.000000  30000.000000   \n\n           PAYMENTS  MINIMUM_PAYMENTS  PRC_FULL_PAYMENT       TENURE  \ncount   8950.000000       8637.000000       8950.000000  8950.000000  \nmean    1733.143852        864.206542          0.153715    11.517318  \nstd     2895.063757       2372.446607          0.292499     1.338331  \nmin        0.000000          0.019163          0.000000     6.000000  \n25%      383.276166        169.123707          0.000000    12.000000  \n50%      856.901546        312.343947          0.000000    12.000000  \n75%     1901.134317        825.485459          0.142857    12.000000  \nmax    50721.483360      76406.207520          1.000000    12.000000  \n\n\nA brief description of your dataset including its provenance, dimensions, etc. as well as the reason why you chose this dataset."
+  },
+  {
+    "objectID": "proposal.html#why-we-chose-this-dataset",
+    "href": "proposal.html#why-we-chose-this-dataset",
+    "title": "Behavioral Outlier Segmentation using credit card dataset",
+    "section": "Why we chose this dataset",
+    "text": "Why we chose this dataset\nWe chose this credit card dataset from Kaggle because it contains detailed information about nearly 9,000 credit card users. It includes data such as their spending habits, payment frequency, and cash advances. This makes it a good dataset for identifying different types of customers and detecting unusual behavior. Additionally, we can use it to predict customers who might stop using their cards or switch to other providers, assess the risk of issuing credit cards to customers, and identify opportunities for targeted offers and credit limit increases."
+  },
+  {
+    "objectID": "proposal.html#aim",
+    "href": "proposal.html#aim",
+    "title": "Behavioral Outlier Segmentation using credit card dataset",
+    "section": "Aim",
+    "text": "Aim\nOur group is working on a project titled “Behavioral Outlier Segmentation,” which involves analyzing credit card usage data from Kaggle to identify unusual customer behavior patterns. The primary goal of this project is to uncover customer segments that behave similarly but exhibit patterns that deviate from typical usage. These unusual behaviors may include excessive use of cash advances, irregular payment activity, abnormally high or low spending, or infrequent use of the credit card. Additionally, we aim to predict customers who may stop using their cards and switch to competitors.\nMake sure to load the data and use inline code for some of this information.\nThis dataset has { credit_card.shape[0] } rows and { credit_card.shape[1] } columns."
+  },
+  {
+    "objectID": "proposal.html#questions",
+    "href": "proposal.html#questions",
+    "title": "Behavioral Outlier Segmentation using credit card dataset",
+    "section": "Questions",
+    "text": "Questions\nThe two questions you want to answer.\n\nWe identify clusters of credit card customers based on their transaction behavior (recency, frequency, and monetary value) to detect atypical patterns and classify customers into risk levels (high, medium, low).\nWe predict which customers might stop using their credit cards or switch to a competitor."
+  },
+  {
+    "objectID": "proposal.html#dataset-overview",
+    "href": "proposal.html#dataset-overview",
+    "title": "Behavioral Outlier Segmentation using credit card dataset",
+    "section": "Dataset Overview",
+    "text": "Dataset Overview\nName: Credit Card Dataset Source: https://www.kaggle.com/datasets/arjunbhasin2013/ccdata Size: 8950 instances of customer credit card details"
+  },
+  {
+    "objectID": "proposal.html#analysis-plan",
+    "href": "proposal.html#analysis-plan",
+    "title": "Behavioral Outlier Segmentation using credit card dataset",
+    "section": "Analysis plan",
+    "text": "Analysis plan\n\nA plan for answering each of the questions including the variables involved, variables to be created (if any), external data to be merged in (if any).\n\nWe will use a type of machine learning called clustering to group customers who have similar spending and payment habits. This method helps us find clear groups of customers who behave alike. It also helps us spot customers who don’t fit into any group.\nFor the second part of our project, we want to predict which customers might stop using their credit cards or switch to a different company. To do this, we will use prediction models that learn data about customer behavior.\n\n\n\n\n\n\n\nQuestion\nVariables Used\n\n\n\n\nClustering\nBALANCE, BALANCE_FREQUENCY, PURCHASES, ONEOFF_PURCHASES, INSTALLMENTS_PURCHASES, CASH_ADVANCE, PURCHASES_FREQUENCY\n\n\nPrediction\nTENURE, BALANCE, BALANCE_FREQUENCY, PURCHASES_FREQUENCY, PAYMENTS, MINIMUM_PAYMENTS, PRCFULLPAYMENT, CASH_ADVANCE"
+  },
+  {
+    "objectID": "proposal.html#data-dictionary",
+    "href": "proposal.html#data-dictionary",
+    "title": "Behavioral Outlier Segmentation using credit card dataset",
+    "section": "Data Dictionary",
+    "text": "Data Dictionary\n\n\n\n\n\n\n\nVariable\nDescription\n\n\n\n\nCUST_ID\nIdentification of Credit Card holder\n\n\nBALANCE\nBalance amount left in their account to make purchases\n\n\nBALANCE_FREQUENCY\nHow frequently the Balance is updated, score between 0 and 1 (1 = frequently updated, 0 = not frequently updated)\n\n\nPURCHASES\nAmount of purchases made from account\n\n\nONEOFF_PURCHASES\nMaximum purchase amount done in one-go\n\n\nINSTALLMENTS_PURCHASES\nAmount of purchase done in installment\n\n\nCASH_ADVANCE\nCash in advance given by the user\n\n\nPURCHASES_FREQUENCY\nHow frequently the Purchases are being made, score between 0 and 1 (1 = frequently purchased, 0 = not frequently purchased)\n\n\nONEOFFPURCHASESFREQUENCY\nHow frequently Purchases are happening in one-go (1 = frequently purchased, 0 = not frequently purchased)\n\n\nPURCHASESINSTALLMENTSFREQUENCY\nHow frequently purchases in installments are being done (1 = frequently done, 0 = not frequently done)\n\n\nCASHADVANCEFREQUENCY\nHow frequently the cash in advance is being paid\n\n\nCASHADVANCETRX\nNumber of Transactions made with “Cash in Advanced”\n\n\nPURCHASES_TRX\nNumber of purchase transactions made\n\n\nCREDIT_LIMIT\nLimit of Credit Card for user\n\n\nPAYMENTS\nAmount of Payment done by user\n\n\nMINIMUM_PAYMENTS\nMinimum amount of payments made by user\n\n\nPRCFULLPAYMENT\nPercent of full payment paid by user\n\n\nTENURE\nTenure of credit card service for user"
+  },
+  {
+    "objectID": "proposal.html#plan-of-attack",
+    "href": "proposal.html#plan-of-attack",
+    "title": "Behavioral Outlier Segmentation using credit card dataset",
+    "section": "Plan of Attack",
+    "text": "Plan of Attack\n\n\n\n\n\n\n\n\n\nWeek\nDates\nActivity\nStatus\n\n\n\n\nWeek 2\n25 July 2025\n• Review the Dataset and finalize the team• Select data mining techniques and clustering methods\nCompleted\n\n\nWeek 3\n1 August 2025\n• Proposal and Peer Review with other teams• Data Preprocessing\nIn Progress\n\n\nWeek 4\n8 August 2025\n• Perform feature engineering/selection• Transform and scale features• Apply clustering algorithms\nNot Completed\n\n\nWeek 5\n15 August 2025\n• Evaluate clustering performance• Visualize our results\nNot Completed\n\n\nWeek 6\n20 August 2025\n• Conduct a peer code review• Present projects and turn in final write-up\nNot Completed"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Project Title",
+    "section": "",
+    "text": "Add project abstract here."
+  },
+  {
+    "objectID": "index.html#abstract",
+    "href": "index.html#abstract",
+    "title": "Project Title",
+    "section": "",
+    "text": "Add project abstract here."
+  },
+  {
+    "objectID": "Untitled.html",
+    "href": "Untitled.html",
+    "title": "Project Title",
+    "section": "",
+    "text": "import pandas as pd\n\ncredit_card = pd.read_csv(\"data/CC General.csv\")\n\nprint(credit_card.info())\nprint('')\nprint(\"\\nShape of the dataset:\", credit_card.shape)\nprint('')\nprint(\"\\nData types:\\n\", credit_card.dtypes)\nprint('')\nprint(credit_card.describe())\n\n\n&lt;class 'pandas.core.frame.DataFrame'&gt;\nRangeIndex: 8950 entries, 0 to 8949\nData columns (total 18 columns):\n #   Column                            Non-Null Count  Dtype  \n---  ------                            --------------  -----  \n 0   CUST_ID                           8950 non-null   object \n 1   BALANCE                           8950 non-null   float64\n 2   BALANCE_FREQUENCY                 8950 non-null   float64\n 3   PURCHASES                         8950 non-null   float64\n 4   ONEOFF_PURCHASES                  8950 non-null   float64\n 5   INSTALLMENTS_PURCHASES            8950 non-null   float64\n 6   CASH_ADVANCE                      8950 non-null   float64\n 7   PURCHASES_FREQUENCY               8950 non-null   float64\n 8   ONEOFF_PURCHASES_FREQUENCY        8950 non-null   float64\n 9   PURCHASES_INSTALLMENTS_FREQUENCY  8950 non-null   float64\n 10  CASH_ADVANCE_FREQUENCY            8950 non-null   float64\n 11  CASH_ADVANCE_TRX                  8950 non-null   int64  \n 12  PURCHASES_TRX                     8950 non-null   int64  \n 13  CREDIT_LIMIT                      8949 non-null   float64\n 14  PAYMENTS                          8950 non-null   float64\n 15  MINIMUM_PAYMENTS                  8637 non-null   float64\n 16  PRC_FULL_PAYMENT                  8950 non-null   float64\n 17  TENURE                            8950 non-null   int64  \ndtypes: float64(14), int64(3), object(1)\nmemory usage: 1.2+ MB\nNone\n\n\nShape of the dataset: (8950, 18)\n\nData types:\n CUST_ID                              object\nBALANCE                             float64\nBALANCE_FREQUENCY                   float64\nPURCHASES                           float64\nONEOFF_PURCHASES                    float64\nINSTALLMENTS_PURCHASES              float64\nCASH_ADVANCE                        float64\nPURCHASES_FREQUENCY                 float64\nONEOFF_PURCHASES_FREQUENCY          float64\nPURCHASES_INSTALLMENTS_FREQUENCY    float64\nCASH_ADVANCE_FREQUENCY              float64\nCASH_ADVANCE_TRX                      int64\nPURCHASES_TRX                         int64\nCREDIT_LIMIT                        float64\nPAYMENTS                            float64\nMINIMUM_PAYMENTS                    float64\nPRC_FULL_PAYMENT                    float64\nTENURE                                int64\ndtype: object\n\n\n\n\n\n\n\n\n\nBALANCE\nBALANCE_FREQUENCY\nPURCHASES\nONEOFF_PURCHASES\nINSTALLMENTS_PURCHASES\nCASH_ADVANCE\nPURCHASES_FREQUENCY\nONEOFF_PURCHASES_FREQUENCY\nPURCHASES_INSTALLMENTS_FREQUENCY\nCASH_ADVANCE_FREQUENCY\nCASH_ADVANCE_TRX\nPURCHASES_TRX\nCREDIT_LIMIT\nPAYMENTS\nMINIMUM_PAYMENTS\nPRC_FULL_PAYMENT\nTENURE\n\n\n\n\ncount\n8950.000000\n8950.000000\n8950.000000\n8950.000000\n8950.000000\n8950.000000\n8950.000000\n8950.000000\n8950.000000\n8950.000000\n8950.000000\n8950.000000\n8949.000000\n8950.000000\n8637.000000\n8950.000000\n8950.000000\n\n\nmean\n1564.474828\n0.877271\n1003.204834\n592.437371\n411.067645\n978.871112\n0.490351\n0.202458\n0.364437\n0.135144\n3.248827\n14.709832\n4494.449450\n1733.143852\n864.206542\n0.153715\n11.517318\n\n\nstd\n2081.531879\n0.236904\n2136.634782\n1659.887917\n904.338115\n2097.163877\n0.401371\n0.298336\n0.397448\n0.200121\n6.824647\n24.857649\n3638.815725\n2895.063757\n2372.446607\n0.292499\n1.338331\n\n\nmin\n0.000000\n0.000000\n0.000000\n0.000000\n0.000000\n0.000000\n0.000000\n0.000000\n0.000000\n0.000000\n0.000000\n0.000000\n50.000000\n0.000000\n0.019163\n0.000000\n6.000000\n\n\n25%\n128.281915\n0.888889\n39.635000\n0.000000\n0.000000\n0.000000\n0.083333\n0.000000\n0.000000\n0.000000\n0.000000\n1.000000\n1600.000000\n383.276166\n169.123707\n0.000000\n12.000000\n\n\n50%\n873.385231\n1.000000\n361.280000\n38.000000\n89.000000\n0.000000\n0.500000\n0.083333\n0.166667\n0.000000\n0.000000\n7.000000\n3000.000000\n856.901546\n312.343947\n0.000000\n12.000000\n\n\n75%\n2054.140036\n1.000000\n1110.130000\n577.405000\n468.637500\n1113.821139\n0.916667\n0.300000\n0.750000\n0.222222\n4.000000\n17.000000\n6500.000000\n1901.134317\n825.485459\n0.142857\n12.000000\n\n\nmax\n19043.138560\n1.000000\n49039.570000\n40761.250000\n22500.000000\n47137.211760\n1.000000\n1.000000\n1.000000\n1.500000\n123.000000\n358.000000\n30000.000000\n50721.483360\n76406.207520\n1.000000\n12.000000"
+  }
+]
