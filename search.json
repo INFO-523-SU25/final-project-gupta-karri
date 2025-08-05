@@ -135,16 +135,16 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "Project Title",
+    "title": "Behavioral Outlier Segmentation using credit card dataset",
     "section": "",
-    "text": "Add project abstract here."
+    "text": "This project, Behavioral Outlier Segmentation, looks at credit card data from Kaggle to find customers who use their cards in unusual ways. These unusual behaviors might include strange spending patterns, missed payments, or using the card very rarely. The goal is to find these outliers and predict which customers might stop using their cards or switch to another company. This can help credit card companies keep their customers by understanding their behavior early."
   },
   {
     "objectID": "index.html#abstract",
     "href": "index.html#abstract",
-    "title": "Project Title",
+    "title": "Behavioral Outlier Segmentation using credit card dataset",
     "section": "",
-    "text": "Add project abstract here."
+    "text": "This project, Behavioral Outlier Segmentation, looks at credit card data from Kaggle to find customers who use their cards in unusual ways. These unusual behaviors might include strange spending patterns, missed payments, or using the card very rarely. The goal is to find these outliers and predict which customers might stop using their cards or switch to another company. This can help credit card companies keep their customers by understanding their behavior early."
   },
   {
     "objectID": "Untitled.html",
