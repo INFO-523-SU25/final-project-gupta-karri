@@ -6,8 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Team Name - Saumya Gupta, Jeevana Sai Devi Sathwika Karri">
-<meta name="description" content="Project description">
+<meta name="author" content="The Classifiers - Saumya Gupta, Jeevana Sai Devi Sathwika Karri">
+<meta name="description" content="Project description- The project Behavioral Outlier Segmentation focuses on analyzing credit card usage data from Kaggle to identify customer segments that exhibit unusual behavior patterns. By uncovering deviations such as irregular payments, abnormal spending, or infrequent card usage, the project aims to detect behavioral outliers and predict customers who are likely to stop using their cards or switch to competitors.">
 
 <title>Behavioral Outlier Segmentation using credit card dataset – Project Title</title>
 <style>
@@ -4084,7 +4084,7 @@ vertical-align: -.125em;
 
 <div>
   <div class="description">
-    Project description
+    Project description- The project <em>Behavioral Outlier Segmentation</em> focuses on analyzing credit card usage data from Kaggle to identify customer segments that exhibit unusual behavior patterns. By uncovering deviations such as irregular payments, abnormal spending, or infrequent card usage, the project aims to detect behavioral outliers and predict customers who are likely to stop using their cards or switch to competitors.
   </div>
 </div>
 
@@ -4093,7 +4093,7 @@ vertical-align: -.125em;
   <div class="quarto-title-meta-heading">Affiliation</div>
   
     <div class="quarto-title-meta-contents">
-    <p class="author">Team Name - Saumya Gupta, Jeevana Sai Devi Sathwika Karri </p>
+    <p class="author">The Classifiers - Saumya Gupta, Jeevana Sai Devi Sathwika Karri </p>
   </div>
   <div class="quarto-title-meta-contents">
         <p class="affiliation">
@@ -4114,23 +4114,21 @@ vertical-align: -.125em;
 </header>
 
 
-<div id="load-pkgs" class="cell" data-message="false" data-execution_count="1">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
 <section id="dataset" class="level2">
 <h2 class="anchored" data-anchor-id="dataset">Dataset</h2>
 <div id="load-dataset" class="cell" data-message="false" data-execution_count="2">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb2-2"><a href="#cb2-2"></a></span>
-<span id="cb2-3"><a href="#cb2-3"></a>credit_card <span class="op">=</span> pd.read_csv(<span class="st">&quot;data/CC GENERAL.csv&quot;</span>)</span>
-<span id="cb2-4"><a href="#cb2-4"></a></span>
-<span id="cb2-5"><a href="#cb2-5"></a><span class="bu">print</span>(credit_card.info())</span>
-<span id="cb2-6"><a href="#cb2-6"></a><span class="bu">print</span>(<span class="st">&#39;&#39;</span>)</span>
-<span id="cb2-7"><a href="#cb2-7"></a><span class="bu">print</span>(<span class="st">&quot;</span><span class="ch">\n</span><span class="st">Shape of the dataset:&quot;</span>, credit_card.shape)</span>
-<span id="cb2-8"><a href="#cb2-8"></a><span class="bu">print</span>(<span class="st">&#39;&#39;</span>)</span>
-<span id="cb2-9"><a href="#cb2-9"></a><span class="bu">print</span>(<span class="st">&quot;</span><span class="ch">\n</span><span class="st">Data types:</span><span class="ch">\n</span><span class="st">&quot;</span>, credit_card.dtypes)</span>
-<span id="cb2-10"><a href="#cb2-10"></a><span class="bu">print</span>(<span class="st">&#39;&#39;</span>)</span>
-<span id="cb2-11"><a href="#cb2-11"></a><span class="bu">print</span>(credit_card.describe())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-3"><a href="#cb1-3"></a></span>
+<span id="cb1-4"><a href="#cb1-4"></a>credit_card <span class="op">=</span> pd.read_csv(<span class="st">&quot;data/CC GENERAL.csv&quot;</span>)</span>
+<span id="cb1-5"><a href="#cb1-5"></a></span>
+<span id="cb1-6"><a href="#cb1-6"></a><span class="bu">print</span>(credit_card.info())</span>
+<span id="cb1-7"><a href="#cb1-7"></a><span class="bu">print</span>(<span class="st">&#39;&#39;</span>)</span>
+<span id="cb1-8"><a href="#cb1-8"></a><span class="bu">print</span>(<span class="st">&quot;</span><span class="ch">\n</span><span class="st">Shape of the dataset:&quot;</span>, credit_card.shape)</span>
+<span id="cb1-9"><a href="#cb1-9"></a><span class="bu">print</span>(<span class="st">&#39;&#39;</span>)</span>
+<span id="cb1-10"><a href="#cb1-10"></a><span class="bu">print</span>(<span class="st">&quot;</span><span class="ch">\n</span><span class="st">Data types:</span><span class="ch">\n</span><span class="st">&quot;</span>, credit_card.dtypes)</span>
+<span id="cb1-11"><a href="#cb1-11"></a><span class="bu">print</span>(<span class="st">&#39;&#39;</span>)</span>
+<span id="cb1-12"><a href="#cb1-12"></a><span class="bu">print</span>(credit_card.describe())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
 RangeIndex: 8950 entries, 0 to 8949
@@ -4236,6 +4234,7 @@ max    50721.483360      76406.207520          1.000000    12.000000  </code></p
 </div>
 </div>
 <p>A brief description of your dataset including its provenance, dimensions, etc. as well as the reason why you chose this dataset.</p>
+<p>The dataset used in this project is the <strong>Credit Card Customer Data</strong> sourced from Kaggle. It consists of <strong>8,950 rows</strong> and <strong>18 columns</strong>, each representing anonymized customer data related to credit card usage. The features include various behavioral indicators such as balance, purchase amounts, cash advances, credit limits, and payment patterns.</p>
 </section>
 <section id="why-we-chose-this-dataset" class="level2">
 <h2 class="anchored" data-anchor-id="why-we-chose-this-dataset">Why we chose this dataset</h2>
@@ -4937,129 +4936,131 @@ max    50721.483360      76406.207520          1.000000    12.000000  </code></p
     }
   });
   </script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class>
-<div class="sourceCode" id="cb4" data-shortcodes="false"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb4-1"><a href="#cb4-1"></a><span class="co">---</span></span>
-<span id="cb4-2"><a href="#cb4-2"></a><span class="an">title:</span><span class="co"> &quot;Behavioral Outlier Segmentation using credit card dataset &quot;</span></span>
-<span id="cb4-3"><a href="#cb4-3"></a><span class="an">subtitle:</span><span class="co"> &quot;Proposal&quot;</span></span>
-<span id="cb4-4"><a href="#cb4-4"></a><span class="an">author:</span><span class="co"> </span></span>
-<span id="cb4-5"><a href="#cb4-5"></a><span class="co">  - name: &quot;Team Name - Saumya Gupta, Jeevana Sai Devi Sathwika Karri&quot;</span></span>
-<span id="cb4-6"><a href="#cb4-6"></a><span class="co">    affiliations:</span></span>
-<span id="cb4-7"><a href="#cb4-7"></a><span class="co">      - name: &quot;College of Information Science, University of Arizona&quot;</span></span>
-<span id="cb4-8"><a href="#cb4-8"></a><span class="an">description:</span><span class="co"> &quot;Project description&quot;</span></span>
-<span id="cb4-9"><a href="#cb4-9"></a><span class="an">format:</span></span>
-<span id="cb4-10"><a href="#cb4-10"></a><span class="co">  html:</span></span>
-<span id="cb4-11"><a href="#cb4-11"></a><span class="co">    code-tools: true</span></span>
-<span id="cb4-12"><a href="#cb4-12"></a><span class="co">    code-overflow: wrap</span></span>
-<span id="cb4-13"><a href="#cb4-13"></a><span class="co">    code-line-numbers: true</span></span>
-<span id="cb4-14"><a href="#cb4-14"></a><span class="co">    embed-resources: true</span></span>
-<span id="cb4-15"><a href="#cb4-15"></a><span class="an">editor:</span><span class="co"> visual</span></span>
-<span id="cb4-16"><a href="#cb4-16"></a><span class="an">code-annotations:</span><span class="co"> hover</span></span>
-<span id="cb4-17"><a href="#cb4-17"></a><span class="an">execute:</span></span>
-<span id="cb4-18"><a href="#cb4-18"></a><span class="co">  warning: false</span></span>
-<span id="cb4-19"><a href="#cb4-19"></a><span class="an">jupyter:</span><span class="co"> python3</span></span>
-<span id="cb4-20"><a href="#cb4-20"></a><span class="co">---</span></span>
-<span id="cb4-21"><a href="#cb4-21"></a></span>
-<span id="cb4-24"><a href="#cb4-24"></a><span class="in">```{python}</span></span>
-<span id="cb4-25"><a href="#cb4-25"></a><span class="co">#| label: load-pkgs</span></span>
-<span id="cb4-26"><a href="#cb4-26"></a><span class="co">#| message: false</span></span>
-<span id="cb4-27"><a href="#cb4-27"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb4-28"><a href="#cb4-28"></a><span class="in">```</span></span>
-<span id="cb4-29"><a href="#cb4-29"></a></span>
-<span id="cb4-30"><a href="#cb4-30"></a><span class="fu">## Dataset</span></span>
-<span id="cb4-31"><a href="#cb4-31"></a></span>
-<span id="cb4-34"><a href="#cb4-34"></a><span class="in">```{python}</span></span>
-<span id="cb4-35"><a href="#cb4-35"></a><span class="co">#| label: load-dataset</span></span>
-<span id="cb4-36"><a href="#cb4-36"></a><span class="co">#| message: false</span></span>
-<span id="cb4-37"><a href="#cb4-37"></a></span>
-<span id="cb4-38"><a href="#cb4-38"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb4-39"><a href="#cb4-39"></a></span>
-<span id="cb4-40"><a href="#cb4-40"></a>credit_card <span class="op">=</span> pd.read_csv(<span class="st">&quot;data/CC GENERAL.csv&quot;</span>)</span>
-<span id="cb4-41"><a href="#cb4-41"></a></span>
-<span id="cb4-42"><a href="#cb4-42"></a><span class="bu">print</span>(credit_card.info())</span>
-<span id="cb4-43"><a href="#cb4-43"></a><span class="bu">print</span>(<span class="st">&#39;&#39;</span>)</span>
-<span id="cb4-44"><a href="#cb4-44"></a><span class="bu">print</span>(<span class="st">&quot;</span><span class="ch">\n</span><span class="st">Shape of the dataset:&quot;</span>, credit_card.shape)</span>
-<span id="cb4-45"><a href="#cb4-45"></a><span class="bu">print</span>(<span class="st">&#39;&#39;</span>)</span>
-<span id="cb4-46"><a href="#cb4-46"></a><span class="bu">print</span>(<span class="st">&quot;</span><span class="ch">\n</span><span class="st">Data types:</span><span class="ch">\n</span><span class="st">&quot;</span>, credit_card.dtypes)</span>
-<span id="cb4-47"><a href="#cb4-47"></a><span class="bu">print</span>(<span class="st">&#39;&#39;</span>)</span>
-<span id="cb4-48"><a href="#cb4-48"></a><span class="bu">print</span>(credit_card.describe())</span>
-<span id="cb4-49"><a href="#cb4-49"></a></span>
-<span id="cb4-50"><a href="#cb4-50"></a><span class="in">```</span></span>
-<span id="cb4-51"><a href="#cb4-51"></a></span>
-<span id="cb4-52"><a href="#cb4-52"></a>A brief description of your dataset including its provenance, dimensions, etc. as well as the reason why you chose this dataset.</span>
-<span id="cb4-53"><a href="#cb4-53"></a></span>
-<span id="cb4-54"><a href="#cb4-54"></a><span class="fu">## Why we chose this dataset</span></span>
-<span id="cb4-55"><a href="#cb4-55"></a></span>
-<span id="cb4-56"><a href="#cb4-56"></a>We chose this credit card dataset from Kaggle because it contains detailed information about nearly 9,000 credit card users. It includes data such as their spending habits, payment frequency, and cash advances. This makes it a good dataset for identifying different types of customers and detecting unusual behavior. Additionally, we can use it to predict customers who might stop using their cards or switch to other providers, assess the risk of issuing credit cards to customers, and identify opportunities for targeted offers and credit limit increases.</span>
-<span id="cb4-57"><a href="#cb4-57"></a></span>
-<span id="cb4-58"><a href="#cb4-58"></a><span class="fu">## Aim </span></span>
-<span id="cb4-59"><a href="#cb4-59"></a></span>
-<span id="cb4-60"><a href="#cb4-60"></a>Our group is working on a project titled &quot;Behavioral Outlier Segmentation,&quot; which involves analyzing credit card usage data from Kaggle to identify unusual customer behavior patterns. The primary goal of this project is to uncover customer segments that behave similarly but exhibit patterns that deviate from typical usage. These unusual behaviors may include excessive use of cash advances, irregular payment activity, abnormally high or low spending, or infrequent use of the credit card. Additionally, we aim to predict customers who may stop using their cards and switch to competitors.</span>
-<span id="cb4-61"><a href="#cb4-61"></a></span>
-<span id="cb4-62"><a href="#cb4-62"></a></span>
-<span id="cb4-63"><a href="#cb4-63"></a>Make sure to load the data and use inline code for some of this information.</span>
-<span id="cb4-64"><a href="#cb4-64"></a></span>
-<span id="cb4-65"><a href="#cb4-65"></a>This dataset has <span class="in">`{ credit_card.shape[0] }`</span> rows and <span class="in">`{ credit_card.shape[1] }`</span> columns.</span>
-<span id="cb4-66"><a href="#cb4-66"></a></span>
-<span id="cb4-67"><a href="#cb4-67"></a><span class="fu">## Questions</span></span>
-<span id="cb4-68"><a href="#cb4-68"></a></span>
-<span id="cb4-69"><a href="#cb4-69"></a>The two questions you want to answer.</span>
-<span id="cb4-70"><a href="#cb4-70"></a></span>
-<span id="cb4-71"><a href="#cb4-71"></a><span class="ss">1. </span>We identify clusters of credit card customers based on their transaction behavior (recency, frequency, and monetary value) to detect atypical patterns and classify customers into risk levels (high, medium, low). </span>
-<span id="cb4-72"><a href="#cb4-72"></a></span>
-<span id="cb4-73"><a href="#cb4-73"></a><span class="ss">2. </span>We predict which customers might stop using their credit cards or switch to a competitor.</span>
-<span id="cb4-74"><a href="#cb4-74"></a></span>
-<span id="cb4-75"><a href="#cb4-75"></a><span class="fu">## Dataset Overview</span></span>
-<span id="cb4-76"><a href="#cb4-76"></a></span>
-<span id="cb4-77"><a href="#cb4-77"></a>Name: Credit Card Dataset </span>
-<span id="cb4-78"><a href="#cb4-78"></a>Source: https://www.kaggle.com/datasets/arjunbhasin2013/ccdata</span>
-<span id="cb4-79"><a href="#cb4-79"></a>Size: 8950 instances of customer credit card details</span>
-<span id="cb4-80"><a href="#cb4-80"></a></span>
-<span id="cb4-81"><a href="#cb4-81"></a></span>
-<span id="cb4-82"><a href="#cb4-82"></a><span class="fu">## Analysis plan</span></span>
-<span id="cb4-83"><a href="#cb4-83"></a></span>
-<span id="cb4-84"><a href="#cb4-84"></a><span class="ss">-   </span>A plan for answering each of the questions including the variables involved, variables to be created (if any), external data to be merged in (if any).</span>
-<span id="cb4-85"><a href="#cb4-85"></a></span>
-<span id="cb4-86"><a href="#cb4-86"></a>We will use a type of machine learning called clustering to group customers who have similar spending and payment habits. This method helps us find clear groups of customers who behave alike. It also helps us spot customers who don’t fit into any group. </span>
-<span id="cb4-87"><a href="#cb4-87"></a></span>
-<span id="cb4-88"><a href="#cb4-88"></a>For the second part of our project, we want to predict which customers might stop using their credit cards or switch to a different company. To do this, we will use prediction models that learn data about customer behavior.</span>
-<span id="cb4-89"><a href="#cb4-89"></a></span>
-<span id="cb4-90"><a href="#cb4-90"></a><span class="pp">|</span> Question                <span class="pp">|</span> Variables Used                                                                                                     <span class="pp">|</span></span>
-<span id="cb4-91"><a href="#cb4-91"></a><span class="pp">|-------------------------|--------------------------------------------------------------------------------------------------------------------|</span></span>
-<span id="cb4-92"><a href="#cb4-92"></a><span class="pp">|</span>  Clustering             <span class="pp">|</span> BALANCE, BALANCE_FREQUENCY, PURCHASES, ONEOFF_PURCHASES, INSTALLMENTS_PURCHASES, CASH_ADVANCE, PURCHASES_FREQUENCY <span class="pp">|</span></span>
-<span id="cb4-93"><a href="#cb4-93"></a><span class="pp">|</span>  Prediction             <span class="pp">|</span> TENURE, BALANCE, BALANCE_FREQUENCY, PURCHASES_FREQUENCY, PAYMENTS, MINIMUM_PAYMENTS, PRCFULLPAYMENT, CASH_ADVANCE  <span class="pp">|</span></span>
-<span id="cb4-94"><a href="#cb4-94"></a></span>
-<span id="cb4-95"><a href="#cb4-95"></a><span class="fu">## Data Dictionary</span></span>
-<span id="cb4-96"><a href="#cb4-96"></a></span>
-<span id="cb4-97"><a href="#cb4-97"></a><span class="pp">|</span> Variable                       <span class="pp">|</span> Description <span class="pp">|</span></span>
-<span id="cb4-98"><a href="#cb4-98"></a><span class="pp">|--------------------------------|-------------|</span></span>
-<span id="cb4-99"><a href="#cb4-99"></a><span class="pp">|</span> CUST_ID                        <span class="pp">|</span> Identification of Credit Card holder <span class="pp">|</span></span>
-<span id="cb4-100"><a href="#cb4-100"></a><span class="pp">|</span> BALANCE                        <span class="pp">|</span> Balance amount left in their account to make purchases <span class="pp">|</span></span>
-<span id="cb4-101"><a href="#cb4-101"></a><span class="pp">|</span> BALANCE_FREQUENCY              <span class="pp">|</span> How frequently the Balance is updated, score between 0 and 1 (1 = frequently updated, 0 = not frequently updated) <span class="pp">|</span></span>
-<span id="cb4-102"><a href="#cb4-102"></a><span class="pp">|</span> PURCHASES                      <span class="pp">|</span> Amount of purchases made from account <span class="pp">|</span></span>
-<span id="cb4-103"><a href="#cb4-103"></a><span class="pp">|</span> ONEOFF_PURCHASES               <span class="pp">|</span> Maximum purchase amount done in one-go <span class="pp">|</span></span>
-<span id="cb4-104"><a href="#cb4-104"></a><span class="pp">|</span> INSTALLMENTS_PURCHASES         <span class="pp">|</span> Amount of purchase done in installment <span class="pp">|</span></span>
-<span id="cb4-105"><a href="#cb4-105"></a><span class="pp">|</span> CASH_ADVANCE                   <span class="pp">|</span> Cash in advance given by the user <span class="pp">|</span></span>
-<span id="cb4-106"><a href="#cb4-106"></a><span class="pp">|</span> PURCHASES_FREQUENCY            <span class="pp">|</span> How frequently the Purchases are being made, score between 0 and 1 (1 = frequently purchased, 0 = not frequently purchased) <span class="pp">|</span></span>
-<span id="cb4-107"><a href="#cb4-107"></a><span class="pp">|</span> ONEOFFPURCHASESFREQUENCY       <span class="pp">|</span> How frequently Purchases are happening in one-go (1 = frequently purchased, 0 = not frequently purchased) <span class="pp">|</span></span>
-<span id="cb4-108"><a href="#cb4-108"></a><span class="pp">|</span> PURCHASESINSTALLMENTSFREQUENCY <span class="pp">|</span> How frequently purchases in installments are being done (1 = frequently done, 0 = not frequently done) <span class="pp">|</span></span>
-<span id="cb4-109"><a href="#cb4-109"></a><span class="pp">|</span> CASHADVANCEFREQUENCY           <span class="pp">|</span> How frequently the cash in advance is being paid <span class="pp">|</span></span>
-<span id="cb4-110"><a href="#cb4-110"></a><span class="pp">|</span> CASHADVANCETRX                 <span class="pp">|</span> Number of Transactions made with &quot;Cash in Advanced&quot; <span class="pp">|</span></span>
-<span id="cb4-111"><a href="#cb4-111"></a><span class="pp">|</span> PURCHASES_TRX                  <span class="pp">|</span> Number of purchase transactions made <span class="pp">|</span></span>
-<span id="cb4-112"><a href="#cb4-112"></a><span class="pp">|</span> CREDIT_LIMIT                   <span class="pp">|</span> Limit of Credit Card for user <span class="pp">|</span></span>
-<span id="cb4-113"><a href="#cb4-113"></a><span class="pp">|</span> PAYMENTS                       <span class="pp">|</span> Amount of Payment done by user <span class="pp">|</span></span>
-<span id="cb4-114"><a href="#cb4-114"></a><span class="pp">|</span> MINIMUM_PAYMENTS               <span class="pp">|</span> Minimum amount of payments made by user <span class="pp">|</span></span>
-<span id="cb4-115"><a href="#cb4-115"></a><span class="pp">|</span> PRCFULLPAYMENT                 <span class="pp">|</span> Percent of full payment paid by user <span class="pp">|</span></span>
-<span id="cb4-116"><a href="#cb4-116"></a><span class="pp">|</span> TENURE                         <span class="pp">|</span> Tenure of credit card service for user <span class="pp">|</span></span>
-<span id="cb4-117"><a href="#cb4-117"></a></span>
-<span id="cb4-118"><a href="#cb4-118"></a></span>
-<span id="cb4-119"><a href="#cb4-119"></a><span class="fu">## Plan of Attack</span></span>
-<span id="cb4-120"><a href="#cb4-120"></a></span>
-<span id="cb4-121"><a href="#cb4-121"></a><span class="pp">|</span> Week   <span class="pp">|</span> Dates          <span class="pp">|</span> Activity                                                                                                   <span class="pp">|</span> Status <span class="pp">|</span></span>
-<span id="cb4-122"><a href="#cb4-122"></a><span class="pp">|--------|---------------</span> <span class="pp">|------------------------------------------------------------------------------------------------------------|--------|</span></span>
-<span id="cb4-123"><a href="#cb4-123"></a><span class="pp">|</span> Week 2 <span class="pp">|</span> 25 July 2025   <span class="pp">|</span> • Review the Dataset and finalize the team<span class="dt">&lt;</span><span class="kw">br</span><span class="dt">&gt;</span>• Select data mining techniques and clustering methods       <span class="pp">|</span> Completed <span class="pp">|</span></span>
-<span id="cb4-124"><a href="#cb4-124"></a><span class="pp">|</span> Week 3 <span class="pp">|</span> 1 August 2025  <span class="pp">|</span> • Proposal and Peer Review with other teams<span class="dt">&lt;</span><span class="kw">br</span><span class="dt">&gt;</span>• Data Preprocessing                                        <span class="pp">|</span> In Progress <span class="pp">|</span></span>
-<span id="cb4-125"><a href="#cb4-125"></a><span class="pp">|</span> Week 4 <span class="pp">|</span> 8 August 2025  <span class="pp">|</span> • Perform feature engineering/selection<span class="dt">&lt;</span><span class="kw">br</span><span class="dt">&gt;</span>• Transform and scale features<span class="dt">&lt;</span><span class="kw">br</span><span class="dt">&gt;</span>• Apply clustering algorithms <span class="pp">|</span> Not Completed <span class="pp">|</span></span>
-<span id="cb4-126"><a href="#cb4-126"></a><span class="pp">|</span> Week 5 <span class="pp">|</span> 15 August 2025 <span class="pp">|</span> • Evaluate clustering performance<span class="dt">&lt;</span><span class="kw">br</span><span class="dt">&gt;</span>• Visualize our results                                               <span class="pp">|</span> Not Completed <span class="pp">|</span></span>
-<span id="cb4-127"><a href="#cb4-127"></a><span class="pp">|</span> Week 6 <span class="pp">|</span> 20 August 2025 <span class="pp">|</span> • Conduct a peer code review<span class="dt">&lt;</span><span class="kw">br</span><span class="dt">&gt;</span>• Present projects and turn in final write-up                              <span class="pp">|</span> Not Completed <span class="pp">|</span></span>
+<div class="sourceCode" id="cb3" data-shortcodes="false"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb3-1"><a href="#cb3-1"></a><span class="co">---</span></span>
+<span id="cb3-2"><a href="#cb3-2"></a><span class="an">title:</span><span class="co"> &quot;Behavioral Outlier Segmentation using credit card dataset &quot;</span></span>
+<span id="cb3-3"><a href="#cb3-3"></a><span class="an">subtitle:</span><span class="co"> &quot;Proposal&quot;</span></span>
+<span id="cb3-4"><a href="#cb3-4"></a><span class="an">author:</span><span class="co"> </span></span>
+<span id="cb3-5"><a href="#cb3-5"></a><span class="co">  - name: &quot;The Classifiers - Saumya Gupta, Jeevana Sai Devi Sathwika Karri&quot;</span></span>
+<span id="cb3-6"><a href="#cb3-6"></a><span class="co">    affiliations:</span></span>
+<span id="cb3-7"><a href="#cb3-7"></a><span class="co">      - name: &quot;College of Information Science, University of Arizona&quot;</span></span>
+<span id="cb3-8"><a href="#cb3-8"></a><span class="an">description:</span><span class="co"> &quot;Project description- The project *Behavioral Outlier Segmentation* focuses on analyzing credit card usage data from Kaggle to identify customer segments that exhibit unusual behavior patterns. By uncovering deviations such as irregular payments, abnormal spending, or infrequent card usage, the project aims to detect behavioral outliers and predict customers who are likely to stop using their cards or switch to competitors.&quot;</span></span>
+<span id="cb3-9"><a href="#cb3-9"></a><span class="an">format:</span></span>
+<span id="cb3-10"><a href="#cb3-10"></a><span class="co">  html:</span></span>
+<span id="cb3-11"><a href="#cb3-11"></a><span class="co">    code-tools: true</span></span>
+<span id="cb3-12"><a href="#cb3-12"></a><span class="co">    code-overflow: wrap</span></span>
+<span id="cb3-13"><a href="#cb3-13"></a><span class="co">    code-line-numbers: true</span></span>
+<span id="cb3-14"><a href="#cb3-14"></a><span class="co">    embed-resources: true</span></span>
+<span id="cb3-15"><a href="#cb3-15"></a><span class="an">editor:</span><span class="co"> visual</span></span>
+<span id="cb3-16"><a href="#cb3-16"></a><span class="an">code-annotations:</span><span class="co"> hover</span></span>
+<span id="cb3-17"><a href="#cb3-17"></a><span class="an">execute:</span></span>
+<span id="cb3-18"><a href="#cb3-18"></a><span class="co">  warning: false</span></span>
+<span id="cb3-19"><a href="#cb3-19"></a><span class="an">jupyter:</span><span class="co"> python3</span></span>
+<span id="cb3-20"><a href="#cb3-20"></a><span class="co">---</span></span>
+<span id="cb3-21"><a href="#cb3-21"></a></span>
+<span id="cb3-24"><a href="#cb3-24"></a><span class="in">```{python}</span></span>
+<span id="cb3-25"><a href="#cb3-25"></a><span class="co">#| label: load-pkgs</span></span>
+<span id="cb3-26"><a href="#cb3-26"></a><span class="co">#| message: false</span></span>
+<span id="cb3-27"><a href="#cb3-27"></a><span class="in">```</span></span>
+<span id="cb3-28"><a href="#cb3-28"></a></span>
+<span id="cb3-29"><a href="#cb3-29"></a><span class="fu">## Dataset</span></span>
+<span id="cb3-30"><a href="#cb3-30"></a></span>
+<span id="cb3-33"><a href="#cb3-33"></a><span class="in">```{python}</span></span>
+<span id="cb3-34"><a href="#cb3-34"></a><span class="co">#| label: load-dataset</span></span>
+<span id="cb3-35"><a href="#cb3-35"></a><span class="co">#| message: false</span></span>
+<span id="cb3-36"><a href="#cb3-36"></a></span>
+<span id="cb3-37"><a href="#cb3-37"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb3-38"><a href="#cb3-38"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb3-39"><a href="#cb3-39"></a></span>
+<span id="cb3-40"><a href="#cb3-40"></a>credit_card <span class="op">=</span> pd.read_csv(<span class="st">&quot;data/CC GENERAL.csv&quot;</span>)</span>
+<span id="cb3-41"><a href="#cb3-41"></a></span>
+<span id="cb3-42"><a href="#cb3-42"></a><span class="bu">print</span>(credit_card.info())</span>
+<span id="cb3-43"><a href="#cb3-43"></a><span class="bu">print</span>(<span class="st">&#39;&#39;</span>)</span>
+<span id="cb3-44"><a href="#cb3-44"></a><span class="bu">print</span>(<span class="st">&quot;</span><span class="ch">\n</span><span class="st">Shape of the dataset:&quot;</span>, credit_card.shape)</span>
+<span id="cb3-45"><a href="#cb3-45"></a><span class="bu">print</span>(<span class="st">&#39;&#39;</span>)</span>
+<span id="cb3-46"><a href="#cb3-46"></a><span class="bu">print</span>(<span class="st">&quot;</span><span class="ch">\n</span><span class="st">Data types:</span><span class="ch">\n</span><span class="st">&quot;</span>, credit_card.dtypes)</span>
+<span id="cb3-47"><a href="#cb3-47"></a><span class="bu">print</span>(<span class="st">&#39;&#39;</span>)</span>
+<span id="cb3-48"><a href="#cb3-48"></a><span class="bu">print</span>(credit_card.describe())</span>
+<span id="cb3-49"><a href="#cb3-49"></a></span>
+<span id="cb3-50"><a href="#cb3-50"></a><span class="in">```</span></span>
+<span id="cb3-51"><a href="#cb3-51"></a></span>
+<span id="cb3-52"><a href="#cb3-52"></a>A brief description of your dataset including its provenance, dimensions, etc. as well as the reason why you chose this dataset.</span>
+<span id="cb3-53"><a href="#cb3-53"></a></span>
+<span id="cb3-54"><a href="#cb3-54"></a>The dataset used in this project is the **Credit Card Customer Data** sourced from Kaggle. It consists of **8,950 rows** and **18 columns**, each representing anonymized customer data related to credit card usage. The features include various behavioral indicators such as balance, purchase amounts, cash advances, credit limits, and payment patterns.</span>
+<span id="cb3-55"><a href="#cb3-55"></a></span>
+<span id="cb3-56"><a href="#cb3-56"></a><span class="fu">## Why we chose this dataset</span></span>
+<span id="cb3-57"><a href="#cb3-57"></a></span>
+<span id="cb3-58"><a href="#cb3-58"></a>We chose this credit card dataset from Kaggle because it contains detailed information about nearly 9,000 credit card users. It includes data such as their spending habits, payment frequency, and cash advances. This makes it a good dataset for identifying different types of customers and detecting unusual behavior. Additionally, we can use it to predict customers who might stop using their cards or switch to other providers, assess the risk of issuing credit cards to customers, and identify opportunities for targeted offers and credit limit increases.</span>
+<span id="cb3-59"><a href="#cb3-59"></a></span>
+<span id="cb3-60"><a href="#cb3-60"></a><span class="fu">## Aim </span></span>
+<span id="cb3-61"><a href="#cb3-61"></a></span>
+<span id="cb3-62"><a href="#cb3-62"></a>Our group is working on a project titled &quot;Behavioral Outlier Segmentation,&quot; which involves analyzing credit card usage data from Kaggle to identify unusual customer behavior patterns. The primary goal of this project is to uncover customer segments that behave similarly but exhibit patterns that deviate from typical usage. These unusual behaviors may include excessive use of cash advances, irregular payment activity, abnormally high or low spending, or infrequent use of the credit card. Additionally, we aim to predict customers who may stop using their cards and switch to competitors.</span>
+<span id="cb3-63"><a href="#cb3-63"></a></span>
+<span id="cb3-64"><a href="#cb3-64"></a></span>
+<span id="cb3-65"><a href="#cb3-65"></a>Make sure to load the data and use inline code for some of this information.</span>
+<span id="cb3-66"><a href="#cb3-66"></a></span>
+<span id="cb3-67"><a href="#cb3-67"></a>This dataset has <span class="in">`{ credit_card.shape[0] }`</span> rows and <span class="in">`{ credit_card.shape[1] }`</span> columns.</span>
+<span id="cb3-68"><a href="#cb3-68"></a></span>
+<span id="cb3-69"><a href="#cb3-69"></a><span class="fu">## Questions</span></span>
+<span id="cb3-70"><a href="#cb3-70"></a></span>
+<span id="cb3-71"><a href="#cb3-71"></a>The two questions you want to answer.</span>
+<span id="cb3-72"><a href="#cb3-72"></a></span>
+<span id="cb3-73"><a href="#cb3-73"></a><span class="ss">1. </span>We identify clusters of credit card customers based on their transaction behavior (recency, frequency, and monetary value) to detect atypical patterns and classify customers into risk levels (high, medium, low). </span>
+<span id="cb3-74"><a href="#cb3-74"></a></span>
+<span id="cb3-75"><a href="#cb3-75"></a><span class="ss">2. </span>We predict which customers might stop using their credit cards or switch to a competitor.</span>
+<span id="cb3-76"><a href="#cb3-76"></a></span>
+<span id="cb3-77"><a href="#cb3-77"></a><span class="fu">## Dataset Overview</span></span>
+<span id="cb3-78"><a href="#cb3-78"></a></span>
+<span id="cb3-79"><a href="#cb3-79"></a>Name: Credit Card Dataset </span>
+<span id="cb3-80"><a href="#cb3-80"></a>Source: https://www.kaggle.com/datasets/arjunbhasin2013/ccdata</span>
+<span id="cb3-81"><a href="#cb3-81"></a>Size: 8950 instances of customer credit card details</span>
+<span id="cb3-82"><a href="#cb3-82"></a></span>
+<span id="cb3-83"><a href="#cb3-83"></a></span>
+<span id="cb3-84"><a href="#cb3-84"></a><span class="fu">## Analysis plan</span></span>
+<span id="cb3-85"><a href="#cb3-85"></a></span>
+<span id="cb3-86"><a href="#cb3-86"></a><span class="ss">-   </span>A plan for answering each of the questions including the variables involved, variables to be created (if any), external data to be merged in (if any).</span>
+<span id="cb3-87"><a href="#cb3-87"></a></span>
+<span id="cb3-88"><a href="#cb3-88"></a>We will use a type of machine learning called clustering to group customers who have similar spending and payment habits. This method helps us find clear groups of customers who behave alike. It also helps us spot customers who don’t fit into any group. </span>
+<span id="cb3-89"><a href="#cb3-89"></a></span>
+<span id="cb3-90"><a href="#cb3-90"></a>For the second part of our project, we want to predict which customers might stop using their credit cards or switch to a different company. To do this, we will use prediction models that learn data about customer behavior.</span>
+<span id="cb3-91"><a href="#cb3-91"></a></span>
+<span id="cb3-92"><a href="#cb3-92"></a><span class="pp">|</span> Question                <span class="pp">|</span> Variables Used                                                                                                     <span class="pp">|</span></span>
+<span id="cb3-93"><a href="#cb3-93"></a><span class="pp">|-------------------------|--------------------------------------------------------------------------------------------------------------------|</span></span>
+<span id="cb3-94"><a href="#cb3-94"></a><span class="pp">|</span>  Clustering             <span class="pp">|</span> BALANCE, BALANCE_FREQUENCY, PURCHASES, ONEOFF_PURCHASES, INSTALLMENTS_PURCHASES, CASH_ADVANCE, PURCHASES_FREQUENCY <span class="pp">|</span></span>
+<span id="cb3-95"><a href="#cb3-95"></a><span class="pp">|</span>  Prediction             <span class="pp">|</span> TENURE, BALANCE, BALANCE_FREQUENCY, PURCHASES_FREQUENCY, PAYMENTS, MINIMUM_PAYMENTS, PRCFULLPAYMENT, CASH_ADVANCE  <span class="pp">|</span></span>
+<span id="cb3-96"><a href="#cb3-96"></a></span>
+<span id="cb3-97"><a href="#cb3-97"></a><span class="fu">## Data Dictionary</span></span>
+<span id="cb3-98"><a href="#cb3-98"></a></span>
+<span id="cb3-99"><a href="#cb3-99"></a><span class="pp">|</span> Variable                       <span class="pp">|</span> Description <span class="pp">|</span></span>
+<span id="cb3-100"><a href="#cb3-100"></a><span class="pp">|--------------------------------|-------------|</span></span>
+<span id="cb3-101"><a href="#cb3-101"></a><span class="pp">|</span> CUST_ID                        <span class="pp">|</span> Identification of Credit Card holder <span class="pp">|</span></span>
+<span id="cb3-102"><a href="#cb3-102"></a><span class="pp">|</span> BALANCE                        <span class="pp">|</span> Balance amount left in their account to make purchases <span class="pp">|</span></span>
+<span id="cb3-103"><a href="#cb3-103"></a><span class="pp">|</span> BALANCE_FREQUENCY              <span class="pp">|</span> How frequently the Balance is updated, score between 0 and 1 (1 = frequently updated, 0 = not frequently updated) <span class="pp">|</span></span>
+<span id="cb3-104"><a href="#cb3-104"></a><span class="pp">|</span> PURCHASES                      <span class="pp">|</span> Amount of purchases made from account <span class="pp">|</span></span>
+<span id="cb3-105"><a href="#cb3-105"></a><span class="pp">|</span> ONEOFF_PURCHASES               <span class="pp">|</span> Maximum purchase amount done in one-go <span class="pp">|</span></span>
+<span id="cb3-106"><a href="#cb3-106"></a><span class="pp">|</span> INSTALLMENTS_PURCHASES         <span class="pp">|</span> Amount of purchase done in installment <span class="pp">|</span></span>
+<span id="cb3-107"><a href="#cb3-107"></a><span class="pp">|</span> CASH_ADVANCE                   <span class="pp">|</span> Cash in advance given by the user <span class="pp">|</span></span>
+<span id="cb3-108"><a href="#cb3-108"></a><span class="pp">|</span> PURCHASES_FREQUENCY            <span class="pp">|</span> How frequently the Purchases are being made, score between 0 and 1 (1 = frequently purchased, 0 = not frequently purchased) <span class="pp">|</span></span>
+<span id="cb3-109"><a href="#cb3-109"></a><span class="pp">|</span> ONEOFFPURCHASESFREQUENCY       <span class="pp">|</span> How frequently Purchases are happening in one-go (1 = frequently purchased, 0 = not frequently purchased) <span class="pp">|</span></span>
+<span id="cb3-110"><a href="#cb3-110"></a><span class="pp">|</span> PURCHASESINSTALLMENTSFREQUENCY <span class="pp">|</span> How frequently purchases in installments are being done (1 = frequently done, 0 = not frequently done) <span class="pp">|</span></span>
+<span id="cb3-111"><a href="#cb3-111"></a><span class="pp">|</span> CASHADVANCEFREQUENCY           <span class="pp">|</span> How frequently the cash in advance is being paid <span class="pp">|</span></span>
+<span id="cb3-112"><a href="#cb3-112"></a><span class="pp">|</span> CASHADVANCETRX                 <span class="pp">|</span> Number of Transactions made with &quot;Cash in Advanced&quot; <span class="pp">|</span></span>
+<span id="cb3-113"><a href="#cb3-113"></a><span class="pp">|</span> PURCHASES_TRX                  <span class="pp">|</span> Number of purchase transactions made <span class="pp">|</span></span>
+<span id="cb3-114"><a href="#cb3-114"></a><span class="pp">|</span> CREDIT_LIMIT                   <span class="pp">|</span> Limit of Credit Card for user <span class="pp">|</span></span>
+<span id="cb3-115"><a href="#cb3-115"></a><span class="pp">|</span> PAYMENTS                       <span class="pp">|</span> Amount of Payment done by user <span class="pp">|</span></span>
+<span id="cb3-116"><a href="#cb3-116"></a><span class="pp">|</span> MINIMUM_PAYMENTS               <span class="pp">|</span> Minimum amount of payments made by user <span class="pp">|</span></span>
+<span id="cb3-117"><a href="#cb3-117"></a><span class="pp">|</span> PRCFULLPAYMENT                 <span class="pp">|</span> Percent of full payment paid by user <span class="pp">|</span></span>
+<span id="cb3-118"><a href="#cb3-118"></a><span class="pp">|</span> TENURE                         <span class="pp">|</span> Tenure of credit card service for user <span class="pp">|</span></span>
+<span id="cb3-119"><a href="#cb3-119"></a></span>
+<span id="cb3-120"><a href="#cb3-120"></a></span>
+<span id="cb3-121"><a href="#cb3-121"></a><span class="fu">## Plan of Attack</span></span>
+<span id="cb3-122"><a href="#cb3-122"></a></span>
+<span id="cb3-123"><a href="#cb3-123"></a><span class="pp">|</span> Week   <span class="pp">|</span> Dates          <span class="pp">|</span> Activity                                                                                                   <span class="pp">|</span> Status <span class="pp">|</span></span>
+<span id="cb3-124"><a href="#cb3-124"></a><span class="pp">|--------|---------------</span> <span class="pp">|------------------------------------------------------------------------------------------------------------|--------|</span></span>
+<span id="cb3-125"><a href="#cb3-125"></a><span class="pp">|</span> Week 2 <span class="pp">|</span> 25 July 2025   <span class="pp">|</span> • Review the Dataset and finalize the team<span class="dt">&lt;</span><span class="kw">br</span><span class="dt">&gt;</span>• Select data mining techniques and clustering methods       <span class="pp">|</span> Completed <span class="pp">|</span></span>
+<span id="cb3-126"><a href="#cb3-126"></a><span class="pp">|</span> Week 3 <span class="pp">|</span> 1 August 2025  <span class="pp">|</span> • Proposal and Peer Review with other teams<span class="dt">&lt;</span><span class="kw">br</span><span class="dt">&gt;</span>• Data Preprocessing                                        <span class="pp">|</span> In Progress <span class="pp">|</span></span>
+<span id="cb3-127"><a href="#cb3-127"></a><span class="pp">|</span> Week 4 <span class="pp">|</span> 8 August 2025  <span class="pp">|</span> • Perform feature engineering/selection<span class="dt">&lt;</span><span class="kw">br</span><span class="dt">&gt;</span>• Transform and scale features<span class="dt">&lt;</span><span class="kw">br</span><span class="dt">&gt;</span>• Apply clustering algorithms <span class="pp">|</span> Not Completed <span class="pp">|</span></span>
+<span id="cb3-128"><a href="#cb3-128"></a><span class="pp">|</span> Week 5 <span class="pp">|</span> 15 August 2025 <span class="pp">|</span> • Evaluate clustering performance<span class="dt">&lt;</span><span class="kw">br</span><span class="dt">&gt;</span>• Visualize our results                                               <span class="pp">|</span> Not Completed <span class="pp">|</span></span>
+<span id="cb3-129"><a href="#cb3-129"></a><span class="pp">|</span> Week 6 <span class="pp">|</span> 20 August 2025 <span class="pp">|</span> • Conduct a peer code review<span class="dt">&lt;</span><span class="kw">br</span><span class="dt">&gt;</span>• Present projects and turn in final write-up                              <span class="pp">|</span> Not Completed <span class="pp">|</span></span>
 </code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
