@@ -124,3 +124,5 @@ For the second part of our project, we want to predict which customers might sto
 | Week 5 | 15 August 2025 | • Evaluate clustering performance<br>• Visualize our results                                               | Not Completed |
 | Week 6 | 20 August 2025 | • Conduct a peer code review<br>• Present projects and turn in final write-up                              | Not Completed |
 
+
+
