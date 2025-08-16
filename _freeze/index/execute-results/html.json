@@ -1,10 +1,10 @@
 {
-  "hash": "b3350baf28db3a424c2802459e883aaa",
+  "hash": "ef9edb927e2ac094bdf2dc984d6a2c29",
   "result": {
     "engine": "jupyter",
-    "markdown": "---\ntitle: \"Project Title\"\nsubtitle: \"INFO 523 - Final Project\"\nauthor: \n  - name: \"Team name - Team member 1, Team member 2,...\"\n    affiliations:\n      - name: \"College of Information Science, University of Arizona\"\ndescription: \"Project description\"\nformat:\n   html:\n    code-tools: true\n    code-overflow: wrap\n    embed-resources: true\neditor: visual\nexecute:\n  warning: false\n  echo: false\njupyter: python3\n---\n\n## Abstract\n\nAdd project abstract here.\n\n",
+    "markdown": "---\ntitle: \"Behavioral Outlier Segmentation using credit card dataset\"\nsubtitle: \"INFO 523 - Final Project\"\nauthor: \n  - name: \"The Classifiers - Saumya Gupta, Sathwika Karri,...\"\n    affiliations:\n      - name: \"College of Information Science, University of Arizona\"\ndescription: \"Project description: The project *Behavioral Outlier Segmentation* focuses on analyzing credit card usage data from Kaggle to identify customer segments that exhibit unusual behavior patterns. By uncovering deviations such as irregular payments, abnormal spending, or infrequent card usage, the project aims to detect behavioral outliers and predict customers who are likely to stop using their cards or switch to competitors.\"\nformat:\n   html:\n    code-tools: true\n    code-overflow: wrap\n    embed-resources: true\neditor: visual\nexecute:\n  warning: false\n  echo: false\njupyter: python3\n---\n\n## Abstract\n\nThis project, Behavioral Outlier Segmentation, looks at credit card data from Kaggle to find customers who use their cards in unusual ways. These unusual behaviors might include strange spending patterns, missed payments, or using the card very rarely. The goal is to find these outliers and predict which customers might stop using their cards or switch to another company. This can help credit card companies keep their customers by understanding their behavior early.\n\n",
     "supporting": [
-      "index_files/figure-html"
+      "index_files\\figure-html"
     ],
     "filters": [],
     "includes": {}

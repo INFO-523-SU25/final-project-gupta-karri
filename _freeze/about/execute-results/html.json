@@ -1,10 +1,10 @@
 {
-  "hash": "76070dfa19fea79f3b5051149ea169a7",
+  "hash": "dbdf9f8b8b2a3a7c6967e9938e509390",
   "result": {
     "engine": "jupyter",
-    "markdown": "---\ntitle: \"About\"\nformat: html\neditor: visual\njupyter: python3\n---\n\nThis project was developed by **The Classifiers** For [INFO 523 - Data Mining and Discovery](https://datamineaz.org/) at the University of Arizona, taught by Dr. Greg Chism. The team is comprised of the following team members.\n\n-   Saumya Gupta: First-year Master of Science in Data Science student with a professional background in Software Development and interest in Machine Learning.\n\n-   Team member 2: One sentence description of Team member 2 (e.g., year, major, etc.).\n\n",
+    "markdown": "---\ntitle: \"About\"\nformat: html\neditor: visual\njupyter: python3\n---\n\nThis project was developed by **The Classifiers** For [INFO 523 - Data Mining and Discovery](https://datamineaz.org/) at the University of Arizona, taught by Dr. Greg Chism. The team is comprised of the following team members.\n\n-   Saumya Gupta: First-year Master of Science in Data Science student with a professional background in Software Development and interest in Machine Learning.\n\n-   Sathwika Karri: I am in my fourth semester of the Master of Science in Data Science program. \n\n",
     "supporting": [
-      "about_files/figure-html"
+      "about_files\\figure-html"
     ],
     "filters": [],
     "includes": {}
