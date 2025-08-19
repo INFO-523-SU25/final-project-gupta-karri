@@ -1,23 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://INFO-523-SU25.github.io/final-project-gupta-karri/main.html</loc>
+    <lastmod>2025-08-19T05:24:29.500Z</lastmod>
+  </url>
+  <url>
     <loc>https://INFO-523-SU25.github.io/final-project-gupta-karri/about.html</loc>
     <lastmod>2025-08-05T15:18:44.672Z</lastmod>
-  </url>
-  <url>
-    <loc>https://INFO-523-SU25.github.io/final-project-gupta-karri/presentation.html</loc>
-    <lastmod>2025-08-05T09:38:21.109Z</lastmod>
-  </url>
-  <url>
-    <loc>https://INFO-523-SU25.github.io/final-project-gupta-karri/proposal.html</loc>
-    <lastmod>2025-08-08T08:38:45.459Z</lastmod>
   </url>
   <url>
     <loc>https://INFO-523-SU25.github.io/final-project-gupta-karri/index.html</loc>
     <lastmod>2025-08-05T15:38:12.296Z</lastmod>
   </url>
   <url>
-    <loc>https://INFO-523-SU25.github.io/final-project-gupta-karri/Untitled.html</loc>
-    <lastmod>2025-08-05T09:38:21.049Z</lastmod>
+    <loc>https://INFO-523-SU25.github.io/final-project-gupta-karri/proposal.html</loc>
+    <lastmod>2025-08-08T08:38:45.459Z</lastmod>
+  </url>
+  <url>
+    <loc>https://INFO-523-SU25.github.io/final-project-gupta-karri/presentation.html</loc>
+    <lastmod>2025-08-05T09:38:21.109Z</lastmod>
+  </url>
+  <url>
+    <loc>https://INFO-523-SU25.github.io/final-project-gupta-karri/churn_predictor.html</loc>
+    <lastmod>2025-08-19T05:24:29.480Z</lastmod>
   </url>
 </urlset>

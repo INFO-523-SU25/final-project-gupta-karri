@@ -1,0 +1,1725 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.7.32">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>main – Project Title</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-2fef5ea3f8957b3e4ecc936fc74692ca.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-ae6a7aef4b950b0b477a2111065959bd.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-fb3a5e9557d06aa35a2e64b95f480777.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-ae6a7aef4b950b0b477a2111065959bd.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+
+
+</head>
+
+<body class="nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const darkModeDefault = authorPrefersDark;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">Project Title</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="./index.html"> 
+<span class="menu-text">Project</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./proposal.html"> 
+<span class="menu-text">Proposal</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./presentation.html"> 
+<span class="menu-text">Presentation</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./about.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/INFO-523-SU24/final-project-gupta-karri"> <i class="bi bi-github" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+
+
+
+
+
+<div id="4e3e66d2-5dd3-43f6-a52e-326ab68c8ebe" class="cell" data-execution_count="77">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># EDA </span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> math</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> EDA_data(df):</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Basic Information:</span><span class="ch">\n</span><span class="st">"</span>)</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(df.info())</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">Shape of the dataset:</span><span class="ch">\n</span><span class="st">"</span>, df.shape)</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">Data types:</span><span class="ch">\n</span><span class="st">"</span>, df.dtypes)</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">Summary of the dataset:</span><span class="ch">\n</span><span class="st">"</span>, df.describe())</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">First 5 rows:</span><span class="ch">\n</span><span class="st">"</span>, df.head())</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">Last 5 rows:</span><span class="ch">\n</span><span class="st">"</span>, df.tail())</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> missing_values(df):</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">Missing values:</span><span class="ch">\n</span><span class="st">"</span>, df.isnull().<span class="bu">sum</span>())</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>credit_card <span class="op">=</span> pd.read_csv(<span class="st">'data/CC GENERAL.csv'</span>)</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>EDA_data(credit_card)</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>missing_values(credit_card)</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="co"># Plotting with box-plot</span></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> plot_boxplots(df, numerical_cols):</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>    n <span class="op">=</span> <span class="bu">len</span>(numerical_cols)</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>    n_cols <span class="op">=</span> <span class="dv">4</span></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>    n_rows <span class="op">=</span> math.ceil(n <span class="op">/</span> n_cols)</span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>    plt.figure(figsize<span class="op">=</span>(n_cols<span class="op">*</span><span class="dv">5</span>, n_rows<span class="op">*</span><span class="dv">5</span>))</span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i, col <span class="kw">in</span> <span class="bu">enumerate</span>(numerical_cols):</span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>        plt.subplot(n_rows, n_cols , i<span class="op">+</span><span class="dv">1</span>)</span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>        sns.boxplot(x<span class="op">=</span>df[col])</span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>    plt.show()</span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>numerical_cols <span class="op">=</span> credit_card.select_dtypes(include<span class="op">=</span>[<span class="st">'float64'</span>, <span class="st">'int64'</span>]).columns.tolist()</span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>plot_boxplots(credit_card, numerical_cols)</span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a><span class="co"># Understanding the outliers</span></span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> num_outliers(df):</span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>    numerical_cols <span class="op">=</span> df.select_dtypes(include<span class="op">=</span>[<span class="st">'float64'</span>, <span class="st">'int64'</span>]).columns.tolist()</span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>    count_outlier <span class="op">=</span> {}</span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> col <span class="kw">in</span> numerical_cols:</span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a>        q1 <span class="op">=</span> df[col].quantile(<span class="fl">0.25</span>)</span>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a>        q3 <span class="op">=</span> df[col].quantile(<span class="fl">0.75</span>)</span>
+<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a>        IQR <span class="op">=</span> q3 <span class="op">-</span> q1</span>
+<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a>        lower_bound <span class="op">=</span> q1 <span class="op">-</span> <span class="fl">1.5</span> <span class="op">*</span> IQR</span>
+<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a>        upper_bound <span class="op">=</span> q3 <span class="op">+</span> <span class="fl">1.5</span> <span class="op">*</span> IQR   </span>
+<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a>        outliers <span class="op">=</span> df[(df[col] <span class="op">&lt;</span> lower_bound) <span class="op">|</span> (df[col] <span class="op">&gt;</span> upper_bound)]</span>
+<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a>        count_outlier[col] <span class="op">=</span> outliers.shape[<span class="dv">0</span>]</span>
+<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a>    outlier_df <span class="op">=</span> pd.DataFrame(<span class="bu">list</span>(count_outlier.items()), columns<span class="op">=</span>[<span class="st">'Variable'</span>, <span class="st">'Num_Outliers'</span>])</span>
+<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> outlier_df</span>
+<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a>outlier_counts_df <span class="op">=</span> num_outliers(credit_card)</span>
+<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(outlier_counts_df)</span>
+<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> plot_skewness(df):</span>
+<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a>    skew_values <span class="op">=</span> df.skew(numeric_only<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Skewness of numerical variables:</span><span class="ch">\n</span><span class="st">"</span>, skew_values)</span>
+<span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a>    num_cols <span class="op">=</span> df.select_dtypes(include<span class="op">=</span>[<span class="st">'float64'</span>, <span class="st">'int64'</span>]).columns</span>
+<span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a>    plt.figure(figsize<span class="op">=</span>(<span class="dv">40</span>, <span class="dv">40</span>))</span>
+<span id="cb1-69"><a href="#cb1-69" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i, col <span class="kw">in</span> <span class="bu">enumerate</span>(num_cols, <span class="dv">1</span>):</span>
+<span id="cb1-70"><a href="#cb1-70" aria-hidden="true" tabindex="-1"></a>        plt.subplot(<span class="bu">len</span>(num_cols)<span class="op">//</span><span class="dv">3</span> <span class="op">+</span> <span class="dv">1</span>, <span class="dv">3</span>, i)  </span>
+<span id="cb1-71"><a href="#cb1-71" aria-hidden="true" tabindex="-1"></a>        sns.histplot(df[col], kde<span class="op">=</span><span class="va">True</span>, bins<span class="op">=</span><span class="dv">30</span>)</span>
+<span id="cb1-72"><a href="#cb1-72" aria-hidden="true" tabindex="-1"></a>        plt.title(<span class="ss">f"</span><span class="sc">{</span>col<span class="sc">}</span><span class="ch">\n</span><span class="ss">Skewness: </span><span class="sc">{</span>skew_values[col]<span class="sc">:.2f}</span><span class="ss">"</span>)</span>
+<span id="cb1-73"><a href="#cb1-73" aria-hidden="true" tabindex="-1"></a>    plt.show()</span>
+<span id="cb1-74"><a href="#cb1-74" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-75"><a href="#cb1-75" aria-hidden="true" tabindex="-1"></a>plot_skewness(credit_card)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Basic Information:
+
+&lt;class 'pandas.core.frame.DataFrame'&gt;
+RangeIndex: 8950 entries, 0 to 8949
+Data columns (total 18 columns):
+ #   Column                            Non-Null Count  Dtype  
+---  ------                            --------------  -----  
+ 0   CUST_ID                           8950 non-null   object 
+ 1   BALANCE                           8950 non-null   float64
+ 2   BALANCE_FREQUENCY                 8950 non-null   float64
+ 3   PURCHASES                         8950 non-null   float64
+ 4   ONEOFF_PURCHASES                  8950 non-null   float64
+ 5   INSTALLMENTS_PURCHASES            8950 non-null   float64
+ 6   CASH_ADVANCE                      8950 non-null   float64
+ 7   PURCHASES_FREQUENCY               8950 non-null   float64
+ 8   ONEOFF_PURCHASES_FREQUENCY        8950 non-null   float64
+ 9   PURCHASES_INSTALLMENTS_FREQUENCY  8950 non-null   float64
+ 10  CASH_ADVANCE_FREQUENCY            8950 non-null   float64
+ 11  CASH_ADVANCE_TRX                  8950 non-null   int64  
+ 12  PURCHASES_TRX                     8950 non-null   int64  
+ 13  CREDIT_LIMIT                      8949 non-null   float64
+ 14  PAYMENTS                          8950 non-null   float64
+ 15  MINIMUM_PAYMENTS                  8637 non-null   float64
+ 16  PRC_FULL_PAYMENT                  8950 non-null   float64
+ 17  TENURE                            8950 non-null   int64  
+dtypes: float64(14), int64(3), object(1)
+memory usage: 1.2+ MB
+None
+
+Shape of the dataset:
+ (8950, 18)
+
+Data types:
+ CUST_ID                              object
+BALANCE                             float64
+BALANCE_FREQUENCY                   float64
+PURCHASES                           float64
+ONEOFF_PURCHASES                    float64
+INSTALLMENTS_PURCHASES              float64
+CASH_ADVANCE                        float64
+PURCHASES_FREQUENCY                 float64
+ONEOFF_PURCHASES_FREQUENCY          float64
+PURCHASES_INSTALLMENTS_FREQUENCY    float64
+CASH_ADVANCE_FREQUENCY              float64
+CASH_ADVANCE_TRX                      int64
+PURCHASES_TRX                         int64
+CREDIT_LIMIT                        float64
+PAYMENTS                            float64
+MINIMUM_PAYMENTS                    float64
+PRC_FULL_PAYMENT                    float64
+TENURE                                int64
+dtype: object
+
+Summary of the dataset:
+             BALANCE  BALANCE_FREQUENCY     PURCHASES  ONEOFF_PURCHASES  \
+count   8950.000000        8950.000000   8950.000000       8950.000000   
+mean    1564.474828           0.877271   1003.204834        592.437371   
+std     2081.531879           0.236904   2136.634782       1659.887917   
+min        0.000000           0.000000      0.000000          0.000000   
+25%      128.281915           0.888889     39.635000          0.000000   
+50%      873.385231           1.000000    361.280000         38.000000   
+75%     2054.140036           1.000000   1110.130000        577.405000   
+max    19043.138560           1.000000  49039.570000      40761.250000   
+
+       INSTALLMENTS_PURCHASES  CASH_ADVANCE  PURCHASES_FREQUENCY  \
+count             8950.000000   8950.000000          8950.000000   
+mean               411.067645    978.871112             0.490351   
+std                904.338115   2097.163877             0.401371   
+min                  0.000000      0.000000             0.000000   
+25%                  0.000000      0.000000             0.083333   
+50%                 89.000000      0.000000             0.500000   
+75%                468.637500   1113.821139             0.916667   
+max              22500.000000  47137.211760             1.000000   
+
+       ONEOFF_PURCHASES_FREQUENCY  PURCHASES_INSTALLMENTS_FREQUENCY  \
+count                 8950.000000                       8950.000000   
+mean                     0.202458                          0.364437   
+std                      0.298336                          0.397448   
+min                      0.000000                          0.000000   
+25%                      0.000000                          0.000000   
+50%                      0.083333                          0.166667   
+75%                      0.300000                          0.750000   
+max                      1.000000                          1.000000   
+
+       CASH_ADVANCE_FREQUENCY  CASH_ADVANCE_TRX  PURCHASES_TRX  CREDIT_LIMIT  \
+count             8950.000000       8950.000000    8950.000000   8949.000000   
+mean                 0.135144          3.248827      14.709832   4494.449450   
+std                  0.200121          6.824647      24.857649   3638.815725   
+min                  0.000000          0.000000       0.000000     50.000000   
+25%                  0.000000          0.000000       1.000000   1600.000000   
+50%                  0.000000          0.000000       7.000000   3000.000000   
+75%                  0.222222          4.000000      17.000000   6500.000000   
+max                  1.500000        123.000000     358.000000  30000.000000   
+
+           PAYMENTS  MINIMUM_PAYMENTS  PRC_FULL_PAYMENT       TENURE  
+count   8950.000000       8637.000000       8950.000000  8950.000000  
+mean    1733.143852        864.206542          0.153715    11.517318  
+std     2895.063757       2372.446607          0.292499     1.338331  
+min        0.000000          0.019163          0.000000     6.000000  
+25%      383.276166        169.123707          0.000000    12.000000  
+50%      856.901546        312.343947          0.000000    12.000000  
+75%     1901.134317        825.485459          0.142857    12.000000  
+max    50721.483360      76406.207520          1.000000    12.000000  
+
+First 5 rows:
+   CUST_ID      BALANCE  BALANCE_FREQUENCY  PURCHASES  ONEOFF_PURCHASES  \
+0  C10001    40.900749           0.818182      95.40              0.00   
+1  C10002  3202.467416           0.909091       0.00              0.00   
+2  C10003  2495.148862           1.000000     773.17            773.17   
+3  C10004  1666.670542           0.636364    1499.00           1499.00   
+4  C10005   817.714335           1.000000      16.00             16.00   
+
+   INSTALLMENTS_PURCHASES  CASH_ADVANCE  PURCHASES_FREQUENCY  \
+0                    95.4      0.000000             0.166667   
+1                     0.0   6442.945483             0.000000   
+2                     0.0      0.000000             1.000000   
+3                     0.0    205.788017             0.083333   
+4                     0.0      0.000000             0.083333   
+
+   ONEOFF_PURCHASES_FREQUENCY  PURCHASES_INSTALLMENTS_FREQUENCY  \
+0                    0.000000                          0.083333   
+1                    0.000000                          0.000000   
+2                    1.000000                          0.000000   
+3                    0.083333                          0.000000   
+4                    0.083333                          0.000000   
+
+   CASH_ADVANCE_FREQUENCY  CASH_ADVANCE_TRX  PURCHASES_TRX  CREDIT_LIMIT  \
+0                0.000000                 0              2        1000.0   
+1                0.250000                 4              0        7000.0   
+2                0.000000                 0             12        7500.0   
+3                0.083333                 1              1        7500.0   
+4                0.000000                 0              1        1200.0   
+
+      PAYMENTS  MINIMUM_PAYMENTS  PRC_FULL_PAYMENT  TENURE  
+0   201.802084        139.509787          0.000000      12  
+1  4103.032597       1072.340217          0.222222      12  
+2   622.066742        627.284787          0.000000      12  
+3     0.000000               NaN          0.000000      12  
+4   678.334763        244.791237          0.000000      12  
+
+Last 5 rows:
+      CUST_ID     BALANCE  BALANCE_FREQUENCY  PURCHASES  ONEOFF_PURCHASES  \
+8945  C19186   28.493517           1.000000     291.12              0.00   
+8946  C19187   19.183215           1.000000     300.00              0.00   
+8947  C19188   23.398673           0.833333     144.40              0.00   
+8948  C19189   13.457564           0.833333       0.00              0.00   
+8949  C19190  372.708075           0.666667    1093.25           1093.25   
+
+      INSTALLMENTS_PURCHASES  CASH_ADVANCE  PURCHASES_FREQUENCY  \
+8945                  291.12      0.000000             1.000000   
+8946                  300.00      0.000000             1.000000   
+8947                  144.40      0.000000             0.833333   
+8948                    0.00     36.558778             0.000000   
+8949                    0.00    127.040008             0.666667   
+
+      ONEOFF_PURCHASES_FREQUENCY  PURCHASES_INSTALLMENTS_FREQUENCY  \
+8945                    0.000000                          0.833333   
+8946                    0.000000                          0.833333   
+8947                    0.000000                          0.666667   
+8948                    0.000000                          0.000000   
+8949                    0.666667                          0.000000   
+
+      CASH_ADVANCE_FREQUENCY  CASH_ADVANCE_TRX  PURCHASES_TRX  CREDIT_LIMIT  \
+8945                0.000000                 0              6        1000.0   
+8946                0.000000                 0              6        1000.0   
+8947                0.000000                 0              5        1000.0   
+8948                0.166667                 2              0         500.0   
+8949                0.333333                 2             23        1200.0   
+
+        PAYMENTS  MINIMUM_PAYMENTS  PRC_FULL_PAYMENT  TENURE  
+8945  325.594462         48.886365              0.50       6  
+8946  275.861322               NaN              0.00       6  
+8947   81.270775         82.418369              0.25       6  
+8948   52.549959         55.755628              0.25       6  
+8949   63.165404         88.288956              0.00       6  
+
+Missing values:
+ CUST_ID                               0
+BALANCE                               0
+BALANCE_FREQUENCY                     0
+PURCHASES                             0
+ONEOFF_PURCHASES                      0
+INSTALLMENTS_PURCHASES                0
+CASH_ADVANCE                          0
+PURCHASES_FREQUENCY                   0
+ONEOFF_PURCHASES_FREQUENCY            0
+PURCHASES_INSTALLMENTS_FREQUENCY      0
+CASH_ADVANCE_FREQUENCY                0
+CASH_ADVANCE_TRX                      0
+PURCHASES_TRX                         0
+CREDIT_LIMIT                          1
+PAYMENTS                              0
+MINIMUM_PAYMENTS                    313
+PRC_FULL_PAYMENT                      0
+TENURE                                0
+dtype: int64</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="main_files/figure-html/cell-2-output-2.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                            Variable  Num_Outliers
+0                            BALANCE           695
+1                  BALANCE_FREQUENCY          1493
+2                          PURCHASES           808
+3                   ONEOFF_PURCHASES          1013
+4             INSTALLMENTS_PURCHASES           867
+5                       CASH_ADVANCE          1030
+6                PURCHASES_FREQUENCY             0
+7         ONEOFF_PURCHASES_FREQUENCY           782
+8   PURCHASES_INSTALLMENTS_FREQUENCY             0
+9             CASH_ADVANCE_FREQUENCY           525
+10                  CASH_ADVANCE_TRX           804
+11                     PURCHASES_TRX           766
+12                      CREDIT_LIMIT           248
+13                          PAYMENTS           808
+14                  MINIMUM_PAYMENTS           841
+15                  PRC_FULL_PAYMENT          1474
+16                            TENURE          1366
+Skewness of numerical variables:
+ BALANCE                              2.393386
+BALANCE_FREQUENCY                   -2.023266
+PURCHASES                            8.144269
+ONEOFF_PURCHASES                    10.045083
+INSTALLMENTS_PURCHASES               7.299120
+CASH_ADVANCE                         5.166609
+PURCHASES_FREQUENCY                  0.060164
+ONEOFF_PURCHASES_FREQUENCY           1.535613
+PURCHASES_INSTALLMENTS_FREQUENCY     0.509201
+CASH_ADVANCE_FREQUENCY               1.828686
+CASH_ADVANCE_TRX                     5.721298
+PURCHASES_TRX                        4.630655
+CREDIT_LIMIT                         1.522464
+PAYMENTS                             5.907620
+MINIMUM_PAYMENTS                    13.622797
+PRC_FULL_PAYMENT                     1.942820
+TENURE                              -2.943017
+dtype: float64</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="main_files/figure-html/cell-2-output-4.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<div id="e65df57c-0c38-4f97-b35d-052936fe2210" class="cell" data-execution_count="78">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Preprocessing </span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.preprocessing <span class="im">import</span> StandardScaler, RobustScaler, MinMaxScaler</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.compose <span class="im">import</span> ColumnTransformer</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy <span class="im">import</span> stats</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> handling_missing_values(df):</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st"> Missing values in credit card dataset: </span><span class="ch">\n</span><span class="st">"</span>, df.isnull().<span class="bu">sum</span>())</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>handling_missing_values(credit_card)</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> impute_missing_values(df):</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>    df_imputed <span class="op">=</span> df.copy()</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>    credit_limit_median <span class="op">=</span> df[<span class="st">'CREDIT_LIMIT'</span>].median()</span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>    min_payments_median <span class="op">=</span> df[<span class="st">'MINIMUM_PAYMENTS'</span>].median()</span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> df.assign(</span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>        CREDIT_LIMIT<span class="op">=</span>df[<span class="st">'CREDIT_LIMIT'</span>].fillna(credit_limit_median),</span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>        MINIMUM_PAYMENTS<span class="op">=</span>df[<span class="st">'MINIMUM_PAYMENTS'</span>].fillna(min_payments_median)</span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>credit_df_imputed <span class="op">=</span> impute_missing_values(credit_card)</span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(credit_df_imputed.info())</span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> skewness_transformation(df, skew_threshold<span class="op">=</span><span class="fl">1.0</span>):</span>
+<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a>    df_trans <span class="op">=</span> df.copy()</span>
+<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a>    numeric_cols <span class="op">=</span> df.select_dtypes(include<span class="op">=</span>np.number).columns.tolist()</span>
+<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a>    skew_before <span class="op">=</span> df[numeric_cols].skew()</span>
+<span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> col <span class="kw">in</span> numeric_cols:</span>
+<span id="cb4-33"><a href="#cb4-33" aria-hidden="true" tabindex="-1"></a>        data <span class="op">=</span> df_trans[col]</span>
+<span id="cb4-34"><a href="#cb4-34" aria-hidden="true" tabindex="-1"></a>        skew <span class="op">=</span> skew_before[col]</span>
+<span id="cb4-35"><a href="#cb4-35" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb4-36"><a href="#cb4-36" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="bu">abs</span>(skew) <span class="op">&lt;=</span> skew_threshold:</span>
+<span id="cb4-37"><a href="#cb4-37" aria-hidden="true" tabindex="-1"></a>            <span class="cf">continue</span></span>
+<span id="cb4-38"><a href="#cb4-38" aria-hidden="true" tabindex="-1"></a>            </span>
+<span id="cb4-39"><a href="#cb4-39" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> skew <span class="op">&gt;</span> <span class="dv">3</span>:</span>
+<span id="cb4-40"><a href="#cb4-40" aria-hidden="true" tabindex="-1"></a>            <span class="cf">try</span>:</span>
+<span id="cb4-41"><a href="#cb4-41" aria-hidden="true" tabindex="-1"></a>                <span class="cf">if</span> data.<span class="bu">min</span>() <span class="op">&gt;</span> <span class="dv">0</span>:</span>
+<span id="cb4-42"><a href="#cb4-42" aria-hidden="true" tabindex="-1"></a>                    trans_data, _ <span class="op">=</span> stats.boxcox(data)</span>
+<span id="cb4-43"><a href="#cb4-43" aria-hidden="true" tabindex="-1"></a>                <span class="cf">else</span>:</span>
+<span id="cb4-44"><a href="#cb4-44" aria-hidden="true" tabindex="-1"></a>                    trans_data, _ <span class="op">=</span> stats.yeojohnson(data)</span>
+<span id="cb4-45"><a href="#cb4-45" aria-hidden="true" tabindex="-1"></a>                df_trans[col] <span class="op">=</span> trans_data</span>
+<span id="cb4-46"><a href="#cb4-46" aria-hidden="true" tabindex="-1"></a>            <span class="cf">except</span>:</span>
+<span id="cb4-47"><a href="#cb4-47" aria-hidden="true" tabindex="-1"></a>                df_trans[col] <span class="op">=</span> np.log1p(data <span class="op">-</span> data.<span class="bu">min</span>())</span>
+<span id="cb4-48"><a href="#cb4-48" aria-hidden="true" tabindex="-1"></a>                </span>
+<span id="cb4-49"><a href="#cb4-49" aria-hidden="true" tabindex="-1"></a>        <span class="cf">elif</span> skew <span class="op">&lt;</span> <span class="op">-</span><span class="dv">3</span>:</span>
+<span id="cb4-50"><a href="#cb4-50" aria-hidden="true" tabindex="-1"></a>            df_trans[col] <span class="op">=</span> np.sign(data) <span class="op">*</span> (np.<span class="bu">abs</span>(data) <span class="op">**</span> (<span class="dv">1</span><span class="op">/</span><span class="dv">3</span>))</span>
+<span id="cb4-51"><a href="#cb4-51" aria-hidden="true" tabindex="-1"></a>        <span class="cf">else</span>:</span>
+<span id="cb4-52"><a href="#cb4-52" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> skew <span class="op">&gt;</span> <span class="dv">0</span>:</span>
+<span id="cb4-53"><a href="#cb4-53" aria-hidden="true" tabindex="-1"></a>                df_trans[col] <span class="op">=</span> np.sqrt(data <span class="op">-</span> data.<span class="bu">min</span>() <span class="op">+</span> <span class="fl">1e-6</span>)</span>
+<span id="cb4-54"><a href="#cb4-54" aria-hidden="true" tabindex="-1"></a>            <span class="cf">else</span>:</span>
+<span id="cb4-55"><a href="#cb4-55" aria-hidden="true" tabindex="-1"></a>                df_trans[col] <span class="op">=</span> np.sign(data) <span class="op">*</span> np.sqrt(np.<span class="bu">abs</span>(data))</span>
+<span id="cb4-56"><a href="#cb4-56" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb4-57"><a href="#cb4-57" aria-hidden="true" tabindex="-1"></a>    skew_after <span class="op">=</span> df_trans[numeric_cols].skew()</span>
+<span id="cb4-58"><a href="#cb4-58" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-59"><a href="#cb4-59" aria-hidden="true" tabindex="-1"></a>    report <span class="op">=</span> pd.DataFrame({</span>
+<span id="cb4-60"><a href="#cb4-60" aria-hidden="true" tabindex="-1"></a>        <span class="st">'Before'</span>: skew_before,</span>
+<span id="cb4-61"><a href="#cb4-61" aria-hidden="true" tabindex="-1"></a>        <span class="st">'After'</span>: skew_after,</span>
+<span id="cb4-62"><a href="#cb4-62" aria-hidden="true" tabindex="-1"></a>        <span class="st">'Improvement'</span>: (skew_before.<span class="bu">abs</span>() <span class="op">-</span> skew_after.<span class="bu">abs</span>())</span>
+<span id="cb4-63"><a href="#cb4-63" aria-hidden="true" tabindex="-1"></a>    })</span>
+<span id="cb4-64"><a href="#cb4-64" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb4-65"><a href="#cb4-65" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> df_trans, report.sort_values(<span class="st">'Improvement'</span>, ascending<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb4-66"><a href="#cb4-66" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-67"><a href="#cb4-67" aria-hidden="true" tabindex="-1"></a>credit_df_transformed, skew_report <span class="op">=</span> skewness_transformation(</span>
+<span id="cb4-68"><a href="#cb4-68" aria-hidden="true" tabindex="-1"></a>    credit_df_imputed,</span>
+<span id="cb4-69"><a href="#cb4-69" aria-hidden="true" tabindex="-1"></a>    skew_threshold<span class="op">=</span><span class="fl">1.0</span></span>
+<span id="cb4-70"><a href="#cb4-70" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb4-71"><a href="#cb4-71" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Skewness Transformation Report:"</span>)</span>
+<span id="cb4-72"><a href="#cb4-72" aria-hidden="true" tabindex="-1"></a>display(skew_report)</span>
+<span id="cb4-73"><a href="#cb4-73" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(credit_df_transformed.info())</span>
+<span id="cb4-74"><a href="#cb4-74" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-75"><a href="#cb4-75" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-76"><a href="#cb4-76" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-77"><a href="#cb4-77" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> data_scaling(df, standard_cols<span class="op">=</span><span class="va">None</span>, robust_cols<span class="op">=</span><span class="va">None</span>, minmax_cols<span class="op">=</span><span class="va">None</span>):</span>
+<span id="cb4-78"><a href="#cb4-78" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> standard_cols <span class="kw">is</span> <span class="va">None</span>:</span>
+<span id="cb4-79"><a href="#cb4-79" aria-hidden="true" tabindex="-1"></a>        standard_cols <span class="op">=</span> [<span class="st">'BALANCE'</span>, <span class="st">'PURCHASES'</span>, <span class="st">'ONEOFF_PURCHASES'</span>, </span>
+<span id="cb4-80"><a href="#cb4-80" aria-hidden="true" tabindex="-1"></a>                         <span class="st">'INSTALLMENTS_PURCHASES'</span>, <span class="st">'CASH_ADVANCE'</span>, <span class="st">'PURCHASES_TRX'</span>,</span>
+<span id="cb4-81"><a href="#cb4-81" aria-hidden="true" tabindex="-1"></a>                         <span class="st">'PAYMENTS'</span>, <span class="st">'MINIMUM_PAYMENTS'</span>, <span class="st">'ONEOFF_PURCHASES_FREQUENCY'</span>,</span>
+<span id="cb4-82"><a href="#cb4-82" aria-hidden="true" tabindex="-1"></a>                         <span class="st">'PURCHASES_INSTALLMENTS_FREQUENCY'</span>, <span class="st">'CASH_ADVANCE_FREQUENCY'</span>,</span>
+<span id="cb4-83"><a href="#cb4-83" aria-hidden="true" tabindex="-1"></a>                         <span class="st">'CASH_ADVANCE_TRX'</span>, <span class="st">'CREDIT_LIMIT'</span>]</span>
+<span id="cb4-84"><a href="#cb4-84" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> robust_cols <span class="kw">is</span> <span class="va">None</span>:</span>
+<span id="cb4-85"><a href="#cb4-85" aria-hidden="true" tabindex="-1"></a>        robust_cols <span class="op">=</span> [<span class="st">'BALANCE_FREQUENCY'</span>, <span class="st">'TENURE'</span>]</span>
+<span id="cb4-86"><a href="#cb4-86" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> minmax_cols <span class="kw">is</span> <span class="va">None</span>:</span>
+<span id="cb4-87"><a href="#cb4-87" aria-hidden="true" tabindex="-1"></a>        minmax_cols <span class="op">=</span> [<span class="st">'PURCHASES_FREQUENCY'</span>]</span>
+<span id="cb4-88"><a href="#cb4-88" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb4-89"><a href="#cb4-89" aria-hidden="true" tabindex="-1"></a>    preprocessor <span class="op">=</span> ColumnTransformer(</span>
+<span id="cb4-90"><a href="#cb4-90" aria-hidden="true" tabindex="-1"></a>        transformers<span class="op">=</span>[</span>
+<span id="cb4-91"><a href="#cb4-91" aria-hidden="true" tabindex="-1"></a>            (<span class="st">'std'</span>, StandardScaler(), standard_cols),</span>
+<span id="cb4-92"><a href="#cb4-92" aria-hidden="true" tabindex="-1"></a>            (<span class="st">'robust'</span>, RobustScaler(), robust_cols),</span>
+<span id="cb4-93"><a href="#cb4-93" aria-hidden="true" tabindex="-1"></a>            (<span class="st">'minmax'</span>, MinMaxScaler(), minmax_cols)</span>
+<span id="cb4-94"><a href="#cb4-94" aria-hidden="true" tabindex="-1"></a>        ]</span>
+<span id="cb4-95"><a href="#cb4-95" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb4-96"><a href="#cb4-96" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb4-97"><a href="#cb4-97" aria-hidden="true" tabindex="-1"></a>    X_scaled <span class="op">=</span> preprocessor.fit_transform(df)</span>
+<span id="cb4-98"><a href="#cb4-98" aria-hidden="true" tabindex="-1"></a>    scaled_df <span class="op">=</span> pd.DataFrame(X_scaled, columns<span class="op">=</span>standard_cols <span class="op">+</span> robust_cols <span class="op">+</span> minmax_cols, index<span class="op">=</span>df.index)</span>
+<span id="cb4-99"><a href="#cb4-99" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> scaled_df</span>
+<span id="cb4-100"><a href="#cb4-100" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-101"><a href="#cb4-101" aria-hidden="true" tabindex="-1"></a>credit_df_scaled <span class="op">=</span> data_scaling(credit_df_transformed)</span>
+<span id="cb4-102"><a href="#cb4-102" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(credit_df_scaled.info())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+ Missing values in credit card dataset: 
+ CUST_ID                               0
+BALANCE                               0
+BALANCE_FREQUENCY                     0
+PURCHASES                             0
+ONEOFF_PURCHASES                      0
+INSTALLMENTS_PURCHASES                0
+CASH_ADVANCE                          0
+PURCHASES_FREQUENCY                   0
+ONEOFF_PURCHASES_FREQUENCY            0
+PURCHASES_INSTALLMENTS_FREQUENCY      0
+CASH_ADVANCE_FREQUENCY                0
+CASH_ADVANCE_TRX                      0
+PURCHASES_TRX                         0
+CREDIT_LIMIT                          1
+PAYMENTS                              0
+MINIMUM_PAYMENTS                    313
+PRC_FULL_PAYMENT                      0
+TENURE                                0
+dtype: int64
+&lt;class 'pandas.core.frame.DataFrame'&gt;
+RangeIndex: 8950 entries, 0 to 8949
+Data columns (total 18 columns):
+ #   Column                            Non-Null Count  Dtype  
+---  ------                            --------------  -----  
+ 0   CUST_ID                           8950 non-null   object 
+ 1   BALANCE                           8950 non-null   float64
+ 2   BALANCE_FREQUENCY                 8950 non-null   float64
+ 3   PURCHASES                         8950 non-null   float64
+ 4   ONEOFF_PURCHASES                  8950 non-null   float64
+ 5   INSTALLMENTS_PURCHASES            8950 non-null   float64
+ 6   CASH_ADVANCE                      8950 non-null   float64
+ 7   PURCHASES_FREQUENCY               8950 non-null   float64
+ 8   ONEOFF_PURCHASES_FREQUENCY        8950 non-null   float64
+ 9   PURCHASES_INSTALLMENTS_FREQUENCY  8950 non-null   float64
+ 10  CASH_ADVANCE_FREQUENCY            8950 non-null   float64
+ 11  CASH_ADVANCE_TRX                  8950 non-null   int64  
+ 12  PURCHASES_TRX                     8950 non-null   int64  
+ 13  CREDIT_LIMIT                      8950 non-null   float64
+ 14  PAYMENTS                          8950 non-null   float64
+ 15  MINIMUM_PAYMENTS                  8950 non-null   float64
+ 16  PRC_FULL_PAYMENT                  8950 non-null   float64
+ 17  TENURE                            8950 non-null   int64  
+dtypes: float64(14), int64(3), object(1)
+memory usage: 1.2+ MB
+None
+Skewness Transformation Report:</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Before</th>
+<th data-quarto-table-cell-role="th">After</th>
+<th data-quarto-table-cell-role="th">Improvement</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">MINIMUM_PAYMENTS</td>
+<td>13.852446</td>
+<td>-0.003489</td>
+<td>13.848957</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">ONEOFF_PURCHASES</td>
+<td>10.045083</td>
+<td>0.115147</td>
+<td>9.929936</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">PURCHASES</td>
+<td>8.144269</td>
+<td>-0.178677</td>
+<td>7.965592</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">INSTALLMENTS_PURCHASES</td>
+<td>7.299120</td>
+<td>-0.014843</td>
+<td>7.284277</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">PAYMENTS</td>
+<td>5.907620</td>
+<td>0.124630</td>
+<td>5.782989</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">CASH_ADVANCE_TRX</td>
+<td>5.721298</td>
+<td>0.392581</td>
+<td>5.328717</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">CASH_ADVANCE</td>
+<td>5.166609</td>
+<td>0.188413</td>
+<td>4.978196</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">PURCHASES_TRX</td>
+<td>4.630655</td>
+<td>0.006058</td>
+<td>4.624597</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">BALANCE</td>
+<td>2.393386</td>
+<td>0.829500</td>
+<td>1.563886</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">CASH_ADVANCE_FREQUENCY</td>
+<td>1.828686</td>
+<td>0.708929</td>
+<td>1.119757</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">CREDIT_LIMIT</td>
+<td>1.522636</td>
+<td>0.669349</td>
+<td>0.853286</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">ONEOFF_PURCHASES_FREQUENCY</td>
+<td>1.535613</td>
+<td>0.726386</td>
+<td>0.809227</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">PRC_FULL_PAYMENT</td>
+<td>1.942820</td>
+<td>1.298655</td>
+<td>0.644165</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">PURCHASES_INSTALLMENTS_FREQUENCY</td>
+<td>0.509201</td>
+<td>0.509201</td>
+<td>0.000000</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">PURCHASES_FREQUENCY</td>
+<td>0.060164</td>
+<td>0.060164</td>
+<td>0.000000</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">TENURE</td>
+<td>-2.943017</td>
+<td>-3.064332</td>
+<td>-0.121315</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">BALANCE_FREQUENCY</td>
+<td>-2.023266</td>
+<td>-2.819495</td>
+<td>-0.796229</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>&lt;class 'pandas.core.frame.DataFrame'&gt;
+RangeIndex: 8950 entries, 0 to 8949
+Data columns (total 18 columns):
+ #   Column                            Non-Null Count  Dtype  
+---  ------                            --------------  -----  
+ 0   CUST_ID                           8950 non-null   object 
+ 1   BALANCE                           8950 non-null   float64
+ 2   BALANCE_FREQUENCY                 8950 non-null   float64
+ 3   PURCHASES                         8950 non-null   float64
+ 4   ONEOFF_PURCHASES                  8950 non-null   float64
+ 5   INSTALLMENTS_PURCHASES            8950 non-null   float64
+ 6   CASH_ADVANCE                      8950 non-null   float64
+ 7   PURCHASES_FREQUENCY               8950 non-null   float64
+ 8   ONEOFF_PURCHASES_FREQUENCY        8950 non-null   float64
+ 9   PURCHASES_INSTALLMENTS_FREQUENCY  8950 non-null   float64
+ 10  CASH_ADVANCE_FREQUENCY            8950 non-null   float64
+ 11  CASH_ADVANCE_TRX                  8950 non-null   float64
+ 12  PURCHASES_TRX                     8950 non-null   float64
+ 13  CREDIT_LIMIT                      8950 non-null   float64
+ 14  PAYMENTS                          8950 non-null   float64
+ 15  MINIMUM_PAYMENTS                  8950 non-null   float64
+ 16  PRC_FULL_PAYMENT                  8950 non-null   float64
+ 17  TENURE                            8950 non-null   float64
+dtypes: float64(17), object(1)
+memory usage: 1.2+ MB
+None
+&lt;class 'pandas.core.frame.DataFrame'&gt;
+RangeIndex: 8950 entries, 0 to 8949
+Data columns (total 16 columns):
+ #   Column                            Non-Null Count  Dtype  
+---  ------                            --------------  -----  
+ 0   BALANCE                           8950 non-null   float64
+ 1   PURCHASES                         8950 non-null   float64
+ 2   ONEOFF_PURCHASES                  8950 non-null   float64
+ 3   INSTALLMENTS_PURCHASES            8950 non-null   float64
+ 4   CASH_ADVANCE                      8950 non-null   float64
+ 5   PURCHASES_TRX                     8950 non-null   float64
+ 6   PAYMENTS                          8950 non-null   float64
+ 7   MINIMUM_PAYMENTS                  8950 non-null   float64
+ 8   ONEOFF_PURCHASES_FREQUENCY        8950 non-null   float64
+ 9   PURCHASES_INSTALLMENTS_FREQUENCY  8950 non-null   float64
+ 10  CASH_ADVANCE_FREQUENCY            8950 non-null   float64
+ 11  CASH_ADVANCE_TRX                  8950 non-null   float64
+ 12  CREDIT_LIMIT                      8950 non-null   float64
+ 13  BALANCE_FREQUENCY                 8950 non-null   float64
+ 14  TENURE                            8950 non-null   float64
+ 15  PURCHASES_FREQUENCY               8950 non-null   float64
+dtypes: float64(16)
+memory usage: 1.1 MB
+None</code></pre>
+</div>
+</div>
+<div id="0d26a41e-a910-4df7-ad10-daca7b644094" class="cell" data-execution_count="85">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Feature Engineering, Feature Selection</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="co"># In our dataset, all columns are numeric columns, so we are not performing encoding</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> feature_engineering(df):</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>   df[<span class="st">'PAYMENT_RATIO'</span>] <span class="op">=</span> df[<span class="st">'PAYMENTS'</span>] <span class="op">/</span> (df[<span class="st">'BALANCE'</span>] <span class="op">+</span> <span class="fl">1e-6</span>) </span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>   df[<span class="st">'MIN_PAYMENT_RATIO'</span>] <span class="op">=</span> df[<span class="st">'MINIMUM_PAYMENTS'</span>] <span class="op">/</span> (df[<span class="st">'BALANCE'</span>] <span class="op">+</span> <span class="fl">1e-6</span>)</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>   df[<span class="st">'ONEOFF_RATIO'</span>] <span class="op">=</span> df[<span class="st">'ONEOFF_PURCHASES'</span>] <span class="op">/</span> (df[<span class="st">'PURCHASES'</span>] <span class="op">+</span> <span class="fl">1e-6</span>)</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>   df[<span class="st">'INSTALLMENT_RATIO'</span>] <span class="op">=</span> df[<span class="st">'INSTALLMENTS_PURCHASES'</span>] <span class="op">/</span> (df[<span class="st">'PURCHASES'</span>] <span class="op">+</span> <span class="fl">1e-6</span>)</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>   df[<span class="st">'CREDIT_UTILIZATION'</span>] <span class="op">=</span> df[<span class="st">'BALANCE'</span>] <span class="op">/</span> (df[<span class="st">'CREDIT_LIMIT'</span>] <span class="op">+</span> <span class="fl">1e-6</span>)</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>   df[<span class="st">'CASH_ADVANCE_RATIO'</span>] <span class="op">=</span> df[<span class="st">'CASH_ADVANCE'</span>] <span class="op">/</span> (df[<span class="st">'PURCHASES'</span>] <span class="op">+</span> df[<span class="st">'CASH_ADVANCE'</span>] <span class="op">+</span> <span class="fl">1e-6</span>)</span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>   df[<span class="st">'PURCHASES_PER_TRX'</span>] <span class="op">=</span> df[<span class="st">'PURCHASES'</span>] <span class="op">/</span> (df[<span class="st">'PURCHASES_TRX'</span>] <span class="op">+</span> <span class="fl">1e-6</span>)</span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>   df[<span class="st">'HIGH_CASH_ADVANCE'</span>] <span class="op">=</span> (df[<span class="st">'CASH_ADVANCE'</span>] <span class="op">&gt;</span> df[<span class="st">'CASH_ADVANCE'</span>].quantile(<span class="fl">0.75</span>)).astype(<span class="bu">int</span>)</span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>   df[<span class="st">'LOW_FREQUENCY'</span>] <span class="op">=</span> (df[<span class="st">'PURCHASES_FREQUENCY'</span>] <span class="op">&lt;</span> <span class="fl">0.2</span>).astype(<span class="bu">int</span>)</span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>   <span class="cf">return</span> df  </span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>credit_df_featured <span class="op">=</span> feature_engineering(credit_df_scaled)</span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(credit_df_featured.info())</span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> feature_selection(df, corr_threshold<span class="op">=</span><span class="fl">0.70</span>):</span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a>    cluster_features <span class="op">=</span> [</span>
+<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Based on Monetary</span></span>
+<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a>    <span class="st">'BALANCE'</span>, <span class="st">'PURCHASES'</span>, <span class="st">'ONEOFF_PURCHASES'</span>, <span class="st">'INSTALLMENTS_PURCHASES'</span>,<span class="st">'CASH_ADVANCE'</span>, <span class="st">'CREDIT_LIMIT'</span>, <span class="st">'PAYMENTS'</span>, <span class="st">'PAYMENT_RATIO'</span>, </span>
+<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a>    <span class="st">'MIN_PAYMENT_RATIO'</span>, <span class="st">'CREDIT_UTILIZATION'</span>, <span class="st">'CASH_ADVANCE_RATIO'</span>,</span>
+<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Based on frequency </span></span>
+<span id="cb7-26"><a href="#cb7-26" aria-hidden="true" tabindex="-1"></a>    <span class="st">'PURCHASES_TRX'</span>, <span class="st">'CASH_ADVANCE_TRX'</span>, <span class="st">'PURCHASES_FREQUENCY'</span>,<span class="st">'ONEOFF_PURCHASES_FREQUENCY'</span>, <span class="st">'PURCHASES_INSTALLMENTS_FREQUENCY'</span>, <span class="st">'CASH_ADVANCE_FREQUENCY'</span>, </span>
+<span id="cb7-27"><a href="#cb7-27" aria-hidden="true" tabindex="-1"></a>    <span class="st">'PURCHASES_PER_TRX'</span>, <span class="st">'HIGH_CASH_ADVANCE'</span>,<span class="st">'LOW_FREQUENCY'</span>,</span>
+<span id="cb7-28"><a href="#cb7-28" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb7-29"><a href="#cb7-29" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Based on Recency</span></span>
+<span id="cb7-30"><a href="#cb7-30" aria-hidden="true" tabindex="-1"></a>    <span class="st">'TENURE'</span>]</span>
+<span id="cb7-31"><a href="#cb7-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-32"><a href="#cb7-32" aria-hidden="true" tabindex="-1"></a>    df_selected <span class="op">=</span> df[cluster_features].copy()</span>
+<span id="cb7-33"><a href="#cb7-33" aria-hidden="true" tabindex="-1"></a>    <span class="co"># highly correlated values are removed</span></span>
+<span id="cb7-34"><a href="#cb7-34" aria-hidden="true" tabindex="-1"></a>    corr_matrix <span class="op">=</span> df_selected.corr().<span class="bu">abs</span>()</span>
+<span id="cb7-35"><a href="#cb7-35" aria-hidden="true" tabindex="-1"></a>    upper <span class="op">=</span> corr_matrix.where(np.triu(np.ones(corr_matrix.shape), k<span class="op">=</span><span class="dv">1</span>).astype(<span class="bu">bool</span>))</span>
+<span id="cb7-36"><a href="#cb7-36" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb7-37"><a href="#cb7-37" aria-hidden="true" tabindex="-1"></a>    to_drop <span class="op">=</span> [column <span class="cf">for</span> column <span class="kw">in</span> upper.columns <span class="cf">if</span> <span class="bu">any</span>(upper[column] <span class="op">&gt;</span> corr_threshold)]</span>
+<span id="cb7-38"><a href="#cb7-38" aria-hidden="true" tabindex="-1"></a>    df_selected.drop(columns<span class="op">=</span>to_drop, inplace<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb7-39"><a href="#cb7-39" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb7-40"><a href="#cb7-40" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"Columns dropped due to high correlation (&gt; </span><span class="sc">{</span>corr_threshold<span class="sc">}</span><span class="ss">): </span><span class="sc">{</span>to_drop<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb7-41"><a href="#cb7-41" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"Remaining columns using for clustering model: </span><span class="sc">{</span>df_selected<span class="sc">.</span>columns<span class="sc">.</span>tolist()<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb7-42"><a href="#cb7-42" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb7-43"><a href="#cb7-43" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> df_selected</span>
+<span id="cb7-44"><a href="#cb7-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-45"><a href="#cb7-45" aria-hidden="true" tabindex="-1"></a>feature_selected_clustering <span class="op">=</span> feature_selection(credit_df_featured)</span>
+<span id="cb7-46"><a href="#cb7-46" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(feature_selected_clustering.head())</span>
+<span id="cb7-47"><a href="#cb7-47" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(feature_selected_clustering.info())</span>
+<span id="cb7-48"><a href="#cb7-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-49"><a href="#cb7-49" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-50"><a href="#cb7-50" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.preprocessing <span class="im">import</span> StandardScaler</span>
+<span id="cb7-51"><a href="#cb7-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-52"><a href="#cb7-52" aria-hidden="true" tabindex="-1"></a>scaler <span class="op">=</span> StandardScaler()</span>
+<span id="cb7-53"><a href="#cb7-53" aria-hidden="true" tabindex="-1"></a>scaled_features <span class="op">=</span> scaler.fit_transform(feature_selected_clustering)</span>
+<span id="cb7-54"><a href="#cb7-54" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-55"><a href="#cb7-55" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.decomposition <span class="im">import</span> PCA</span>
+<span id="cb7-56"><a href="#cb7-56" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-57"><a href="#cb7-57" aria-hidden="true" tabindex="-1"></a>pca <span class="op">=</span> PCA(n_components<span class="op">=</span><span class="fl">0.95</span>) </span>
+<span id="cb7-58"><a href="#cb7-58" aria-hidden="true" tabindex="-1"></a>features_pca <span class="op">=</span> pca.fit_transform(scaled_features)</span>
+<span id="cb7-59"><a href="#cb7-59" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Reduced to </span><span class="sc">{</span>features_pca<span class="sc">.</span>shape[<span class="dv">1</span>]<span class="sc">}</span><span class="ss"> dimensions."</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>&lt;class 'pandas.core.frame.DataFrame'&gt;
+RangeIndex: 8950 entries, 0 to 8949
+Data columns (total 25 columns):
+ #   Column                            Non-Null Count  Dtype  
+---  ------                            --------------  -----  
+ 0   BALANCE                           8950 non-null   float64
+ 1   PURCHASES                         8950 non-null   float64
+ 2   ONEOFF_PURCHASES                  8950 non-null   float64
+ 3   INSTALLMENTS_PURCHASES            8950 non-null   float64
+ 4   CASH_ADVANCE                      8950 non-null   float64
+ 5   PURCHASES_TRX                     8950 non-null   float64
+ 6   PAYMENTS                          8950 non-null   float64
+ 7   MINIMUM_PAYMENTS                  8950 non-null   float64
+ 8   ONEOFF_PURCHASES_FREQUENCY        8950 non-null   float64
+ 9   PURCHASES_INSTALLMENTS_FREQUENCY  8950 non-null   float64
+ 10  CASH_ADVANCE_FREQUENCY            8950 non-null   float64
+ 11  CASH_ADVANCE_TRX                  8950 non-null   float64
+ 12  CREDIT_LIMIT                      8950 non-null   float64
+ 13  BALANCE_FREQUENCY                 8950 non-null   float64
+ 14  TENURE                            8950 non-null   float64
+ 15  PURCHASES_FREQUENCY               8950 non-null   float64
+ 16  PAYMENT_RATIO                     8950 non-null   float64
+ 17  MIN_PAYMENT_RATIO                 8950 non-null   float64
+ 18  ONEOFF_RATIO                      8950 non-null   float64
+ 19  INSTALLMENT_RATIO                 8950 non-null   float64
+ 20  CREDIT_UTILIZATION                8950 non-null   float64
+ 21  CASH_ADVANCE_RATIO                8950 non-null   float64
+ 22  PURCHASES_PER_TRX                 8950 non-null   float64
+ 23  HIGH_CASH_ADVANCE                 8950 non-null   int32  
+ 24  LOW_FREQUENCY                     8950 non-null   int32  
+dtypes: float64(23), int32(2)
+memory usage: 1.6 MB
+None
+Columns dropped due to high correlation (&gt; 0.7): ['ONEOFF_PURCHASES', 'PURCHASES_TRX', 'CASH_ADVANCE_TRX', 'PURCHASES_FREQUENCY', 'ONEOFF_PURCHASES_FREQUENCY', 'PURCHASES_INSTALLMENTS_FREQUENCY', 'CASH_ADVANCE_FREQUENCY', 'HIGH_CASH_ADVANCE', 'LOW_FREQUENCY']
+Remaining columns using for clustering model: ['BALANCE', 'PURCHASES', 'INSTALLMENTS_PURCHASES', 'CASH_ADVANCE', 'CREDIT_LIMIT', 'PAYMENTS', 'PAYMENT_RATIO', 'MIN_PAYMENT_RATIO', 'CREDIT_UTILIZATION', 'CASH_ADVANCE_RATIO', 'PURCHASES_PER_TRX', 'TENURE']
+    BALANCE  PURCHASES  INSTALLMENTS_PURCHASES  CASH_ADVANCE  CREDIT_LIMIT  \
+0 -1.078055  -0.368050                0.383704     -0.944538     -1.216584   
+1  1.053619  -1.505149               -1.085422      1.399909      0.856426   
+2  0.771680   0.521657               -1.085422     -0.944538      0.972681   
+3  0.384093   0.875823               -1.085422      0.680451      0.972681   
+4 -0.135254  -0.904786               -1.085422     -0.944538     -1.094693   
+
+   PAYMENTS  PAYMENT_RATIO  MIN_PAYMENT_RATIO  CREDIT_UTILIZATION  \
+0 -0.983876       0.912641           0.755774            0.886134   
+1  1.285321       1.219909           0.852837            1.230250   
+2 -0.291722      -0.378034           0.581978            0.793353   
+3 -2.782085      -7.243239          -0.355270            0.394880   
+4 -0.231669       1.712856           2.524060            0.123555   
+
+   CASH_ADVANCE_RATIO  PURCHASES_PER_TRX  TENURE  
+0            0.719600           0.641578     0.0  
+1          -13.302223           1.084696     0.0  
+2            2.233583           1.054367     0.0  
+3            0.437230          -1.003559     0.0  
+4            0.510748           1.036747     0.0  
+&lt;class 'pandas.core.frame.DataFrame'&gt;
+RangeIndex: 8950 entries, 0 to 8949
+Data columns (total 12 columns):
+ #   Column                  Non-Null Count  Dtype  
+---  ------                  --------------  -----  
+ 0   BALANCE                 8950 non-null   float64
+ 1   PURCHASES               8950 non-null   float64
+ 2   INSTALLMENTS_PURCHASES  8950 non-null   float64
+ 3   CASH_ADVANCE            8950 non-null   float64
+ 4   CREDIT_LIMIT            8950 non-null   float64
+ 5   PAYMENTS                8950 non-null   float64
+ 6   PAYMENT_RATIO           8950 non-null   float64
+ 7   MIN_PAYMENT_RATIO       8950 non-null   float64
+ 8   CREDIT_UTILIZATION      8950 non-null   float64
+ 9   CASH_ADVANCE_RATIO      8950 non-null   float64
+ 10  PURCHASES_PER_TRX       8950 non-null   float64
+ 11  TENURE                  8950 non-null   float64
+dtypes: float64(12)
+memory usage: 839.2 KB
+None
+Reduced to 10 dimensions.</code></pre>
+</div>
+</div>
+<div id="90432e13-ba2e-4ba9-80c8-6070cf47e7cb" class="cell" data-execution_count="87">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Applying the clustering </span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.cluster <span class="im">import</span> (</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>    KMeans, DBSCAN, AgglomerativeClustering, SpectralClustering</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.mixture <span class="im">import</span> GaussianMixture</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> silhouette_score</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>results <span class="op">=</span> []</span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> evaluate_clustering(model, name, data):</span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>    clusters <span class="op">=</span> model.fit_predict(data)</span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="bu">len</span>(<span class="bu">set</span>(clusters)) <span class="op">&gt;</span> <span class="dv">1</span>: </span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>        score <span class="op">=</span> silhouette_score(data, clusters)</span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>        results.append({</span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a>            <span class="st">'Algorithm'</span>: name,</span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a>            <span class="st">'Silhouette Score'</span>: score,</span>
+<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a>            <span class="st">'Clusters'</span>: <span class="bu">len</span>(<span class="bu">set</span>(clusters)),</span>
+<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a>            <span class="st">'Noise Points'</span>: <span class="bu">sum</span>(clusters <span class="op">==</span> <span class="op">-</span><span class="dv">1</span>) <span class="cf">if</span> <span class="bu">hasattr</span>(model, <span class="st">'labels_'</span>) <span class="cf">else</span> <span class="dv">0</span></span>
+<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a>        })</span>
+<span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>name<span class="sc">}</span><span class="ss">: Score = </span><span class="sc">{</span>score<span class="sc">:.3f}</span><span class="ss">, Clusters = </span><span class="sc">{</span><span class="bu">len</span>(<span class="bu">set</span>(clusters))<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
+<span id="cb9-24"><a href="#cb9-24" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>name<span class="sc">}</span><span class="ss">: Only 1 cluster detected."</span>)</span>
+<span id="cb9-25"><a href="#cb9-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-26"><a href="#cb9-26" aria-hidden="true" tabindex="-1"></a>algorithms <span class="op">=</span> {</span>
+<span id="cb9-27"><a href="#cb9-27" aria-hidden="true" tabindex="-1"></a>    <span class="st">"KMeans (k=3)"</span>: KMeans(n_clusters<span class="op">=</span><span class="dv">3</span>, random_state<span class="op">=</span><span class="dv">42</span>),</span>
+<span id="cb9-28"><a href="#cb9-28" aria-hidden="true" tabindex="-1"></a>    <span class="st">"GMM (k=3)"</span>: GaussianMixture(n_components<span class="op">=</span><span class="dv">3</span>, random_state<span class="op">=</span><span class="dv">42</span>),</span>
+<span id="cb9-29"><a href="#cb9-29" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Hierarchical (Ward)"</span>: AgglomerativeClustering(n_clusters<span class="op">=</span><span class="dv">3</span>, linkage<span class="op">=</span><span class="st">'ward'</span>),</span>
+<span id="cb9-30"><a href="#cb9-30" aria-hidden="true" tabindex="-1"></a>    <span class="st">"DBSCAN (eps=0.5)"</span>: DBSCAN(eps<span class="op">=</span><span class="fl">0.5</span>, min_samples<span class="op">=</span><span class="dv">5</span>),</span>
+<span id="cb9-31"><a href="#cb9-31" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Spectral (k=3)"</span>: SpectralClustering(n_clusters<span class="op">=</span><span class="dv">3</span>, affinity<span class="op">=</span><span class="st">'nearest_neighbors'</span>, random_state<span class="op">=</span><span class="dv">42</span>)</span>
+<span id="cb9-32"><a href="#cb9-32" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb9-33"><a href="#cb9-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-34"><a href="#cb9-34" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> features_pca <span class="cf">if</span> <span class="st">'features_pca'</span> <span class="kw">in</span> <span class="bu">locals</span>() <span class="cf">else</span> scaled_features</span>
+<span id="cb9-35"><a href="#cb9-35" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> name, model <span class="kw">in</span> algorithms.items():</span>
+<span id="cb9-36"><a href="#cb9-36" aria-hidden="true" tabindex="-1"></a>    evaluate_clustering(model, name, data)</span>
+<span id="cb9-37"><a href="#cb9-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-38"><a href="#cb9-38" aria-hidden="true" tabindex="-1"></a>results_df <span class="op">=</span> pd.DataFrame(results)</span>
+<span id="cb9-39"><a href="#cb9-39" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">Clustering Performance Summary:"</span>)</span>
+<span id="cb9-40"><a href="#cb9-40" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(results_df.sort_values(<span class="st">'Silhouette Score'</span>, ascending<span class="op">=</span><span class="va">False</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>KMeans (k=3): Score = 0.233, Clusters = 3
+GMM (k=3): Score = 0.026, Clusters = 3
+Hierarchical (Ward): Score = 0.194, Clusters = 3
+DBSCAN (eps=0.5): Score = -0.340, Clusters = 58
+Spectral (k=3): Score = 0.143, Clusters = 3
+
+Clustering Performance Summary:
+             Algorithm  Silhouette Score  Clusters  Noise Points
+0         KMeans (k=3)          0.232804         3             0
+2  Hierarchical (Ward)          0.193619         3             0
+4       Spectral (k=3)          0.142967         3             0
+1            GMM (k=3)          0.025639         3             0
+3     DBSCAN (eps=0.5)         -0.340413        58          3572</code></pre>
+</div>
+</div>
+<div id="e281d2bd-e171-4a0c-9885-5ad80e7cb17e" class="cell" data-execution_count="65">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.cluster <span class="im">import</span> KMeans</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>inertia <span class="op">=</span> []</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>k_range <span class="op">=</span> <span class="bu">range</span>(<span class="dv">2</span>, <span class="dv">8</span>)</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> k <span class="kw">in</span> k_range:</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>    kmeans <span class="op">=</span> KMeans(n_clusters<span class="op">=</span>k, random_state<span class="op">=</span><span class="dv">42</span>).fit(features_pca)</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>    inertia.append(kmeans.inertia_)</span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">8</span>, <span class="dv">4</span>))</span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>plt.plot(k_range, inertia, <span class="st">'bo-'</span>)</span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Number of Clusters (k)'</span>)</span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Inertia'</span>)</span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Elbow Method for K-means'</span>)</span>
+<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a>plt.xticks(k_range)</span>
+<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
+<span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-18"><a href="#cb11-18" aria-hidden="true" tabindex="-1"></a>optimal_k <span class="op">=</span> <span class="dv">7</span>  </span>
+<span id="cb11-19"><a href="#cb11-19" aria-hidden="true" tabindex="-1"></a>kmeans <span class="op">=</span> KMeans(n_clusters<span class="op">=</span>optimal_k, random_state<span class="op">=</span><span class="dv">42</span>)</span>
+<span id="cb11-20"><a href="#cb11-20" aria-hidden="true" tabindex="-1"></a>clusters <span class="op">=</span> kmeans.fit_predict(features_pca)</span>
+<span id="cb11-21"><a href="#cb11-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-22"><a href="#cb11-22" aria-hidden="true" tabindex="-1"></a>score <span class="op">=</span> silhouette_score(features_pca, clusters)</span>
+<span id="cb11-23"><a href="#cb11-23" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"K-means (k=</span><span class="sc">{</span>optimal_k<span class="sc">}</span><span class="ss">) Silhouette Score: </span><span class="sc">{</span>score<span class="sc">:.3f}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="main_files/figure-html/cell-6-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>K-means (k=7) Silhouette Score: 0.234</code></pre>
+</div>
+</div>
+<div id="ff92a330-71f8-4a4d-9709-ac7646a30683" class="cell" data-execution_count="92">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>X <span class="op">=</span> feature_selected_clustering[[<span class="st">'BALANCE'</span>, <span class="st">'CREDIT_UTILIZATION'</span>, <span class="st">'CASH_ADVANCE'</span>, <span class="st">'PAYMENTS'</span>]]</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>kmeans <span class="op">=</span> KMeans(n_clusters<span class="op">=</span><span class="dv">7</span>, random_state<span class="op">=</span><span class="dv">42</span>)</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>feature_selected_clustering[<span class="st">'Cluster'</span>] <span class="op">=</span> kmeans.fit_predict(X)</span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>cluster_means <span class="op">=</span> feature_selected_clustering.groupby(<span class="st">'Cluster'</span>)[</span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>    [<span class="st">'BALANCE'</span>, <span class="st">'CREDIT_UTILIZATION'</span>, <span class="st">'CASH_ADVANCE'</span>, <span class="st">'PAYMENTS'</span>]</span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>].mean()</span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>cluster_means[<span class="st">'Risk_Score'</span>] <span class="op">=</span> (</span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>    cluster_means[<span class="st">'BALANCE'</span>] <span class="op">*</span> <span class="fl">0.3</span> <span class="op">+</span></span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a>    cluster_means[<span class="st">'CREDIT_UTILIZATION'</span>] <span class="op">*</span> <span class="fl">0.4</span> <span class="op">+</span></span>
+<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a>    cluster_means[<span class="st">'CASH_ADVANCE'</span>] <span class="op">*</span> <span class="fl">0.3</span> <span class="op">-</span></span>
+<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a>    cluster_means[<span class="st">'PAYMENTS'</span>] <span class="op">*</span> <span class="fl">0.2</span></span>
+<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb13-18"><a href="#cb13-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-19"><a href="#cb13-19" aria-hidden="true" tabindex="-1"></a>cluster_means <span class="op">=</span> cluster_means.sort_values(<span class="st">'Risk_Score'</span>)</span>
+<span id="cb13-20"><a href="#cb13-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-21"><a href="#cb13-21" aria-hidden="true" tabindex="-1"></a>risk_labels <span class="op">=</span> [</span>
+<span id="cb13-22"><a href="#cb13-22" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Very Very Low Risk'</span>,</span>
+<span id="cb13-23"><a href="#cb13-23" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Very Low Risk'</span>, </span>
+<span id="cb13-24"><a href="#cb13-24" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Low Risk'</span>,</span>
+<span id="cb13-25"><a href="#cb13-25" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Medium Risk'</span>,</span>
+<span id="cb13-26"><a href="#cb13-26" aria-hidden="true" tabindex="-1"></a>    <span class="st">'High Risk'</span>,</span>
+<span id="cb13-27"><a href="#cb13-27" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Very High Risk'</span>,</span>
+<span id="cb13-28"><a href="#cb13-28" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Extreme Risk'</span></span>
+<span id="cb13-29"><a href="#cb13-29" aria-hidden="true" tabindex="-1"></a>]</span>
+<span id="cb13-30"><a href="#cb13-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-31"><a href="#cb13-31" aria-hidden="true" tabindex="-1"></a>cluster_means[<span class="st">'Risk_Label'</span>] <span class="op">=</span> pd.qcut(</span>
+<span id="cb13-32"><a href="#cb13-32" aria-hidden="true" tabindex="-1"></a>    cluster_means[<span class="st">'Risk_Score'</span>],</span>
+<span id="cb13-33"><a href="#cb13-33" aria-hidden="true" tabindex="-1"></a>    q<span class="op">=</span>[<span class="dv">0</span>, <span class="fl">0.15</span>, <span class="fl">0.3</span>, <span class="fl">0.45</span>, <span class="fl">0.6</span>, <span class="fl">0.75</span>, <span class="fl">0.9</span>, <span class="dv">1</span>], </span>
+<span id="cb13-34"><a href="#cb13-34" aria-hidden="true" tabindex="-1"></a>    labels<span class="op">=</span>risk_labels</span>
+<span id="cb13-35"><a href="#cb13-35" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb13-36"><a href="#cb13-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-37"><a href="#cb13-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-38"><a href="#cb13-38" aria-hidden="true" tabindex="-1"></a>feature_selected_clustering[<span class="st">'Risk_Label'</span>] <span class="op">=</span> feature_selected_clustering[<span class="st">'Cluster'</span>].<span class="bu">map</span>(</span>
+<span id="cb13-39"><a href="#cb13-39" aria-hidden="true" tabindex="-1"></a>    cluster_means[<span class="st">'Risk_Label'</span>].to_dict()</span>
+<span id="cb13-40"><a href="#cb13-40" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb13-41"><a href="#cb13-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-42"><a href="#cb13-42" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Risk Label Distribution:"</span>)</span>
+<span id="cb13-43"><a href="#cb13-43" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(feature_selected_clustering[<span class="st">'Risk_Label'</span>].value_counts().sort_index())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Risk Label Distribution:
+Risk_Label
+Extreme Risk            83
+High Risk             1692
+Low Risk              4343
+Medium Risk           1990
+Very High Risk         207
+Very Low Risk          403
+Very Very Low Risk     232
+Name: count, dtype: int64</code></pre>
+</div>
+</div>
+<div id="9158a451-2950-4028-8735-9574c41106aa" class="cell" data-execution_count="94">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.manifold <span class="im">import</span> TSNE</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>tsne <span class="op">=</span> TSNE(n_components<span class="op">=</span><span class="dv">2</span>, perplexity<span class="op">=</span><span class="dv">30</span>, random_state<span class="op">=</span><span class="dv">42</span>)</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>features_tsne <span class="op">=</span> tsne.fit_transform(scaled_features)</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">6</span>))</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>plt.scatter(features_tsne[:, <span class="dv">0</span>], features_tsne[:, <span class="dv">1</span>], </span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>            c<span class="op">=</span>clusters, cmap<span class="op">=</span><span class="st">'viridis'</span>, alpha<span class="op">=</span><span class="fl">0.6</span>, s<span class="op">=</span><span class="dv">30</span>)</span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Cluster Visualization (t-SNE)"</span>)</span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"t-SNE Dimension 1"</span>)</span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"t-SNE Dimension 2"</span>)</span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a>plt.colorbar(label<span class="op">=</span><span class="st">"Cluster"</span>)</span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="main_files/figure-html/cell-8-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+
+
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
+    }
+    setColorSchemeToggle(hasAlternateSentinel())
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/INFO-523-SU25\.github\.io\/final-project-gupta-karri\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
