@@ -200,14 +200,14 @@
     "href": "presentation.html#summary-of-cluster-algorithms",
     "title": "Behavioral Outlier Segmentation using credit card dataset",
     "section": "Summary of Cluster Algorithms",
-    "text": "Summary of Cluster Algorithms\n K-Means (k=3) produced 3 clusters with a moderate Silhouette Score (0.233), indicating some separation between clusters but not very strong."
+    "text": "Summary of Cluster Algorithms\n\nK-Means (k=3) produced 3 clusters with a moderate Silhouette Score (0.233), indicating some separation between clusters but not very strong."
   },
   {
     "objectID": "presentation.html#cluster-elbow-curve",
     "href": "presentation.html#cluster-elbow-curve",
     "title": "Behavioral Outlier Segmentation using credit card dataset",
     "section": "Cluster Elbow curve",
-    "text": "Cluster Elbow curve\n - The Elbow Curve indicates that 4 clusters capture most of the variation in the data.\n- Therefore, we divide customers into 4 behavioral segments for further analysis."
+    "text": "Cluster Elbow curve\n\n\nThe Elbow Curve indicates that 4 clusters capture most of the variation in the data.\n\nTherefore, we divide customers into 4 behavioral segments for further analysis."
   },
   {
     "objectID": "presentation.html#clusters-based-on-behavior",
@@ -221,14 +221,14 @@
     "href": "presentation.html#customer-risk-label-distribution",
     "title": "Behavioral Outlier Segmentation using credit card dataset",
     "section": "Customer Risk Label Distribution",
-    "text": "Customer Risk Label Distribution\n - Most customers fall into Low Risk (261) and Medium Risk (6,139) categories.\n- A smaller number of customers are in High Risk (2,453) and Extreme Risk (97)"
+    "text": "Customer Risk Label Distribution\n\n\nMost customers fall into Low Risk (261) and Medium Risk (6,139) categories.\n\nA smaller number of customers are in High Risk (2,453) and Extreme Risk (97)"
   },
   {
     "objectID": "presentation.html#limitations",
     "href": "presentation.html#limitations",
     "title": "Behavioral Outlier Segmentation using credit card dataset",
     "section": "Limitations:",
-    "text": "Limitations:\n\nData quality and completeness may affect clustering accuracy\nFeature selection could be further optimized"
+    "text": "Limitations:"
   },
   {
     "objectID": "presentation.html#acknowledgment",
