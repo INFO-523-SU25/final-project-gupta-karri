@@ -457,53 +457,15 @@ plt.show()
 
 ---
 
-## Work Flow
-
-*EDA*
-   ↓  
-*Data Preprocessing*
-   ↓  
-*Feature Engineering & Selection*
-   ↓  
-*Clustering & Evaluation*  // *Churn Prediction Modeling*  
-   ↓  
-*Select Best Clustering Algorithm*  // *Feature Importance Analysis*
-   ↓  
-*Visualization of Clusters* // *Business Insights & Recommendations*
-
----
-
 ## Outlier Detection
 
 ![](img/boxplots.png){ width=700px }
 
-**Outlier Summary:**
-
-- BALANCE: 695 outliers
-
-- PURCHASES: 808 outliers 
-
-- CASH_ADVANCE: 1,030 outliers
-
-- MINIMUM_PAYMENTS: 841 outliers
-
 ## Distribution Analysis
 ![](img/skewness_histograms.png){ width=700px }
 
-**Skewness Issues Identified:**
-
-- MINIMUM_PAYMENTS: 13.62 (extremely skewed)
-
-- ONEOFF_PURCHASES: 10.05 (highly skewed)
-
-- PURCHASES: 8.14 (highly skewed)
-
 ## After Transformation
 ![](img/skewness.png){ width=500px }
-
-- After applying transformations, the skewness of most numerical features was **significantly reduced**
-- Box-Cox** and **Yeo-Johnson** transformations applied for highly skewed features
-- Square root** and **cube root** transformations for moderately skewed features
 
 ---
 
@@ -525,12 +487,6 @@ plt.show()
 ## Clusters based on behavior 
 ![](img/cluster.png){ width=700px }
 
-- Cluster 0: Low balance, low purchases, low risk
-- Cluster 1: Medium balance, medium purchases, medium risk  
-- Cluster 2: High balance, high purchases, high risk
-- Cluster 3: Very high balance, very high purchases, extreme risk
-
-
 ---
 
 ## Customer Risk Label Distribution
@@ -541,7 +497,6 @@ plt.show()
 
 ---
 
-## Churn Prediction Analysis
 ## Feature Correlation Analysis
 - **Highly correlated features (>0.8):**
   - PURCHASES ↔ ONEOFF_PURCHASES: 0.917
@@ -569,13 +524,6 @@ plt.show()
 
 ![](img/confusion_matrix.png){ width=600px }
 
-| Metric | Score |
-|--------|-------|
-| **Test Set ROC-AUC** | 0.9994 |
-| **Accuracy** | 98.94% |
-| **Precision** | 98.42% |
-| **Recall** | 97.32% |
-| **F1-Score** | 97.87% |
 
 ## Acknowledgment
 

@@ -32,7 +32,8 @@ This project leverages machine learning to segment credit card customers by beha
 
 ## Question
 
-How can we segment credit card customers based on transactional behavior and predict which customers are likely to churn using machine learning techniques?
+- Group customers based on credit card spending, payment, and usage behavior
+- Identify customers likely to stop using their card and take proactive retention measures
 
 ## Dataset
 

@@ -122,11 +122,8 @@
     }
   </style>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
-
   
-
   <script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
-
 </head>
 <body class="quarto-light">
   <div class="reveal">
@@ -188,48 +185,18 @@ Saumya Gupta, Sathwika Karri
 <li>Need to predict potential churners proactively</li>
 </ul>
 </section>
-<section id="work-flow" class="slide level2">
-<h2>Work Flow</h2>
-<p><em>EDA</em> ↓<br>
-<em>Data Preprocessing</em> ↓<br>
-<em>Feature Engineering &amp; Selection</em> ↓<br>
-<em>Clustering &amp; Evaluation</em> // <em>Churn Prediction Modeling</em><br>
-↓<br>
-<em>Select Best Clustering Algorithm</em> // <em>Feature Importance Analysis</em> ↓<br>
-<em>Visualization of Clusters</em></p>
-<p>↓<br>
-<em>Business Insights &amp; Recommendations</em></p>
-</section>
 <section id="outlier-detection" class="slide level2">
 <h2>Outlier Detection</h2>
 
-<img data-src="img/boxplots.png" width="500" class="r-stretch"><p><strong>Outlier Summary:</strong></p>
-<ul>
-<li><p><strong>BALANCE</strong>: 695 outliers</p></li>
-<li><p><strong>PURCHASES</strong>: 808 outliers</p></li>
-<li><p><strong>CASH_ADVANCE</strong>: 1,030 outliers</p></li>
-<li><p><strong>MINIMUM_PAYMENTS</strong>: 841 outliers</p></li>
-</ul>
-</section>
+<img data-src="img/boxplots.png" width="700" class="r-stretch"></section>
 <section id="distribution-analysis" class="slide level2">
 <h2>Distribution Analysis</h2>
 
-<img data-src="img/skewness_histograms.png" width="500" class="r-stretch"><p><strong>Skewness Issues Identified:</strong></p>
-<ul>
-<li><p>MINIMUM_PAYMENTS**: 13.62 (extremely skewed)</p></li>
-<li><p>ONEOFF_PURCHASES**: 10.05 (highly skewed)</p></li>
-<li><p>PURCHASES**: 8.14 (highly skewed)</p></li>
-</ul>
-</section>
+<img data-src="img/skewness_histograms.png" width="700" class="r-stretch"></section>
 <section id="after-transformation" class="slide level2">
 <h2>After Transformation</h2>
 
-<img data-src="img/skewness.png" width="500" class="r-stretch"><ul>
-<li>After applying transformations, the skewness of most numerical features was <strong>significantly reduced</strong></li>
-<li>Box-Cox** and <strong>Yeo-Johnson</strong> transformations applied for highly skewed features</li>
-<li>Square root** and <strong>cube root</strong> transformations for moderately skewed features</li>
-</ul>
-</section>
+<img data-src="img/skewness.png" width="500" class="r-stretch"></section>
 <section id="summary-of-cluster-algorithms" class="slide level2">
 <h2>Summary of Cluster Algorithms</h2>
 
@@ -247,14 +214,7 @@ Saumya Gupta, Sathwika Karri
 <section id="clusters-based-on-behavior" class="slide level2">
 <h2>Clusters based on behavior</h2>
 
-<img data-src="img/cluster.png" width="700" class="r-stretch"><ul>
-<li>Cluster 0: Low balance, low purchases, low risk</li>
-<li>Cluster 1: Medium balance, medium purchases, medium risk<br>
-</li>
-<li>Cluster 2: High balance, high purchases, high risk</li>
-<li>Cluster 3: Very high balance, very high purchases, extreme risk</li>
-</ul>
-</section>
+<img data-src="img/cluster.png" width="700" class="r-stretch"></section>
 <section id="customer-risk-label-distribution" class="slide level2">
 <h2>Customer Risk Label Distribution</h2>
 
@@ -263,9 +223,6 @@ Saumya Gupta, Sathwika Karri
 </li>
 <li>A smaller number of customers are in <strong>High Risk (2,453)</strong> and <strong>Extreme Risk (97)</strong></li>
 </ul>
-</section>
-<section id="churn-prediction-analysis" class="slide level2">
-<h2>Churn Prediction Analysis</h2>
 </section>
 <section id="feature-correlation-analysis" class="slide level2">
 <h2>Feature Correlation Analysis</h2>
@@ -291,37 +248,7 @@ Saumya Gupta, Sathwika Karri
 <section id="model-evaluation-results" class="slide level2">
 <h2>Model Evaluation Results</h2>
 
-<img data-src="img/confusion_matrix.png" width="600" class="r-stretch"><table class="caption-top">
-<thead>
-<tr class="header">
-<th>Metric</th>
-<th>Score</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><strong>Test Set ROC-AUC</strong></td>
-<td>0.9994</td>
-</tr>
-<tr class="even">
-<td><strong>Accuracy</strong></td>
-<td>98.94%</td>
-</tr>
-<tr class="odd">
-<td><strong>Precision</strong></td>
-<td>98.42%</td>
-</tr>
-<tr class="even">
-<td><strong>Recall</strong></td>
-<td>97.32%</td>
-</tr>
-<tr class="odd">
-<td><strong>F1-Score</strong></td>
-<td>97.87%</td>
-</tr>
-</tbody>
-</table>
-</section>
+<img data-src="img/confusion_matrix.png" width="600" class="r-stretch"></section>
 <section id="acknowledgment" class="slide level2">
 <h2>Acknowledgment</h2>
 <ul>
@@ -615,7 +542,7 @@ Saumya Gupta, Sathwika Karri
         }
           var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
           var mailtoRegex = new RegExp(/^mailto:/);
-            var filterRegex = new RegExp('/' + window.location.host + '/');
+            var filterRegex = new RegExp("https:\/\/INFO-523-SU25\.github\.io\/final-project-gupta-karri\/");
           var isInternal = (href) => {
               return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
           }
