@@ -371,6 +371,20 @@
     "text": "Model Evaluation Results"
   },
   {
+    "objectID": "presentation.html#conclusion",
+    "href": "presentation.html#conclusion",
+    "title": "Behavioral Outlier Segmentation using credit card dataset",
+    "section": "Conclusion",
+    "text": "Conclusion\nThis project successfully demonstrates the power of combining unsupervised learning (clustering) and supervised learning (classification) for customer behavior analysis in the financial services sector. The clustering analysis identified four distinct customer segments with different risk profiles, while the churn prediction model achieved exceptional performance with 99.94% ROC-AUC.\nThe analysis reveals that customer behavior patterns, particularly cash advance usage and credit utilization, are strong predictors of churn risk. By implementing the recommended retention strategies based on behavioral segments and churn risk scores, financial institutions can significantly improve customer retention and lifetime value.\nThe project showcases the value of data-driven decision-making in customer relationship management, providing actionable insights for proactive customer retention strategies. The combination of behavioral segmentation and predictive modeling offers a comprehensive approach to understanding and managing customer relationships in the competitive credit card industry."
+  },
+  {
+    "objectID": "presentation.html#limitations",
+    "href": "presentation.html#limitations",
+    "title": "Behavioral Outlier Segmentation using credit card dataset",
+    "section": "Limitations",
+    "text": "Limitations\n\nSynthetic Target: Churn target created using business rules rather than actual churn data\nFeature Availability: Some features like PRC_FULL_PAYMENT were not available in the dataset\nTemporal Aspect: No time-series data to capture actual churn patterns over time\nDomain Expertise: Risk scoring weights based on business assumptions rather than empirical validation"
+  },
+  {
     "objectID": "presentation.html#acknowledgment",
     "href": "presentation.html#acknowledgment",
     "title": "Behavioral Outlier Segmentation using credit card dataset",
