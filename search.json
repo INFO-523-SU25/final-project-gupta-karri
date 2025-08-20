@@ -294,13 +294,6 @@
     "text": "Analytical Approach\n\nUsing cluster techniques to group customers based on spending, payment frequency, and transaction history to identify common behavioral segments\n\nUsing regression analysis to predict the likelihood of customer churn for each individual based on behavioral patterns and segment\n\nTailor retention strategies based on behavioral segments"
   },
   {
-    "objectID": "presentation.html#business-challenges",
-    "href": "presentation.html#business-challenges",
-    "title": "Behavioral Outlier Segmentation using credit card dataset",
-    "section": "Business Challenges",
-    "text": "Business Challenges\nProblem 1: We Don’t Know Our Customers\n\nWithout behavioral segmentation, we treat all customers the same\n\nHigh-risk users go unnoticed; best clients are not rewarded\n\nProblem 2: Customers Leave Without Warning\n\nCustomer churn is expensive: acquiring a new customer costs 5x more than retention\n\nNeed to predict potential churners proactively"
-  },
-  {
     "objectID": "presentation.html#outlier-detection",
     "href": "presentation.html#outlier-detection",
     "title": "Behavioral Outlier Segmentation using credit card dataset",
