@@ -187,19 +187,15 @@ Saumya Gupta, Sathwika Karri
 </section>
 <section id="work-flow" class="slide level2">
 <h2>Work Flow</h2>
-<p><strong>EDA</strong> ↓<br>
+<p><em>EDA</em> ↓<br>
 <em>Data Preprocessing</em> ↓<br>
-<strong>Feature Engineering &amp; Selection</strong> ↓<br>
-<strong>Clustering &amp; Evaluation</strong><br>
+<em>Feature Engineering &amp; Selection</em> ↓<br>
+<em>Clustering &amp; Evaluation</em> // <em>Churn Prediction Modeling</em><br>
 ↓<br>
-<strong>Select Best Clustering Algorithm</strong><br>
-↓<br>
-<strong>Visualization of Clusters</strong> ↓<br>
-<strong>Churn Prediction Modeling</strong><br>
-↓<br>
-<strong>Feature Importance Analysis</strong><br>
-↓<br>
-<strong>Business Insights &amp; Recommendations</strong></p>
+<em>Select Best Clustering Algorithm</em> // <em>Feature Importance Analysis</em> ↓<br>
+<em>Visualization of Clusters</em></p>
+<p>↓<br>
+<em>Business Insights &amp; Recommendations</em></p>
 </section>
 <section id="outlier-detection" class="slide level2">
 <h2>Outlier Detection</h2>
@@ -217,9 +213,9 @@ Saumya Gupta, Sathwika Karri
 
 <img data-src="img/skewness_histograms.png" width="500" class="r-stretch"><p><strong>Skewness Issues Identified:</strong></p>
 <ul>
-<li><p><strong>MINIMUM_PAYMENTS</strong>: 13.62 (extremely skewed)</p></li>
-<li><p><strong>ONEOFF_PURCHASES</strong>: 10.05 (highly skewed)</p></li>
-<li><p><strong>PURCHASES</strong>: 8.14 (highly skewed)</p></li>
+<li><p>MINIMUM_PAYMENTS**: 13.62 (extremely skewed)</p></li>
+<li><p>ONEOFF_PURCHASES**: 10.05 (highly skewed)</p></li>
+<li><p>PURCHASES**: 8.14 (highly skewed)</p></li>
 </ul>
 </section>
 <section id="after-transformation" class="slide level2">
@@ -227,8 +223,8 @@ Saumya Gupta, Sathwika Karri
 
 <img data-src="img/skewness.png" width="500" class="r-stretch"><ul>
 <li>After applying transformations, the skewness of most numerical features was <strong>significantly reduced</strong></li>
-<li><strong>Box-Cox</strong> and <strong>Yeo-Johnson</strong> transformations applied for highly skewed features</li>
-<li><strong>Square root</strong> and <strong>cube root</strong> transformations for moderately skewed features</li>
+<li>Box-Cox** and <strong>Yeo-Johnson</strong> transformations applied for highly skewed features</li>
+<li>Square root** and <strong>cube root</strong> transformations for moderately skewed features</li>
 </ul>
 </section>
 <section id="summary-of-cluster-algorithms" class="slide level2">
@@ -249,11 +245,11 @@ Saumya Gupta, Sathwika Karri
 <h2>Clusters based on behavior</h2>
 
 <img data-src="img/cluster.png" width="700" class="r-stretch"><ul>
-<li><strong>Cluster 0</strong>: Low balance, low purchases, low risk</li>
-<li><strong>Cluster 1</strong>: Medium balance, medium purchases, medium risk<br>
+<li>Cluster 0: Low balance, low purchases, low risk</li>
+<li>Cluster 1: Medium balance, medium purchases, medium risk<br>
 </li>
-<li><strong>Cluster 2</strong>: High balance, high purchases, high risk</li>
-<li><strong>Cluster 3</strong>: Very high balance, very high purchases, extreme risk</li>
+<li>Cluster 2: High balance, high purchases, high risk</li>
+<li>Cluster 3: Very high balance, very high purchases, extreme risk</li>
 </ul>
 </section>
 <section id="customer-risk-label-distribution" class="slide level2">

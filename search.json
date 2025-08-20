@@ -81,7 +81,7 @@
     "href": "index.html#question",
     "title": "Behavioral Outlier Segmentation using Credit Card Dataset",
     "section": "Question",
-    "text": "Question\nHow can we segment credit card customers based on transactional behavior and predict which customers are likely to churn using machine learning techniques?"
+    "text": "Question\n\nGroup customers based on credit card spending, payment, and usage behavior\nIdentify customers likely to stop using their card and take proactive retention measures"
   },
   {
     "objectID": "index.html#dataset",
@@ -305,7 +305,7 @@
     "href": "presentation.html#work-flow",
     "title": "Behavioral Outlier Segmentation using credit card dataset",
     "section": "Work Flow",
-    "text": "Work Flow\nEDA ↓\nData Preprocessing ↓\nFeature Engineering & Selection ↓\nClustering & Evaluation\n↓\nSelect Best Clustering Algorithm\n↓\nVisualization of Clusters ↓\nChurn Prediction Modeling\n↓\nFeature Importance Analysis\n↓\nBusiness Insights & Recommendations"
+    "text": "Work Flow\nEDA ↓\nData Preprocessing ↓\nFeature Engineering & Selection ↓\nClustering & Evaluation // Churn Prediction Modeling\n↓\nSelect Best Clustering Algorithm // Feature Importance Analysis ↓\nVisualization of Clusters\n↓\nBusiness Insights & Recommendations"
   },
   {
     "objectID": "presentation.html#outlier-detection",
@@ -319,14 +319,14 @@
     "href": "presentation.html#distribution-analysis",
     "title": "Behavioral Outlier Segmentation using credit card dataset",
     "section": "Distribution Analysis",
-    "text": "Distribution Analysis\n\nSkewness Issues Identified:\n\nMINIMUM_PAYMENTS: 13.62 (extremely skewed)\nONEOFF_PURCHASES: 10.05 (highly skewed)\nPURCHASES: 8.14 (highly skewed)"
+    "text": "Distribution Analysis\n\nSkewness Issues Identified:\n\nMINIMUM_PAYMENTS**: 13.62 (extremely skewed)\nONEOFF_PURCHASES**: 10.05 (highly skewed)\nPURCHASES**: 8.14 (highly skewed)"
   },
   {
     "objectID": "presentation.html#after-transformation",
     "href": "presentation.html#after-transformation",
     "title": "Behavioral Outlier Segmentation using credit card dataset",
     "section": "After Transformation",
-    "text": "After Transformation\n\n\nAfter applying transformations, the skewness of most numerical features was significantly reduced\nBox-Cox and Yeo-Johnson transformations applied for highly skewed features\nSquare root and cube root transformations for moderately skewed features"
+    "text": "After Transformation\n\n\nAfter applying transformations, the skewness of most numerical features was significantly reduced\nBox-Cox** and Yeo-Johnson transformations applied for highly skewed features\nSquare root** and cube root transformations for moderately skewed features"
   },
   {
     "objectID": "presentation.html#summary-of-cluster-algorithms",

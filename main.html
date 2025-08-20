@@ -430,7 +430,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="step-1-exploratory-data-analysis-eda-1" class="level2">
 <h2 class="anchored" data-anchor-id="step-1-exploratory-data-analysis-eda-1">Step 1: Exploratory Data Analysis (EDA)</h2>
-<div id="4e3e66d2-5dd3-43f6-a52e-326ab68c8ebe" class="cell" data-execution_count="1">
+<div id="4e3e66d2-5dd3-43f6-a52e-326ab68c8ebe" class="cell" data-execution_count="31">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># EDA </span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
@@ -763,7 +763,7 @@ dtype: float64</code></pre>
 </section>
 <section id="step-2-data-preprocessing-1" class="level2">
 <h2 class="anchored" data-anchor-id="step-2-data-preprocessing-1">Step 2: Data Preprocessing</h2>
-<div id="e65df57c-0c38-4f97-b35d-052936fe2210" class="cell" data-execution_count="3">
+<div id="e65df57c-0c38-4f97-b35d-052936fe2210" class="cell" data-execution_count="33">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Preprocessing </span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.preprocessing <span class="im">import</span> StandardScaler, RobustScaler, MinMaxScaler</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.compose <span class="im">import</span> ColumnTransformer</span>
@@ -1093,7 +1093,7 @@ None</code></pre>
 </section>
 <section id="step-3-feature-engineering-feature-selection-1" class="level2">
 <h2 class="anchored" data-anchor-id="step-3-feature-engineering-feature-selection-1">Step 3: Feature Engineering &amp; Feature Selection</h2>
-<div id="0d26a41e-a910-4df7-ad10-daca7b644094" class="cell" data-execution_count="5">
+<div id="0d26a41e-a910-4df7-ad10-daca7b644094" class="cell" data-execution_count="35">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Feature Engineering, Feature Selection</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="co"># In our dataset, all columns are numeric columns, so we are not performing encoding</span></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1235,7 +1235,7 @@ Reduced to 10 dimensions.</code></pre>
 </section>
 <section id="step-4-apply-clustering-algorithms-evaluate-1" class="level2">
 <h2 class="anchored" data-anchor-id="step-4-apply-clustering-algorithms-evaluate-1">Step 4: Apply Clustering Algorithms &amp; Evaluate</h2>
-<div id="90432e13-ba2e-4ba9-80c8-6070cf47e7cb" class="cell" data-execution_count="7">
+<div id="90432e13-ba2e-4ba9-80c8-6070cf47e7cb" class="cell" data-execution_count="37">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Applying the clustering </span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.cluster <span class="im">import</span> (</span>
@@ -1334,7 +1334,7 @@ Clustering Performance Summary:
 </section>
 <section id="clusters-were-assigned-labels-based-on-their-behavior-representing-different-risk-levels." class="level1">
 <h1>Clusters were assigned labels based on their behavior, representing different Risk Levels.</h1>
-<div id="ff92a330-71f8-4a4d-9709-ac7646a30683" class="cell" data-execution_count="23">
+<div id="ff92a330-71f8-4a4d-9709-ac7646a30683" class="cell" data-execution_count="38">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>X <span class="op">=</span> feature_selected_clustering[[<span class="st">'BALANCE'</span>, <span class="st">'CREDIT_UTILIZATION'</span>, <span class="st">'CASH_ADVANCE'</span>, <span class="st">'PAYMENTS'</span>]]</span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>kmeans <span class="op">=</span> KMeans(n_clusters<span class="op">=</span><span class="dv">4</span>, random_state<span class="op">=</span><span class="dv">42</span>)</span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>feature_selected_clustering[<span class="st">'Cluster'</span>] <span class="op">=</span> kmeans.fit_predict(X)</span>
@@ -1375,7 +1375,7 @@ Name: count, dtype: int64</code></pre>
 </div>
 <section id="step-6-visualization-of-clusters-1" class="level2">
 <h2 class="anchored" data-anchor-id="step-6-visualization-of-clusters-1">Step 6: Visualization of Clusters</h2>
-<div id="9158a451-2950-4028-8735-9574c41106aa" class="cell" data-execution_count="28">
+<div id="9158a451-2950-4028-8735-9574c41106aa" class="cell" data-execution_count="41">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.manifold <span class="im">import</span> TSNE</span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>tsne <span class="op">=</span> TSNE(n_components<span class="op">=</span><span class="dv">2</span>, perplexity<span class="op">=</span><span class="dv">30</span>, random_state<span class="op">=</span><span class="dv">42</span>)</span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>features_tsne <span class="op">=</span> tsne.fit_transform(scaled_features)</span>
