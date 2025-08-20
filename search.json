@@ -305,28 +305,28 @@
     "href": "presentation.html#work-flow",
     "title": "Behavioral Outlier Segmentation using credit card dataset",
     "section": "Work Flow",
-    "text": "Work Flow\nEDA ↓\nData Preprocessing ↓\nFeature Engineering & Selection ↓\nClustering & Evaluation // Churn Prediction Modeling\n↓\nSelect Best Clustering Algorithm // Feature Importance Analysis ↓\nVisualization of Clusters\n↓\nBusiness Insights & Recommendations"
+    "text": "Work Flow\nEDA ↓\nData Preprocessing ↓\nFeature Engineering & Selection ↓\nClustering & Evaluation // Churn Prediction Modeling\n↓\nSelect Best Clustering Algorithm // Feature Importance Analysis ↓\nVisualization of Clusters // Business Insights & Recommendations"
   },
   {
     "objectID": "presentation.html#outlier-detection",
     "href": "presentation.html#outlier-detection",
     "title": "Behavioral Outlier Segmentation using credit card dataset",
     "section": "Outlier Detection",
-    "text": "Outlier Detection\n\nOutlier Summary:\n\nBALANCE: 695 outliers\nPURCHASES: 808 outliers\nCASH_ADVANCE: 1,030 outliers\nMINIMUM_PAYMENTS: 841 outliers"
+    "text": "Outlier Detection"
   },
   {
     "objectID": "presentation.html#distribution-analysis",
     "href": "presentation.html#distribution-analysis",
     "title": "Behavioral Outlier Segmentation using credit card dataset",
     "section": "Distribution Analysis",
-    "text": "Distribution Analysis\n\nSkewness Issues Identified:\n\nMINIMUM_PAYMENTS**: 13.62 (extremely skewed)\nONEOFF_PURCHASES**: 10.05 (highly skewed)\nPURCHASES**: 8.14 (highly skewed)"
+    "text": "Distribution Analysis"
   },
   {
     "objectID": "presentation.html#after-transformation",
     "href": "presentation.html#after-transformation",
     "title": "Behavioral Outlier Segmentation using credit card dataset",
     "section": "After Transformation",
-    "text": "After Transformation\n\n\nAfter applying transformations, the skewness of most numerical features was significantly reduced\nBox-Cox** and Yeo-Johnson transformations applied for highly skewed features\nSquare root** and cube root transformations for moderately skewed features"
+    "text": "After Transformation"
   },
   {
     "objectID": "presentation.html#summary-of-cluster-algorithms",
@@ -347,7 +347,7 @@
     "href": "presentation.html#clusters-based-on-behavior",
     "title": "Behavioral Outlier Segmentation using credit card dataset",
     "section": "Clusters based on behavior",
-    "text": "Clusters based on behavior\n\n\nCluster 0: Low balance, low purchases, low risk\nCluster 1: Medium balance, medium purchases, medium risk\n\nCluster 2: High balance, high purchases, high risk\nCluster 3: Very high balance, very high purchases, extreme risk"
+    "text": "Clusters based on behavior"
   },
   {
     "objectID": "presentation.html#customer-risk-label-distribution",
@@ -355,13 +355,6 @@
     "title": "Behavioral Outlier Segmentation using credit card dataset",
     "section": "Customer Risk Label Distribution",
     "text": "Customer Risk Label Distribution\n\n\nMost customers fall into Low Risk (261) and Medium Risk (6,139) categories.\n\nA smaller number of customers are in High Risk (2,453) and Extreme Risk (97)"
-  },
-  {
-    "objectID": "presentation.html#churn-prediction-analysis",
-    "href": "presentation.html#churn-prediction-analysis",
-    "title": "Behavioral Outlier Segmentation using credit card dataset",
-    "section": "Churn Prediction Analysis",
-    "text": "Churn Prediction Analysis"
   },
   {
     "objectID": "presentation.html#feature-correlation-analysis",
@@ -382,7 +375,7 @@
     "href": "presentation.html#model-evaluation-results",
     "title": "Behavioral Outlier Segmentation using credit card dataset",
     "section": "Model Evaluation Results",
-    "text": "Model Evaluation Results\n\n\n\n\nMetric\nScore\n\n\n\n\nTest Set ROC-AUC\n0.9994\n\n\nAccuracy\n98.94%\n\n\nPrecision\n98.42%\n\n\nRecall\n97.32%\n\n\nF1-Score\n97.87%"
+    "text": "Model Evaluation Results"
   },
   {
     "objectID": "presentation.html#acknowledgment",
