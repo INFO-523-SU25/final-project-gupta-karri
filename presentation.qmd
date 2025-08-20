@@ -418,30 +418,32 @@ plt.ylabel("t-SNE Dimension 2")
 plt.colorbar(label="Cluster")
 plt.show()
 ```
-Behavioral Outlier Segmentation using credit card dataset
 ---
 
-##### Objective 
+## Objective 
 - Group customers based on credit card spending, payment, and usage behavior  
 - Identify customers likely to stop using their card and take proactive retention measures
 
+---
 
-# Business Problem 
+## Business Problem 
 1. Detect clusters of customers by transaction behavior (recency, frequency, monetary) and classify risk levels (high, medium, low) 
 ![credit card](img/credit.png){ width=300px }
 2. Predict which customers might churn or switch to competitors
 
+---
 
-# Analytical Approach
+## Analytical Approach
 
 - Using **cluster techniques** to group customers based on spending, payment frequency, and transaction history to identify common behavioral segments  
 - Using **regression analysis** to predict the likelihood of customer churn for each individual based on behavioral patterns and segment  
 - Tailor retention strategies based on behavioral segments
 
+---
 
-# Business Challenges
+## Business Challenges
 
-**Problem 1: We Don’t Know Our Customers**
+**Problem 1: We Don't Know Our Customers**
 - Without behavioral segmentation, we treat all customers the same  
 - High-risk users go unnoticed; best clients are not rewarded
 
@@ -449,8 +451,9 @@ Behavioral Outlier Segmentation using credit card dataset
 - Customer churn is expensive: acquiring a new customer costs 5x more than retention  
 - Need to predict potential churners proactively
 
+---
 
-# Work Flow
+## Work Flow
 
 **EDA**  
    ↓  
@@ -464,43 +467,63 @@ Behavioral Outlier Segmentation using credit card dataset
    ↓  
 **Visualization of Clusters**
 
-# Outlier Detection & Skewness....
-## Outliers
+---
+
+## Outlier Detection & Skewness
+
+### Outliers
 ![](img/boxplots.png){ width=500px }
 
-## Segments
+---
+
+### Segments
 ![](img/skewness_histograms.png){ width=500px }
 
-## After transformation 
+---
+
+### After transformation 
 ![](img/skewness.png){ width=500px }
+
 - After applying transformations, the skewness of most numerical features was **significantly reduced**
 
+---
 
 ## Summary of Cluster Algorithms
-![](img/summary.png){ width=500px }
+![](img/Summary.png){ width=500px }
+
  **K-Means (k=3) produced 3 clusters** with a moderate Silhouette Score (0.233), indicating some separation between clusters but not very strong.  
 
-## Clsuter Elbow curve
+---
+
+## Cluster Elbow curve
 ![](img/Elbow.png){ width=500px }
+
 - The Elbow Curve indicates that **4 clusters** capture most of the variation in the data.   
 - Therefore, we divide customers into **4 behavioral segments** for further analysis.
 
+---
+
 ## Clusters based on behavior 
 ![](img/cluster.png){ width=700px }
-```
+
+---
 
 ## Customer Risk Label Distribution
 ![](img/Label.png){ width=500px }
-- Most customers fall into **Low Risk (4,343)** and **Medium Risk (1,990)** categories.  
-- A smaller number of customers are in **Very High Risk (207)** and **Extreme Risk (83)**
 
-# Limitations:
+- Most customers fall into **Low Risk (261)** and **Medium Risk (6,139)** categories.  
+- A smaller number of customers are in **High Risk (2,453)** and **Extreme Risk (97)**
 
-1.  
+---
 
+## Limitations:
+
+1. 
 2. 
 
-# Acknowledgment
+---
+
+## Acknowledgment
 
 -   Thank you, Professor Greg Chism, for your guidance, support, and valuable feedback throughout this project.
 
