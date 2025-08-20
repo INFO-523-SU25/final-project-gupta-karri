@@ -301,13 +301,6 @@
     "text": "Business Challenges\nProblem 1: We Don’t Know Our Customers\n\nWithout behavioral segmentation, we treat all customers the same\n\nHigh-risk users go unnoticed; best clients are not rewarded\n\nProblem 2: Customers Leave Without Warning\n\nCustomer churn is expensive: acquiring a new customer costs 5x more than retention\n\nNeed to predict potential churners proactively"
   },
   {
-    "objectID": "presentation.html#work-flow",
-    "href": "presentation.html#work-flow",
-    "title": "Behavioral Outlier Segmentation using credit card dataset",
-    "section": "Work Flow",
-    "text": "Work Flow\nEDA ↓\nData Preprocessing ↓\nFeature Engineering & Selection ↓\nClustering & Evaluation // Churn Prediction Modeling\n↓\nSelect Best Clustering Algorithm // Feature Importance Analysis ↓\nVisualization of Clusters // Business Insights & Recommendations"
-  },
-  {
     "objectID": "presentation.html#outlier-detection",
     "href": "presentation.html#outlier-detection",
     "title": "Behavioral Outlier Segmentation using credit card dataset",
