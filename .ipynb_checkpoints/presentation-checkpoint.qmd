@@ -1,7 +1,7 @@
 ---
-title: "Project title"
+title: "Behavioral Outlier Segmentation using credit card dataset"
 subtitle: "INFO 523 - Summer 2025 - Final Project"
-author: "Author names"
+author: "Saumya Gupta, Sathwika Karri"
 title-slide-attributes:
   data-background-image: images/watercolour_sys02_img34_teacup-ocean.jpg
   data-background-size: stretch
@@ -24,6 +24,18 @@ execute:
 # Load packages here
 import pandas as pd
 import seaborn as sns
+import matplotlib.pyplot as plt
+import seaborn as sns
+from sklearn.cluster import KMeans
+import math
+from sklearn.preprocessing import StandardScaler, RobustScaler, MinMaxScaler
+from sklearn.compose import ColumnTransformer
+import numpy as np
+from scipy import stats
+from sklearn.cluster import (KMeans, DBSCAN, AgglomerativeClustering, SpectralClustering)
+from sklearn.mixture import GaussianMixture
+from sklearn.metrics import silhouette_score
+from sklearn.manifold import TSNE
 
 ```
 
@@ -42,126 +54,454 @@ plt.rcParams['figure.figsize'] = (6, 6 * 0.618)
 ```
 
 ```{python}
-#| label: load-data
+#| label: load-data Credit card and EDA 
 #| include: false
 # Load data in Python
-mtcars = sns.load_dataset('mpg').dropna()  # mtcars dataset is similar to the mpg dataset from seaborn
-mtcars['speed'] = mtcars['horsepower'] / mtcars['weight']
 
-penguins = sns.load_dataset('penguins').dropna()
+def EDA_data(df):
+    print("Basic Information:\n")
+    print(df.info())
+    print("\nShape of the dataset:\n", df.shape)
+    print("\nData types:\n", df.dtypes)
+    print("\nSummary of the dataset:\n", df.describe())
+    print("\nFirst 5 rows:\n", df.head())
+    print("\nLast 5 rows:\n", df.tail())
+
+def missing_values(df):
+    print("\nMissing values:\n", df.isnull().sum())
+
+credit_card = pd.read_csv('data/CC GENERAL.csv')
+EDA_data(credit_card)
+missing_values(credit_card)
+
+
+# Plotting with box-plot
+def plot_boxplots(df, numerical_cols):
+    n = len(numerical_cols)
+    n_cols = 4
+    n_rows = math.ceil(n / n_cols)
+    plt.figure(figsize=(n_cols*5, n_rows*5))
+    
+    for i, col in enumerate(numerical_cols):
+        plt.subplot(n_rows, n_cols , i+1)
+        sns.boxplot(x=df[col])
+    plt.show()
+    
+numerical_cols = credit_card.select_dtypes(include=['float64', 'int64']).columns.tolist()
+plot_boxplots(credit_card, numerical_cols)
+
+
+# Understanding the outliers
+def num_outliers(df):
+    numerical_cols = df.select_dtypes(include=['float64', 'int64']).columns.tolist()
+
+    count_outlier = {}
+    
+    for col in numerical_cols:
+        q1 = df[col].quantile(0.25)
+        q3 = df[col].quantile(0.75)
+        IQR = q3 - q1
+        lower_bound = q1 - 1.5 * IQR
+        upper_bound = q3 + 1.5 * IQR   
+        outliers = df[(df[col] < lower_bound) | (df[col] > upper_bound)]
+        count_outlier[col] = outliers.shape[0]
+    
+    outlier_df = pd.DataFrame(list(count_outlier.items()), columns=['Variable', 'Num_Outliers'])
+    return outlier_df
+
+outlier_counts_df = num_outliers(credit_card)
+print(outlier_counts_df)
+
+def plot_skewness(df):
+    skew_values = df.skew(numeric_only=True)
+    print("Skewness of numerical variables:\n", skew_values)
+
+    num_cols = df.select_dtypes(include=['float64', 'int64']).columns
+
+    plt.figure(figsize=(40, 40))
+    for i, col in enumerate(num_cols, 1):
+        plt.subplot(len(num_cols)//3 + 1, 3, i)  
+        sns.histplot(df[col], kde=True, bins=30)
+        plt.title(f"{col}\nSkewness: {skew_values[col]:.2f}")
+    plt.show()
+
+plot_skewness(credit_card)
+
 ```
 
-# Using Quarto for presentations
 
-## Quarto
-
--   The presentation is created using the Quarto CLI
-
--   `##` sets the start of a new slide
-
-## Layouts
-
-You can use plain text
-
-::: columns
-::: {.column width="40%"}
--   or bullet points[^1]
-:::
-
-::: {.column width="60%"}
-or in two columns
-:::
-:::
-
-[^1]: And add footnotes
-
--   like
-
--   this
-
-## Code
 
 ```{python}
-from sklearn.linear_model import LinearRegression
-import statsmodels.api as sm
+#| label: Preprocessing
+#| include: false
+# Load data in Python
+def handling_missing_values(df):
+    print("\n Missing values in credit card dataset: \n", df.isnull().sum())
+
+handling_missing_values(credit_card)
+
+def impute_missing_values(df):
+    df_imputed = df.copy()
+    credit_limit_median = df['CREDIT_LIMIT'].median()
+    min_payments_median = df['MINIMUM_PAYMENTS'].median()
+    
+    return df.assign(
+        CREDIT_LIMIT=df['CREDIT_LIMIT'].fillna(credit_limit_median),
+        MINIMUM_PAYMENTS=df['MINIMUM_PAYMENTS'].fillna(min_payments_median)
+    )
+
+credit_df_imputed = impute_missing_values(credit_card)
+print(credit_df_imputed.info())
+
+
+def skewness_transformation(df, skew_threshold=1.0):
+    df_trans = df.copy()
+    numeric_cols = df.select_dtypes(include=np.number).columns.tolist()
+    
+    skew_before = df[numeric_cols].skew()
+    
+    for col in numeric_cols:
+        data = df_trans[col]
+        skew = skew_before[col]
+        
+        if abs(skew) <= skew_threshold:
+            continue
+            
+        if skew > 3:
+            try:
+                if data.min() > 0:
+                    trans_data, _ = stats.boxcox(data)
+                else:
+                    trans_data, _ = stats.yeojohnson(data)
+                df_trans[col] = trans_data
+            except:
+                df_trans[col] = np.log1p(data - data.min())
+                
+        elif skew < -3:
+            df_trans[col] = np.sign(data) * (np.abs(data) ** (1/3))
+        else:
+            if skew > 0:
+                df_trans[col] = np.sqrt(data - data.min() + 1e-6)
+            else:
+                df_trans[col] = np.sign(data) * np.sqrt(np.abs(data))
+    
+    skew_after = df_trans[numeric_cols].skew()
+
+    report = pd.DataFrame({
+        'Before': skew_before,
+        'After': skew_after,
+        'Improvement': (skew_before.abs() - skew_after.abs())
+    })
+    
+    return df_trans, report.sort_values('Improvement', ascending=False)
+
+credit_df_transformed, skew_report = skewness_transformation(
+    credit_df_imputed,
+    skew_threshold=1.0
+)
+print("Skewness Transformation Report:")
+display(skew_report)
+print(credit_df_transformed.info())
+
+
+
+def data_scaling(df, standard_cols=None, robust_cols=None, minmax_cols=None):
+    if standard_cols is None:
+        standard_cols = ['BALANCE', 'PURCHASES', 'ONEOFF_PURCHASES', 
+                         'INSTALLMENTS_PURCHASES', 'CASH_ADVANCE', 'PURCHASES_TRX',
+                         'PAYMENTS', 'MINIMUM_PAYMENTS', 'ONEOFF_PURCHASES_FREQUENCY',
+                         'PURCHASES_INSTALLMENTS_FREQUENCY', 'CASH_ADVANCE_FREQUENCY',
+                         'CASH_ADVANCE_TRX', 'CREDIT_LIMIT']
+    if robust_cols is None:
+        robust_cols = ['BALANCE_FREQUENCY', 'TENURE']
+    if minmax_cols is None:
+        minmax_cols = ['PURCHASES_FREQUENCY']
+    
+    preprocessor = ColumnTransformer(
+        transformers=[
+            ('std', StandardScaler(), standard_cols),
+            ('robust', RobustScaler(), robust_cols),
+            ('minmax', MinMaxScaler(), minmax_cols)
+        ]
+    )
+    
+    X_scaled = preprocessor.fit_transform(df)
+    scaled_df = pd.DataFrame(X_scaled, columns=standard_cols + robust_cols + minmax_cols, index=df.index)
+    return scaled_df
+
+credit_df_scaled = data_scaling(credit_df_transformed)
+print(credit_df_scaled.info())
+```
+
+
+```{python}
+#| label: Feature_Engineering and Selection
+#| include: false
+def feature_engineering(df):
+   df['PAYMENT_RATIO'] = df['PAYMENTS'] / (df['BALANCE'] + 1e-6) 
+   df['MIN_PAYMENT_RATIO'] = df['MINIMUM_PAYMENTS'] / (df['BALANCE'] + 1e-6)
+   df['ONEOFF_RATIO'] = df['ONEOFF_PURCHASES'] / (df['PURCHASES'] + 1e-6)
+   df['INSTALLMENT_RATIO'] = df['INSTALLMENTS_PURCHASES'] / (df['PURCHASES'] + 1e-6)
+   df['CREDIT_UTILIZATION'] = df['BALANCE'] / (df['CREDIT_LIMIT'] + 1e-6)
+   df['CASH_ADVANCE_RATIO'] = df['CASH_ADVANCE'] / (df['PURCHASES'] + df['CASH_ADVANCE'] + 1e-6)
+   df['PURCHASES_PER_TRX'] = df['PURCHASES'] / (df['PURCHASES_TRX'] + 1e-6)
+   df['HIGH_CASH_ADVANCE'] = (df['CASH_ADVANCE'] > df['CASH_ADVANCE'].quantile(0.75)).astype(int)
+   df['LOW_FREQUENCY'] = (df['PURCHASES_FREQUENCY'] < 0.2).astype(int)
+   return df  
+
+credit_df_featured = feature_engineering(credit_df_scaled)
+print(credit_df_featured.info())
+
+def feature_selection(df, corr_threshold=0.70):
+    cluster_features = [
+    # Based on Monetary
+    'BALANCE', 'PURCHASES', 'ONEOFF_PURCHASES', 'INSTALLMENTS_PURCHASES','CASH_ADVANCE', 'CREDIT_LIMIT', 'PAYMENTS', 'PAYMENT_RATIO', 
+    'MIN_PAYMENT_RATIO', 'CREDIT_UTILIZATION', 'CASH_ADVANCE_RATIO',
+    
+    # Based on frequency 
+    'PURCHASES_TRX', 'CASH_ADVANCE_TRX', 'PURCHASES_FREQUENCY','ONEOFF_PURCHASES_FREQUENCY', 'PURCHASES_INSTALLMENTS_FREQUENCY', 'CASH_ADVANCE_FREQUENCY', 
+    'PURCHASES_PER_TRX', 'HIGH_CASH_ADVANCE','LOW_FREQUENCY',
+    
+    # Based on Recency
+    'TENURE']
+
+    df_selected = df[cluster_features].copy()
+    # highly correlated values are removed
+    corr_matrix = df_selected.corr().abs()
+    upper = corr_matrix.where(np.triu(np.ones(corr_matrix.shape), k=1).astype(bool))
+    
+    to_drop = [column for column in upper.columns if any(upper[column] > corr_threshold)]
+    df_selected.drop(columns=to_drop, inplace=True)
+    
+    print(f"Columns dropped due to high correlation (> {corr_threshold}): {to_drop}")
+    print(f"Remaining columns using for clustering model: {df_selected.columns.tolist()}")
+    
+    return df_selected
+
+feature_selected_clustering = feature_selection(credit_df_featured)
+print(feature_selected_clustering.head())
+print(feature_selected_clustering.info())
+
+
+from sklearn.preprocessing import StandardScaler
+
+scaler = StandardScaler()
+scaled_features = scaler.fit_transform(feature_selected_clustering)
+
+from sklearn.decomposition import PCA
+
+pca = PCA(n_components=0.95) 
+features_pca = pca.fit_transform(scaled_features)
+print(f"Reduced to {features_pca.shape[1]} dimensions.")
+```
+
+
+```{python}
+#| label: Silhouette score across different alg
+#| include: false
+from sklearn.cluster import (
+    KMeans, DBSCAN, AgglomerativeClustering, SpectralClustering
+)
+from sklearn.mixture import GaussianMixture
+from sklearn.metrics import silhouette_score
 import pandas as pd
 
-# Fit a linear regression model
-X = mtcars[['speed']]
-y = mtcars['mpg']
-model = LinearRegression().fit(X, y)
+results = []
 
-# Summary of the model
-X2 = sm.add_constant(X)
-est = sm.OLS(y, X2)
-est2 = est.fit()
-print(est2.summary())
+def evaluate_clustering(model, name, data):
+    clusters = model.fit_predict(data)
+    if len(set(clusters)) > 1: 
+        score = silhouette_score(data, clusters)
+        results.append({
+            'Algorithm': name,
+            'Silhouette Score': score,
+            'Clusters': len(set(clusters)),
+            'Noise Points': sum(clusters == -1) if hasattr(model, 'labels_') else 0
+        })
+        print(f"{name}: Score = {score:.3f}, Clusters = {len(set(clusters))}")
+    else:
+        print(f"{name}: Only 1 cluster detected.")
+
+algorithms = {
+    "KMeans (k=3)": KMeans(n_clusters=3, random_state=42),
+    "GMM (k=3)": GaussianMixture(n_components=3, random_state=42),
+    "Hierarchical (Ward)": AgglomerativeClustering(n_clusters=3, linkage='ward'),
+    "DBSCAN (eps=0.5)": DBSCAN(eps=0.5, min_samples=5),
+    "Spectral (k=3)": SpectralClustering(n_clusters=3, affinity='nearest_neighbors', random_state=42)
+}
+
+data = features_pca if 'features_pca' in locals() else scaled_features
+for name, model in algorithms.items():
+    evaluate_clustering(model, name, data)
+
+results_df = pd.DataFrame(results)
+print("\nClustering Performance Summary:")
+print(results_df.sort_values('Silhouette Score', ascending=False))
 ```
 
-## Plots
 
 ```{python}
-penguins['species'] = penguins['species'].apply(lambda x: "Adelie" if x == "Adelie" else "Other")
-sns.scatterplot(data=penguins, x='flipper_length_mm', y='body_mass_g', hue='species')
+#| label: Performing k-means
+#| include: false
+inertia = []
+k_range = range(2, 8)
+
+for k in k_range:
+    kmeans = KMeans(n_clusters=k, random_state=42).fit(features_pca)
+    inertia.append(kmeans.inertia_)
+
+plt.figure(figsize=(8, 4))
+plt.plot(k_range, inertia, 'bo-')
+plt.xlabel('Number of Clusters (k)')
+plt.ylabel('Inertia')
+plt.title('Elbow Method for K-means')
+plt.xticks(k_range)
+plt.show()
+
+optimal_k = 4 
+kmeans = KMeans(n_clusters=optimal_k, random_state=42)
+clusters = kmeans.fit_predict(features_pca)
+
+score = silhouette_score(features_pca, clusters)
+print(f"K-means (k={optimal_k}) Silhouette Score: {score:.3f}")
+```
+
+
+
+
+```{python}
+#| label: Labeling the clusters
+#| include: false
+X = feature_selected_clustering[['BALANCE', 'CREDIT_UTILIZATION', 'CASH_ADVANCE', 'PAYMENTS']]
+kmeans = KMeans(n_clusters=4, random_state=42)
+feature_selected_clustering['Cluster'] = kmeans.fit_predict(X)
+
+cluster_means = feature_selected_clustering.groupby('Cluster')[
+    ['BALANCE', 'CREDIT_UTILIZATION', 'CASH_ADVANCE', 'PAYMENTS']
+].mean()
+
+cluster_means['Risk_Score'] = (
+    cluster_means['BALANCE'] * 0.3 +
+    cluster_means['CREDIT_UTILIZATION'] * 0.4 +
+    cluster_means['CASH_ADVANCE'] * 0.3 -
+    cluster_means['PAYMENTS'] * 0.2
+)
+
+cluster_means = cluster_means.sort_values('Risk_Score')
+
+risk_labels = ['Low Risk', 'Medium Risk', 'High Risk', 'Extreme Risk']
+
+cluster_means['Risk_Label'] = risk_labels
+
+
+cluster_risk_map = cluster_means['Risk_Label'].to_dict()
+
+feature_selected_clustering['Risk_Label'] = feature_selected_clustering['Cluster'].map(cluster_risk_map)
+
+print("Risk Label Distribution:")
+print(feature_selected_clustering['Risk_Label'].value_counts().sort_index())
+```
+
+```{python}
+#| label: Visualizing the clusters 
+#| include: false
+from sklearn.manifold import TSNE
+tsne = TSNE(n_components=2, perplexity=30, random_state=42)
+features_tsne = tsne.fit_transform(scaled_features)
+
+plt.figure(figsize=(10, 6))
+plt.scatter(features_tsne[:, 0], features_tsne[:, 1], 
+            c=clusters, cmap='viridis', alpha=0.6, s=30)
+plt.title("Cluster Visualization (t-SNE)")
+plt.xlabel("t-SNE Dimension 1")
+plt.ylabel("t-SNE Dimension 2")
+plt.colorbar(label="Cluster")
 plt.show()
 ```
+Behavioral Outlier Segmentation using credit card dataset
+---
 
-## Plot and text
+##### Objective 
+- Group customers based on credit card spending, payment, and usage behavior  
+- Identify customers likely to stop using their card and take proactive retention measures
 
-::: columns
-::: {.column width="50%"}
--   Some text
 
--   goes here
-:::
+# Business Problem 
+1. Detect clusters of customers by transaction behavior (recency, frequency, monetary) and classify risk levels (high, medium, low) 
+![credit card](img/credit.png){ width=300px }
+2. Predict which customers might churn or switch to competitors
 
-::: {.column width="50%"}
-```{python}
-#| warning: false
-#| fig.width: 5.5
-fig, ax = plt.subplots(figsize=(5.5, 5.5 * 0.618))
-sns.boxplot(data=penguins, x='bill_length_mm', y='species', hue='species', ax=ax)
-plt.show()
+
+# Analytical Approach
+
+- Using **cluster techniques** to group customers based on spending, payment frequency, and transaction history to identify common behavioral segments  
+- Using **regression analysis** to predict the likelihood of customer churn for each individual based on behavioral patterns and segment  
+- Tailor retention strategies based on behavioral segments
+
+
+# Business Challenges
+
+**Problem 1: We Don’t Know Our Customers**
+- Without behavioral segmentation, we treat all customers the same  
+- High-risk users go unnoticed; best clients are not rewarded
+
+**Problem 2: Customers Leave Without Warning**
+- Customer churn is expensive: acquiring a new customer costs 5x more than retention  
+- Need to predict potential churners proactively
+
+
+# Work Flow
+
+**EDA**  
+   ↓  
+**Data Preprocessing**  
+   ↓  
+**Feature Engineering & Selection**  
+   ↓  
+**Clustering & Evaluation**  
+   ↓  
+**Select Best Clustering Algorithm**  
+   ↓  
+**Visualization of Clusters**
+
+# Outlier Detection & Skewness....
+## Outliers
+![](img/boxplots.png){ width=500px }
+
+## Segments
+![](img/skewness_histograms.png){ width=500px }
+
+## After transformation 
+![](img/skewness.png){ width=500px }
+- After applying transformations, the skewness of most numerical features was **significantly reduced**
+
+
+## Summary of Cluster Algorithms
+![](img/summary.png){ width=500px }
+ **K-Means (k=3) produced 3 clusters** with a moderate Silhouette Score (0.233), indicating some separation between clusters but not very strong.  
+
+## Clsuter Elbow curve
+![](img/Elbow.png){ width=500px }
+- The Elbow Curve indicates that **4 clusters** capture most of the variation in the data.   
+- Therefore, we divide customers into **4 behavioral segments** for further analysis.
+
+## Clusters based on behavior 
+![](img/cluster.png){ width=700px }
 ```
-:::
-:::
 
-# A new section...
+## Customer Risk Label Distribution
+![](img/Label.png){ width=500px }
+- Most customers fall into **Low Risk (4,343)** and **Medium Risk (1,990)** categories.  
+- A smaller number of customers are in **Very High Risk (207)** and **Extreme Risk (83)**
 
-## Tables
+# Limitations:
 
-If you want to generate a table, make sure it is in the HTML format (instead of Markdown or other formats), e.g.,
+1.  
 
-```{python}
-penguins.head().to_html()
-```
+2. 
 
-## Images
+# Acknowledgment
 
-![Image credit: Danielle Navarro, Percolate.](images/watercolour_sys02_img34_teacup-ocean.png){fig-align="center" width="500"}
+-   Thank you, Professor Greg Chism, for your guidance, support, and valuable feedback throughout this project.
 
-## Math Expressions {.smaller}
-
-You can write LaTeX math expressions inside a pair of dollar signs, e.g. \$\\alpha+\\beta\$ renders $\alpha + \beta$. You can use the display style with double dollar signs:
-
-```         
-$$\bar{X}=\frac{1}{n}\sum_{i=1}^nX_i$$
-```
-
-$$
-\bar{X}=\frac{1}{n}\sum_{i=1}^nX_i
-$$
-
-Limitations:
-
-1.  The source code of a LaTeX math expression must be in one line, unless it is inside a pair of double dollar signs, in which case the starting `$$` must appear in the very beginning of a line, followed immediately by a non-space character, and the ending `$$` must be at the end of a line, led by a non-space character;
-
-2.  There should not be spaces after the opening `$` or before the closing `$`.
-
-# Wrap up
-
-## Feeling adventurous?
-
--   You are welcomed to use the default styling of the slides. In fact, that's what I expect majority of you will do. You will differentiate yourself with the content of your presentation.
-
--   But some of you might want to play around with slide styling. Some solutions for this can be found at https://quarto.org/docs/presentations/revealjs.
+-   Thank you to my classmates and team members for their collaboration, insights, and contributions.

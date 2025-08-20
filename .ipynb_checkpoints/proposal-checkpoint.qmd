@@ -2,10 +2,10 @@
 title: "Behavioral Outlier Segmentation using credit card dataset "
 subtitle: "Proposal"
 author: 
-  - name: "Team Name - Saumya Gupta, Jeevana Sai Devi Sathwika Karri"
+  - name: "The Classifiers - Saumya Gupta, Jeevana Sai Devi Sathwika Karri"
     affiliations:
       - name: "College of Information Science, University of Arizona"
-description: "Project description"
+description: "Project description- The project *Behavioral Outlier Segmentation* focuses on analyzing credit card usage data from Kaggle to identify customer segments that exhibit unusual behavior patterns. By uncovering deviations such as irregular payments, abnormal spending, or infrequent card usage, the project aims to detect behavioral outliers and predict customers who are likely to stop using their cards or switch to competitors."
 format:
   html:
     code-tools: true
@@ -23,6 +23,7 @@ jupyter: python3
 #| label: load-pkgs
 #| message: false
 import numpy as np
+import pandas as pd
 ```
 
 ## Dataset
@@ -31,9 +32,8 @@ import numpy as np
 #| label: load-dataset
 #| message: false
 
-import pandas as pd
 
-credit_card = pd.read_csv("data/CC General.csv")
+credit_card = pd.read_csv("data/CC GENERAL.csv")
 
 print(credit_card.info())
 print('')
@@ -47,6 +47,8 @@ print(credit_card.describe())
 
 A brief description of your dataset including its provenance, dimensions, etc. as well as the reason why you chose this dataset.
 
+The dataset used in this project is the **Credit Card Customer Data** sourced from Kaggle. It consists of **8,950 rows** and **18 columns**, each representing anonymized customer data related to credit card usage. The features include various behavioral indicators such as balance, purchase amounts, cash advances, credit limits, and payment patterns.
+
 ## Why we chose this dataset
 
 We chose this credit card dataset from Kaggle because it contains detailed information about nearly 9,000 credit card users. It includes data such as their spending habits, payment frequency, and cash advances. This makes it a good dataset for identifying different types of customers and detecting unusual behavior. Additionally, we can use it to predict customers who might stop using their cards or switch to other providers, assess the risk of issuing credit cards to customers, and identify opportunities for targeted offers and credit limit increases.
@@ -58,7 +60,7 @@ Our group is working on a project titled "Behavioral Outlier Segmentation," whic
 
 Make sure to load the data and use inline code for some of this information.
 
-This dataset has `{{ credit_card.shape[0] }}` rows and `{{ credit_card.shape[1] }}` columns.
+This dataset has `r credit_card.shape[0]` rows and `r credit_card.shape[1]` columns.
 
 ## Questions
 
@@ -68,12 +70,34 @@ The two questions you want to answer.
 
 2. We predict which customers might stop using their credit cards or switch to a competitor.
 
+## Risk Level Definitions
+
+We will define customer risk levels based on the following criteria:
+
+- **High Risk**: Customers with excessive cash advances (>75th percentile), irregular payments (low PRCFULLPAYMENT), and high balance-to-credit-limit ratios (>0.8)
+- **Medium Risk**: Customers with moderate cash advances (25th-75th percentile), occasional late payments, and balance-to-credit-limit ratios between 0.4-0.8
+- **Low Risk**: Customers with minimal cash advances (<25th percentile), consistent full payments, and balance-to-credit-limit ratios <0.4
+
+## Target Variable Creation for Prediction
+
+Since the dataset doesn't contain churn/attrition labels, we will create a synthetic target variable based on behavioral indicators that typically precede customer churn:
+
+- **Churn Indicators**: Low purchase frequency (<0.3), declining payment amounts, high cash advance usage, and irregular payment patterns
+- **Target Variable**: Binary classification (1 = likely to churn, 0 = likely to stay) based on composite risk score
+
 ## Dataset Overview
 
 Name: Credit Card Dataset 
 Source: https://www.kaggle.com/datasets/arjunbhasin2013/ccdata
 Size: 8950 instances of customer credit card details
 
+## Data Preprocessing Plan
+
+1. **Data Quality Assessment**: Handle missing values, check for duplicates, identify outliers
+2. **Feature Engineering**: Create derived features like balance-to-credit-limit ratio, payment-to-purchase ratio
+3. **Dimensionality Reduction**: Apply PCA to reduce 18 features to 8-10 principal components for clustering
+4. **Scaling**: Standardize numerical features using StandardScaler
+5. **Feature Selection**: Use correlation analysis and domain knowledge to select most relevant features
 
 ## Analysis plan
 
@@ -117,8 +141,7 @@ For the second part of our project, we want to predict which customers might sto
 | Week   | Dates          | Activity                                                                                                   | Status |
 |--------|--------------- |------------------------------------------------------------------------------------------------------------|--------|
 | Week 2 | 25 July 2025   | • Review the Dataset and finalize the team<br>• Select data mining techniques and clustering methods       | Completed |
-| Week 3 | 1 August 2025  | • Proposal and Peer Review with other teams<br>• Data Preprocessing                                        | In Progress |
-| Week 4 | 8 August 2025  | • Perform feature engineering/selection<br>• Transform and scale features<br>• Apply clustering algorithms | Not Completed |
-| Week 5 | 15 August 2025 | • Evaluate clustering performance<br>• Visualize our results                                               | Not Completed |
-| Week 6 | 20 August 2025 | • Conduct a peer code review<br>• Present projects and turn in final write-up                              | Not Completed |
-
+| Week 3 | 1 August 2025  | • Proposal and Peer Review with other teams<br>• Data Preprocessing                                        | Completed |
+| Week 4 | 8 August 2025  | • Perform feature engineering/selection<br>• Transform and scale features<br>• Apply clustering algorithms | Completed |
+| Week 5 | 15 August 2025 | • Evaluate clustering performance<br>• Visualize our results                                               | Completed |
+| Week 6 | 20 August 2025 | • Conduct a peer code review<br>• Present projects and turn in final write-up                              | Completed |
