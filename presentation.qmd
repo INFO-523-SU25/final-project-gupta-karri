@@ -524,6 +524,17 @@ plt.show()
 
 ![](img/confusion_matrix.png){ width=600px }
 
+## Conclusion
+
+This project combines clustering and classification to analyze customer behavior in financial services. It identifies four customer segments with distinct risk profiles and achieves a 99.94% ROC-AUC in churn prediction. Key drivers of churn include cash advance usage and credit utilization. The findings enable data-driven retention strategies, improving customer retention and lifetime value through actionable insights in the credit card industry.
+
+## Limitations
+
+1. **Synthetic Target**: Churn target created using business rules rather than actual churn data
+2. **Feature Availability**: Some features like PRC_FULL_PAYMENT were not available in the dataset
+3. **Temporal Aspect**: No time-series data to capture actual churn patterns over time
+4. **Domain Expertise**: Risk scoring weights based on business assumptions rather than empirical validation
+
 
 ## Acknowledgment
 

@@ -371,6 +371,20 @@
     "text": "Model Evaluation Results"
   },
   {
+    "objectID": "presentation.html#conclusion",
+    "href": "presentation.html#conclusion",
+    "title": "Behavioral Outlier Segmentation using credit card dataset",
+    "section": "Conclusion",
+    "text": "Conclusion\nThis project combines clustering and classification to analyze customer behavior in financial services. It identifies four customer segments with distinct risk profiles and achieves a 99.94% ROC-AUC in churn prediction. Key drivers of churn include cash advance usage and credit utilization. The findings enable data-driven retention strategies, improving customer retention and lifetime value through actionable insights in the credit card industry."
+  },
+  {
+    "objectID": "presentation.html#limitations",
+    "href": "presentation.html#limitations",
+    "title": "Behavioral Outlier Segmentation using credit card dataset",
+    "section": "Limitations",
+    "text": "Limitations\n\nSynthetic Target: Churn target created using business rules rather than actual churn data\nFeature Availability: Some features like PRC_FULL_PAYMENT were not available in the dataset\nTemporal Aspect: No time-series data to capture actual churn patterns over time\nDomain Expertise: Risk scoring weights based on business assumptions rather than empirical validation"
+  },
+  {
     "objectID": "presentation.html#acknowledgment",
     "href": "presentation.html#acknowledgment",
     "title": "Behavioral Outlier Segmentation using credit card dataset",
