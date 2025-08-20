@@ -154,32 +154,46 @@
     "text": "Plan of Attack\n\n\n\n\n\n\n\n\n\nWeek\nDates\nActivity\nStatus\n\n\n\n\nWeek 2\n25 July 2025\n• Review the Dataset and finalize the team• Select data mining techniques and clustering methods\nCompleted\n\n\nWeek 3\n1 August 2025\n• Proposal and Peer Review with other teams• Data Preprocessing\nCompleted\n\n\nWeek 4\n8 August 2025\n• Perform feature engineering/selection• Transform and scale features• Apply clustering algorithms\nCompleted\n\n\nWeek 5\n15 August 2025\n• Evaluate clustering performance• Visualize our results\nCompleted\n\n\nWeek 6\n20 August 2025\n• Conduct a peer code review• Present projects and turn in final write-up\nCompleted"
   },
   {
-    "objectID": "presentation.html#behavioral-outlier-segmentation-using-credit-card-dataset",
-    "href": "presentation.html#behavioral-outlier-segmentation-using-credit-card-dataset",
+    "objectID": "presentation.html#objective",
+    "href": "presentation.html#objective",
     "title": "Behavioral Outlier Segmentation using credit card dataset",
-    "section": "Behavioral Outlier Segmentation using credit card dataset",
-    "text": "Behavioral Outlier Segmentation using credit card dataset\nObjective\n\nGroup customers based on credit card spending, payment, and usage behavior\n\nIdentify customers likely to stop using their card and take proactive retention measures"
+    "section": "Objective",
+    "text": "Objective\n\nGroup customers based on credit card spending, payment, and usage behavior\n\nIdentify customers likely to stop using their card and take proactive retention measures"
   },
   {
-    "objectID": "presentation.html#outliers",
-    "href": "presentation.html#outliers",
+    "objectID": "presentation.html#business-problem",
+    "href": "presentation.html#business-problem",
     "title": "Behavioral Outlier Segmentation using credit card dataset",
-    "section": "Outliers",
-    "text": "Outliers"
+    "section": "Business Problem",
+    "text": "Business Problem\n\nDetect clusters of customers by transaction behavior (recency, frequency, monetary) and classify risk levels (high, medium, low) \nPredict which customers might churn or switch to competitors"
   },
   {
-    "objectID": "presentation.html#segments",
-    "href": "presentation.html#segments",
+    "objectID": "presentation.html#analytical-approach",
+    "href": "presentation.html#analytical-approach",
     "title": "Behavioral Outlier Segmentation using credit card dataset",
-    "section": "Segments",
-    "text": "Segments"
+    "section": "Analytical Approach",
+    "text": "Analytical Approach\n\nUsing cluster techniques to group customers based on spending, payment frequency, and transaction history to identify common behavioral segments\n\nUsing regression analysis to predict the likelihood of customer churn for each individual based on behavioral patterns and segment\n\nTailor retention strategies based on behavioral segments"
   },
   {
-    "objectID": "presentation.html#after-transformation",
-    "href": "presentation.html#after-transformation",
+    "objectID": "presentation.html#business-challenges",
+    "href": "presentation.html#business-challenges",
     "title": "Behavioral Outlier Segmentation using credit card dataset",
-    "section": "After transformation",
-    "text": "After transformation\n - After applying transformations, the skewness of most numerical features was significantly reduced"
+    "section": "Business Challenges",
+    "text": "Business Challenges\nProblem 1: We Don’t Know Our Customers - Without behavioral segmentation, we treat all customers the same\n- High-risk users go unnoticed; best clients are not rewarded\nProblem 2: Customers Leave Without Warning - Customer churn is expensive: acquiring a new customer costs 5x more than retention\n- Need to predict potential churners proactively"
+  },
+  {
+    "objectID": "presentation.html#work-flow",
+    "href": "presentation.html#work-flow",
+    "title": "Behavioral Outlier Segmentation using credit card dataset",
+    "section": "Work Flow",
+    "text": "Work Flow\nEDA\n↓\nData Preprocessing\n↓\nFeature Engineering & Selection\n↓\nClustering & Evaluation\n↓\nSelect Best Clustering Algorithm\n↓\nVisualization of Clusters"
+  },
+  {
+    "objectID": "presentation.html#outlier-detection-skewness",
+    "href": "presentation.html#outlier-detection-skewness",
+    "title": "Behavioral Outlier Segmentation using credit card dataset",
+    "section": "Outlier Detection & Skewness",
+    "text": "Outlier Detection & Skewness\nOutliers"
   },
   {
     "objectID": "presentation.html#summary-of-cluster-algorithms",
@@ -189,25 +203,39 @@
     "text": "Summary of Cluster Algorithms\n K-Means (k=3) produced 3 clusters with a moderate Silhouette Score (0.233), indicating some separation between clusters but not very strong."
   },
   {
-    "objectID": "presentation.html#clsuter-elbow-curve",
-    "href": "presentation.html#clsuter-elbow-curve",
+    "objectID": "presentation.html#cluster-elbow-curve",
+    "href": "presentation.html#cluster-elbow-curve",
     "title": "Behavioral Outlier Segmentation using credit card dataset",
-    "section": "Clsuter Elbow curve",
-    "text": "Clsuter Elbow curve\n - The Elbow Curve indicates that 4 clusters capture most of the variation in the data.\n- Therefore, we divide customers into 4 behavioral segments for further analysis."
+    "section": "Cluster Elbow curve",
+    "text": "Cluster Elbow curve\n - The Elbow Curve indicates that 4 clusters capture most of the variation in the data.\n- Therefore, we divide customers into 4 behavioral segments for further analysis."
   },
   {
     "objectID": "presentation.html#clusters-based-on-behavior",
     "href": "presentation.html#clusters-based-on-behavior",
     "title": "Behavioral Outlier Segmentation using credit card dataset",
     "section": "Clusters based on behavior",
-    "text": "Clusters based on behavior\n ```"
+    "text": "Clusters based on behavior"
   },
   {
     "objectID": "presentation.html#customer-risk-label-distribution",
     "href": "presentation.html#customer-risk-label-distribution",
     "title": "Behavioral Outlier Segmentation using credit card dataset",
     "section": "Customer Risk Label Distribution",
-    "text": "Customer Risk Label Distribution\n - Most customers fall into Low Risk (4,343) and Medium Risk (1,990) categories.\n- A smaller number of customers are in Very High Risk (207) and Extreme Risk (83)"
+    "text": "Customer Risk Label Distribution\n - Most customers fall into Low Risk (261) and Medium Risk (6,139) categories.\n- A smaller number of customers are in High Risk (2,453) and Extreme Risk (97)"
+  },
+  {
+    "objectID": "presentation.html#limitations",
+    "href": "presentation.html#limitations",
+    "title": "Behavioral Outlier Segmentation using credit card dataset",
+    "section": "Limitations:",
+    "text": "Limitations:\n\nData quality and completeness may affect clustering accuracy\nFeature selection could be further optimized"
+  },
+  {
+    "objectID": "presentation.html#acknowledgment",
+    "href": "presentation.html#acknowledgment",
+    "title": "Behavioral Outlier Segmentation using credit card dataset",
+    "section": "Acknowledgment",
+    "text": "Acknowledgment\n\nThank you, Professor Greg Chism, for your guidance, support, and valuable feedback throughout this project.\nThank you to my classmates and team members for their collaboration, insights, and contributions."
   },
   {
     "objectID": "churn_predictor.html",

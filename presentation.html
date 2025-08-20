@@ -142,25 +142,31 @@ Saumya Gupta, Sathwika Karri
 </div>
 
 </section>
-<section id="behavioral-outlier-segmentation-using-credit-card-dataset" class="slide level2">
-<h2>Behavioral Outlier Segmentation using credit card dataset</h2>
-<h5 id="objective">Objective</h5>
+<section class="slide level2">
+
+</section>
+<section>
+<section id="behavioral-outlier-segmentation-using-credit-card-dataset" class="title-slide slide level1 center">
+<h1>Behavioral Outlier Segmentation using credit card dataset</h1>
+
+</section>
+<section id="objective" class="slide level2">
+<h2>Objective</h2>
 <ul>
 <li>Group customers based on credit card spending, payment, and usage behavior<br>
 </li>
 <li>Identify customers likely to stop using their card and take proactive retention measures</li>
 </ul>
 </section>
-<section id="business-problem" class="title-slide slide level1 center">
-<h1>Business Problem</h1>
+<section id="business-problem" class="slide level2">
+<h2>Business Problem</h2>
 <ol type="1">
 <li>Detect clusters of customers by transaction behavior (recency, frequency, monetary) and classify risk levels (high, medium, low) <img data-src="img/credit.png" width="300" alt="credit card"></li>
 <li>Predict which customers might churn or switch to competitors</li>
 </ol>
 </section>
-
-<section id="analytical-approach" class="title-slide slide level1 center">
-<h1>Analytical Approach</h1>
+<section id="analytical-approach" class="slide level2">
+<h2>Analytical Approach</h2>
 <ul>
 <li>Using <strong>cluster techniques</strong> to group customers based on spending, payment frequency, and transaction history to identify common behavioral segments<br>
 </li>
@@ -169,17 +175,15 @@ Saumya Gupta, Sathwika Karri
 <li>Tailor retention strategies based on behavioral segments</li>
 </ul>
 </section>
-
-<section id="business-challenges" class="title-slide slide level1 center">
-<h1>Business Challenges</h1>
+<section id="business-challenges" class="slide level2">
+<h2>Business Challenges</h2>
 <p><strong>Problem 1: We Don’t Know Our Customers</strong> - Without behavioral segmentation, we treat all customers the same<br>
 - High-risk users go unnoticed; best clients are not rewarded</p>
 <p><strong>Problem 2: Customers Leave Without Warning</strong> - Customer churn is expensive: acquiring a new customer costs 5x more than retention<br>
 - Need to predict potential churners proactively</p>
 </section>
-
-<section id="work-flow" class="title-slide slide level1 center">
-<h1>Work Flow</h1>
+<section id="work-flow" class="slide level2">
+<h2>Work Flow</h2>
 <p><strong>EDA</strong><br>
 ↓<br>
 <strong>Data Preprocessing</strong><br>
@@ -192,59 +196,55 @@ Saumya Gupta, Sathwika Karri
 ↓<br>
 <strong>Visualization of Clusters</strong></p>
 </section>
-
-<section>
-<section id="outlier-detection-skewness." class="title-slide slide level1 center">
-<h1>Outlier Detection &amp; Skewness….</h1>
-
-</section>
-<section id="outliers" class="slide level2">
-<h2>Outliers</h2>
+<section id="outlier-detection-skewness" class="slide level2">
+<h2>Outlier Detection &amp; Skewness</h2>
+<h3 id="outliers">Outliers</h3>
 
 <img data-src="img/boxplots.png" width="500" class="r-stretch"></section>
-<section id="segments" class="slide level2">
-<h2>Segments</h2>
+<section class="slide level2">
+
+<h3 id="segments">Segments</h3>
 
 <img data-src="img/skewness_histograms.png" width="500" class="r-stretch"></section>
-<section id="after-transformation" class="slide level2">
-<h2>After transformation</h2>
+<section class="slide level2">
+
+<h3 id="after-transformation">After transformation</h3>
 <p><img data-src="img/skewness.png" width="500"> - After applying transformations, the skewness of most numerical features was <strong>significantly reduced</strong></p>
 </section>
 <section id="summary-of-cluster-algorithms" class="slide level2">
 <h2>Summary of Cluster Algorithms</h2>
-<p><img data-src="img/summary.png" width="500"> <strong>K-Means (k=3) produced 3 clusters</strong> with a moderate Silhouette Score (0.233), indicating some separation between clusters but not very strong.</p>
+<p><img data-src="img/Summary.png" width="500"> <strong>K-Means (k=3) produced 3 clusters</strong> with a moderate Silhouette Score (0.233), indicating some separation between clusters but not very strong.</p>
 </section>
-<section id="clsuter-elbow-curve" class="slide level2">
-<h2>Clsuter Elbow curve</h2>
+<section id="cluster-elbow-curve" class="slide level2">
+<h2>Cluster Elbow curve</h2>
 <p><img data-src="img/Elbow.png" width="500"> - The Elbow Curve indicates that <strong>4 clusters</strong> capture most of the variation in the data.<br>
 - Therefore, we divide customers into <strong>4 behavioral segments</strong> for further analysis.</p>
 </section>
 <section id="clusters-based-on-behavior" class="slide level2">
 <h2>Clusters based on behavior</h2>
-<p><img data-src="img/cluster.png" width="700"> ```</p>
-</section>
+
+<img data-src="img/cluster.png" width="700" class="r-stretch"></section>
 <section id="customer-risk-label-distribution" class="slide level2">
 <h2>Customer Risk Label Distribution</h2>
-<p><img data-src="img/Label.png" width="500"> - Most customers fall into <strong>Low Risk (4,343)</strong> and <strong>Medium Risk (1,990)</strong> categories.<br>
-- A smaller number of customers are in <strong>Very High Risk (207)</strong> and <strong>Extreme Risk (83)</strong></p>
-</section></section>
-<section id="limitations" class="title-slide slide level1 center">
-<h1>Limitations:</h1>
+<p><img data-src="img/Label.png" width="500"> - Most customers fall into <strong>Low Risk (261)</strong> and <strong>Medium Risk (6,139)</strong> categories.<br>
+- A smaller number of customers are in <strong>High Risk (2,453)</strong> and <strong>Extreme Risk (97)</strong></p>
+</section>
+<section id="limitations" class="slide level2">
+<h2>Limitations:</h2>
 <ol type="1">
-<li></li>
-<li></li>
+<li>Data quality and completeness may affect clustering accuracy</li>
+<li>Feature selection could be further optimized</li>
 </ol>
 </section>
-
-<section id="acknowledgment" class="title-slide slide level1 center">
-<h1>Acknowledgment</h1>
+<section id="acknowledgment" class="slide level2">
+<h2>Acknowledgment</h2>
 <ul>
 <li><p>Thank you, Professor Greg Chism, for your guidance, support, and valuable feedback throughout this project.</p></li>
 <li><p>Thank you to my classmates and team members for their collaboration, insights, and contributions.</p></li>
 </ul>
 
 
-</section>
+</section></section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <div class="footer footer-default">
