@@ -165,7 +165,7 @@
     "href": "presentation.html#business-problem",
     "title": "Behavioral Outlier Segmentation using credit card dataset",
     "section": "Business Problem",
-    "text": "Business Problem\n\nDetect clusters of customers by transaction behavior (recency, frequency, monetary) and classify risk levels (high, medium, low) \nPredict which customers might churn or switch to competitors"
+    "text": "Business Problem\n\nDetect clusters of customers by transaction behavior (recency, frequency, monetary) and classify risk levels (high, medium, low)\n\n 2. Predict which customers might churn or switch to competitors"
   },
   {
     "objectID": "presentation.html#analytical-approach",
@@ -179,28 +179,28 @@
     "href": "presentation.html#business-challenges",
     "title": "Behavioral Outlier Segmentation using credit card dataset",
     "section": "Business Challenges",
-    "text": "Business Challenges\nProblem 1: We Don’t Know Our Customers - Without behavioral segmentation, we treat all customers the same\n- High-risk users go unnoticed; best clients are not rewarded\nProblem 2: Customers Leave Without Warning - Customer churn is expensive: acquiring a new customer costs 5x more than retention\n- Need to predict potential churners proactively"
+    "text": "Business Challenges\nProblem 1: We Don’t Know Our Customers\n\nWithout behavioral segmentation, we treat all customers the same\n\nHigh-risk users go unnoticed; best clients are not rewarded\n\nProblem 2: Customers Leave Without Warning\n\nCustomer churn is expensive: acquiring a new customer costs 5x more than retention\n\nNeed to predict potential churners proactively"
   },
   {
     "objectID": "presentation.html#work-flow",
     "href": "presentation.html#work-flow",
     "title": "Behavioral Outlier Segmentation using credit card dataset",
     "section": "Work Flow",
-    "text": "Work Flow\nEDA\n↓\nData Preprocessing\n↓\nFeature Engineering & Selection\n↓\nClustering & Evaluation\n↓\nSelect Best Clustering Algorithm\n↓\nVisualization of Clusters ↓\nChurn Prediction Modeling\n↓\nFeature Importance Analysis\n↓\nBusiness Insights & Recommendations"
+    "text": "Work Flow\nEDA ↓\nData Preprocessing ↓\nFeature Engineering & Selection ↓\nClustering & Evaluation\n↓\nSelect Best Clustering Algorithm\n↓\nVisualization of Clusters ↓\nChurn Prediction Modeling\n↓\nFeature Importance Analysis\n↓\nBusiness Insights & Recommendations"
   },
   {
     "objectID": "presentation.html#outlier-detection",
     "href": "presentation.html#outlier-detection",
     "title": "Behavioral Outlier Segmentation using credit card dataset",
     "section": "Outlier Detection",
-    "text": "Outlier Detection\n\nOutlier Summary: - BALANCE: 695 outliers - PURCHASES: 808 outliers\n- CASH_ADVANCE: 1,030 outliers - MINIMUM_PAYMENTS: 841 outliers"
+    "text": "Outlier Detection\n\nOutlier Summary:\n\nBALANCE: 695 outliers\nPURCHASES: 808 outliers\nCASH_ADVANCE: 1,030 outliers\nMINIMUM_PAYMENTS: 841 outliers"
   },
   {
     "objectID": "presentation.html#distribution-analysis",
     "href": "presentation.html#distribution-analysis",
     "title": "Behavioral Outlier Segmentation using credit card dataset",
     "section": "Distribution Analysis",
-    "text": "Distribution Analysis"
+    "text": "Distribution Analysis\n\nSkewness Issues Identified:\n\nMINIMUM_PAYMENTS: 13.62 (extremely skewed)\nONEOFF_PURCHASES: 10.05 (highly skewed)\nPURCHASES: 8.14 (highly skewed)"
   },
   {
     "objectID": "presentation.html#after-transformation",
@@ -259,39 +259,11 @@
     "text": "Churn Target Creation\n\nSynthetic churn target created using composite risk scoring\nChurn rate: 25.01% (2,238 out of 8,950 customers)\n\nTarget Distribution: - Non-Churn Customers: 6,712 (74.99%) - Churn Customers: 2,238 (25.01%)\nRisk factors considered: - Low purchase frequency - High cash advance usage - Irregular payment patterns - High balance-to-credit ratio - Risk indicators"
   },
   {
-    "objectID": "presentation.html#machine-learning-model-performance",
-    "href": "presentation.html#machine-learning-model-performance",
-    "title": "Behavioral Outlier Segmentation using credit card dataset",
-    "section": "Machine Learning Model Performance",
-    "text": "Machine Learning Model Performance\n\nModel Comparison Results: - Gradient Boosting: 0.9985 (Best) - Random Forest: 0.9982 - Logistic Regression: 0.9792"
-  },
-  {
     "objectID": "presentation.html#model-evaluation-results",
     "href": "presentation.html#model-evaluation-results",
     "title": "Behavioral Outlier Segmentation using credit card dataset",
     "section": "Model Evaluation Results",
     "text": "Model Evaluation Results\n\n\n\n\nMetric\nScore\n\n\n\n\nTest Set ROC-AUC\n0.9994\n\n\nAccuracy\n98.94%\n\n\nPrecision\n98.42%\n\n\nRecall\n97.32%\n\n\nF1-Score\n97.87%"
-  },
-  {
-    "objectID": "presentation.html#top-features-for-churn-prediction",
-    "href": "presentation.html#top-features-for-churn-prediction",
-    "title": "Behavioral Outlier Segmentation using credit card dataset",
-    "section": "Top Features for Churn Prediction",
-    "text": "Top Features for Churn Prediction\n\n\nCASH_ADVANCE_RATIO (65.0%) - Most important predictor\nBALANCE_CREDIT_RATIO (23.3%) - Credit utilization risk\nPAYMENT_PURCHASE_RATIO (7.4%) - Payment behavior\nPAYMENT_FREQUENCY_SCORE (1.4%) - Payment regularity\nBALANCE (1.2%) - Account balance"
-  },
-  {
-    "objectID": "presentation.html#business-insights",
-    "href": "presentation.html#business-insights",
-    "title": "Behavioral Outlier Segmentation using credit card dataset",
-    "section": "Business Insights",
-    "text": "Business Insights\n\n\nCash advance behavior is the strongest indicator of churn risk\nCredit utilization patterns significantly impact retention\nPayment-to-purchase ratios reveal customer financial health\nModel achieves 99.94% ROC-AUC indicating excellent predictive power"
-  },
-  {
-    "objectID": "presentation.html#strategic-recommendations",
-    "href": "presentation.html#strategic-recommendations",
-    "title": "Behavioral Outlier Segmentation using credit card dataset",
-    "section": "Strategic Recommendations",
-    "text": "Strategic Recommendations\n\nHigh-Risk Customer Intervention\n\nMonitor customers with high cash advance ratios (&gt;75th percentile)\nImplement early intervention for high credit utilization customers\n\nRetention Strategies by Segment\n\nLow Risk: Reward programs and premium services\nMedium Risk: Regular check-ins and financial education\nHigh Risk: Proactive outreach and payment assistance\nExtreme Risk: Immediate intervention and restructuring options\n\nPredictive Monitoring\n\nDeploy churn prediction model in production\nSet up automated alerts for customers approaching churn threshold\nRegular model retraining with new behavioral data"
   },
   {
     "objectID": "presentation.html#acknowledgment",
