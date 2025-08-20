@@ -428,7 +428,9 @@ plt.show()
 
 ## Business Problem 
 1. Detect clusters of customers by transaction behavior (recency, frequency, monetary) and classify risk levels (high, medium, low) 
+
 ![credit card](img/credit.png){ width=300px }
+
 2. Predict which customers might churn or switch to competitors
 
 ---
@@ -444,10 +446,12 @@ plt.show()
 ## Business Challenges
 
 **Problem 1: We Don't Know Our Customers**
+
 - Without behavioral segmentation, we treat all customers the same  
 - High-risk users go unnoticed; best clients are not rewarded
 
 **Problem 2: Customers Leave Without Warning**
+
 - Customer churn is expensive: acquiring a new customer costs 5x more than retention  
 - Need to predict potential churners proactively
 
@@ -455,36 +459,57 @@ plt.show()
 
 ## Work Flow
 
-**EDA**  
+**EDA**
    ↓  
-**Data Preprocessing**  
+*Data Preprocessing*
    ↓  
-**Feature Engineering & Selection**  
+**Feature Engineering & Selection**
    ↓  
 **Clustering & Evaluation**  
    ↓  
 **Select Best Clustering Algorithm**  
    ↓  
 **Visualization of Clusters**
+   ↓  
+**Churn Prediction Modeling**  
+   ↓  
+**Feature Importance Analysis**  
+   ↓  
+**Business Insights & Recommendations**
 
 ---
 
-## Outlier Detection & Skewness
+## Outlier Detection
 
-### Outliers
 ![](img/boxplots.png){ width=500px }
 
----
+**Outlier Summary:**
 
-### Segments
+- **BALANCE**: 695 outliers
+
+- **PURCHASES**: 808 outliers 
+
+- **CASH_ADVANCE**: 1,030 outliers
+
+- **MINIMUM_PAYMENTS**: 841 outliers
+
+## Distribution Analysis
 ![](img/skewness_histograms.png){ width=500px }
 
----
+**Skewness Issues Identified:**
 
-### After transformation 
+- **MINIMUM_PAYMENTS**: 13.62 (extremely skewed)
+
+- **ONEOFF_PURCHASES**: 10.05 (highly skewed)
+
+- **PURCHASES**: 8.14 (highly skewed)
+
+## After Transformation
 ![](img/skewness.png){ width=500px }
 
 - After applying transformations, the skewness of most numerical features was **significantly reduced**
+- **Box-Cox** and **Yeo-Johnson** transformations applied for highly skewed features
+- **Square root** and **cube root** transformations for moderately skewed features
 
 ---
 
@@ -495,7 +520,7 @@ plt.show()
 
 ---
 
-## Cluster Elbow curve
+## Cluster Elbow Curve
 ![](img/Elbow.png){ width=500px }
 
 - The Elbow Curve indicates that **4 clusters** capture most of the variation in the data.   
@@ -505,6 +530,12 @@ plt.show()
 
 ## Clusters based on behavior 
 ![](img/cluster.png){ width=700px }
+
+- **Cluster 0**: Low balance, low purchases, low risk
+- **Cluster 1**: Medium balance, medium purchases, medium risk  
+- **Cluster 2**: High balance, high purchases, high risk
+- **Cluster 3**: Very high balance, very high purchases, extreme risk
+
 
 ---
 
@@ -516,15 +547,333 @@ plt.show()
 
 ---
 
-## Limitations:
+## Churn Prediction Analysis
+## Feature Correlation Analysis
+- **Highly correlated features (>0.8):**
+  - PURCHASES ↔ ONEOFF_PURCHASES: 0.917
+  - PURCHASES_FREQUENCY ↔ PURCHASES_INSTALLMENTS_FREQUENCY: 0.863
+- These correlations help identify redundant features for model training
 
-1. 
-2. 
+*Note: Correlation matrix heatmap would be generated during analysis*
 
----
+## Churn Target Creation
+- **Synthetic churn target** created using composite risk scoring
+- **Churn rate: 25.01%** (2,238 out of 8,950 customers)
+
+**Target Distribution:**
+- **Non-Churn Customers**: 6,712 (74.99%)
+- **Churn Customers**: 2,238 (25.01%)
+
+**Risk factors considered:**
+- Low purchase frequency
+- High cash advance usage
+- Irregular payment patterns
+- High balance-to-credit ratio
+- Risk indicators
+
+## Model Evaluation Results
+
+![](img/confusion_matrix.png){ width=600px }
+
+| Metric | Score |
+|--------|-------|
+| **Test Set ROC-AUC** | 0.9994 |
+| **Accuracy** | 98.94% |
+| **Precision** | 98.42% |
+| **Recall** | 97.32% |
+| **F1-Score** | 97.87% |
 
 ## Acknowledgment
 
 -   Thank you, Professor Greg Chism, for your guidance, support, and valuable feedback throughout this project.
 
 -   Thank you to my classmates and team members for their collaboration, insights, and contributions.
+
+```{python}
+#| label: Correlation Analysis
+#| include: false
+# Correlation analysis for churn prediction
+def correlation_analysis(df):
+    """Analyze correlations between features and target"""
+    print("=== CORRELATION ANALYSIS ===")
+    
+    # Select numerical columns for correlation
+    numerical_cols = df.select_dtypes(include=['float64', 'int64']).columns.tolist()
+    
+    # Create correlation matrix
+    corr_matrix = df[numerical_cols].corr()
+    
+    # Plot correlation heatmap
+    plt.figure(figsize=(16, 12))
+    mask = np.triu(np.ones_like(corr_matrix, dtype=bool))
+    sns.heatmap(corr_matrix, mask=mask, annot=True, cmap='coolwarm', center=0,
+                square=True, linewidths=0.5, cbar_kws={"shrink": 0.8})
+    plt.title('Feature Correlation Matrix')
+    plt.tight_layout()
+    plt.savefig('img/correlation_matrix.png', dpi=300, bbox_inches='tight')
+    plt.show()
+    
+    # Find highly correlated features
+    high_corr_pairs = []
+    for i in range(len(corr_matrix.columns)):
+        for j in range(i+1, len(corr_matrix.columns)):
+            if abs(corr_matrix.iloc[i, j]) > 0.8:
+                high_corr_pairs.append((corr_matrix.columns[i], corr_matrix.columns[j], corr_matrix.iloc[i, j]))
+    
+    if high_corr_pairs:
+        print("\nHighly correlated feature pairs (>0.8):")
+        for pair in high_corr_pairs:
+            print(f"  {pair[0]} ↔ {pair[1]}: {pair[2]:.3f}")
+    
+    return corr_matrix
+
+corr_matrix = correlation_analysis(credit_card)
+```
+
+```{python}
+#| label: Churn Target Creation
+#| include: false
+def churn_feature_engineering(df):
+    """Create features specifically for churn prediction"""
+    # Create features with safe column access
+    try:
+        # Balance-to-credit-limit ratio
+        df['BALANCE_CREDIT_RATIO'] = df['BALANCE'] / (df['CREDIT_LIMIT'] + 1e-6)
+        
+        # Payment-to-purchase ratio
+        df['PAYMENT_PURCHASE_RATIO'] = df['PAYMENTS'] / (df['PURCHASES'] + 1)
+        
+        # Cash advance ratio
+        df['CASH_ADVANCE_RATIO'] = df['CASH_ADVANCE'] / (df['BALANCE'] + 1)
+        
+        # Payment frequency score
+        payment_score_components = [df['BALANCE_FREQUENCY'], df['PURCHASES_FREQUENCY']]
+        df['PAYMENT_FREQUENCY_SCORE'] = sum(payment_score_components) / len(payment_score_components)
+        
+        # Spending behavior score
+        spending_components = [df['PURCHASES_FREQUENCY'], df['ONEOFF_PURCHASES_FREQUENCY'], df['PURCHASES_INSTALLMENTS_FREQUENCY']]
+        df['SPENDING_BEHAVIOR_SCORE'] = sum(spending_components) / len(spending_components)
+        
+        # Risk indicators
+        df['HIGH_RISK_INDICATOR'] = (
+            (df['CASH_ADVANCE'] > df['CASH_ADVANCE'].quantile(0.75)) |
+            (df['BALANCE_CREDIT_RATIO'] > 0.8)
+        ).astype(int)
+        
+        df['MEDIUM_RISK_INDICATOR'] = (
+            (df['CASH_ADVANCE'].between(
+                df['CASH_ADVANCE'].quantile(0.25), 
+                df['CASH_ADVANCE'].quantile(0.75)
+            )) |
+            (df['BALANCE_CREDIT_RATIO'].between(0.4, 0.8))
+        ).astype(int)
+        
+        return df
+        
+    except Exception as e:
+        print(f"Error in feature engineering: {e}")
+        return df
+
+def create_churn_target(df):
+    """Create synthetic target variable for churn prediction"""
+    print("=== CREATING CHURN TARGET VARIABLE ===")
+    
+    # Calculate composite risk score
+    risk_score = (
+        # Low purchase frequency (negative impact)
+        (0.3 - df['PURCHASES_FREQUENCY']).clip(lower=0) * 2 +
+        
+        # High cash advance usage (positive impact on churn risk)
+        (df['CASH_ADVANCE_RATIO'] * 3) +
+        
+        # Irregular payment patterns (positive impact on churn risk)
+        (1 - df['PAYMENT_FREQUENCY_SCORE']) * 2 +
+        
+        # High balance to credit ratio (positive impact on churn risk)
+        (df['BALANCE_CREDIT_RATIO'] * 2) +
+        
+        # Low payment amounts relative to purchases (positive impact on churn risk)
+        (1 - df['PAYMENT_PURCHASE_RATIO']).clip(lower=0) * 1.5 +
+        
+        # Risk indicators
+        df['HIGH_RISK_INDICATOR'] * 3 +
+        df['MEDIUM_RISK_INDICATOR'] * 1.5
+    )
+    
+    # Normalize risk score to 0-1 range
+    risk_score = (risk_score - risk_score.min()) / (risk_score.max() - risk_score.min())
+    
+    # Create binary churn target (1 = likely to churn, 0 = likely to stay)
+    churn_threshold = risk_score.quantile(0.75)
+    df['CHURN_TARGET'] = (risk_score > churn_threshold).astype(int)
+    
+    print(f"Churn target created:")
+    print(f"  - Churn threshold: {churn_threshold:.3f}")
+    print(f"  - Churn rate: {df['CHURN_TARGET'].mean():.2%}")
+    print(f"  - Non-churn: {(1 - df['CHURN_TARGET']).sum()} customers")
+    print(f"  - Churn: {df['CHURN_TARGET'].sum()} customers")
+    
+    return df
+
+# Apply feature engineering and create churn target
+credit_df_churn_features = churn_feature_engineering(credit_df_scaled)
+credit_df_with_target = create_churn_target(credit_df_churn_features)
+```
+
+```{python}
+#| label: Churn Model Training
+#| include: false
+from sklearn.model_selection import train_test_split, cross_val_score
+from sklearn.ensemble import RandomForestClassifier, GradientBoostingClassifier
+from sklearn.linear_model import LogisticRegression
+from sklearn.metrics import classification_report, confusion_matrix, roc_auc_score
+from sklearn.pipeline import Pipeline
+
+def churn_feature_selection(df, corr_threshold=0.85):
+    """Select features for churn prediction model"""
+    # Base features
+    base_features = [
+        'TENURE', 'BALANCE', 'BALANCE_FREQUENCY', 'PURCHASES_FREQUENCY',
+        'PAYMENTS', 'MINIMUM_PAYMENTS', 'CASH_ADVANCE'
+    ]
+    
+    # Add engineered features
+    engineered_features = [
+        'BALANCE_CREDIT_RATIO', 'PAYMENT_PURCHASE_RATIO', 'CASH_ADVANCE_RATIO',
+        'PAYMENT_FREQUENCY_SCORE', 'SPENDING_BEHAVIOR_SCORE',
+        'HIGH_RISK_INDICATOR', 'MEDIUM_RISK_INDICATOR'
+    ]
+    
+    # Combine all features
+    all_features = base_features + engineered_features
+    
+    # Check which features exist in the dataset
+    available_features = [f for f in all_features if f in df.columns]
+    
+    # Select features and target
+    X = df[available_features]
+    y = df['CHURN_TARGET']
+    
+    print(f"Feature matrix shape: {X.shape}")
+    print(f"Target distribution: {y.value_counts().to_dict()}")
+    
+    return X, y, available_features
+
+X, y, feature_names = churn_feature_selection(credit_df_with_target)
+
+# Split data into training and testing sets
+X_train, X_test, y_train, y_test = train_test_split(
+    X, y, test_size=0.2, random_state=42, stratify=y
+)
+
+print(f"Training set: {X_train.shape[0]} samples")
+print(f"Testing set: {X_test.shape[0]} samples")
+print(f"Training churn rate: {y_train.mean():.2%}")
+print(f"Testing churn rate: {y_test.mean():.2%}")
+
+# Define models to try
+models = {
+    'Random Forest': RandomForestClassifier(random_state=42, n_estimators=100),
+    'Gradient Boosting': GradientBoostingClassifier(random_state=42, n_estimators=100),
+    'Logistic Regression': LogisticRegression(random_state=42, max_iter=1000)
+}
+
+# Train and evaluate models
+best_score = 0
+best_model_name = None
+best_model = None
+
+for name, model in models.items():
+    print(f"\nTraining {name}...")
+    
+    # Create pipeline with scaling
+    pipeline = Pipeline([
+        ('scaler', StandardScaler()),
+        ('classifier', model)
+    ])
+    
+    # Perform cross-validation
+    cv_scores = cross_val_score(pipeline, X_train, y_train, cv=5, scoring='roc_auc')
+    
+    print(f"  Cross-validation ROC-AUC scores: {cv_scores}")
+    print(f"  Mean CV score: {cv_scores.mean():.4f} (+/- {cv_scores.std() * 2:.4f})")
+    
+    if cv_scores.mean() > best_score:
+        best_score = cv_scores.mean()
+        best_model_name = name
+        best_model = pipeline
+
+print(f"\nBest model: {best_model_name} (CV ROC-AUC: {best_score:.4f})")
+
+# Train the best model on full training data
+best_model.fit(X_train, y_train)
+```
+
+```{python}
+#| label: Model Evaluation and Feature Importance
+#| include: false
+# Evaluate the best model on the test set
+print("=== MODEL EVALUATION ===")
+
+# Make predictions
+y_pred = best_model.predict(X_test)
+y_pred_proba = best_model.predict_proba(X_test)[:, 1]
+
+# Calculate metrics
+roc_auc = roc_auc_score(y_test, y_pred_proba)
+
+print(f"Test Set Performance:")
+print(f"  ROC-AUC Score: {roc_auc:.4f}")
+
+# Confusion Matrix
+cm = confusion_matrix(y_test, y_pred)
+print(f"\nConfusion Matrix:")
+print(cm)
+
+# Calculate additional metrics
+tn, fp, fn, tp = cm.ravel()
+accuracy = (tp + tn) / (tp + tn + fp + fn)
+precision = tp / (tp + fp) if (tp + fp) > 0 else 0
+recall = tp / (tp + fn) if (tp + fn) > 0 else 0
+f1 = 2 * (precision * recall) / (precision + recall) if (precision + recall) > 0 else 0
+
+print(f"\nAdditional Metrics:")
+print(f"  Accuracy: {accuracy:.4f}")
+print(f"  Precision: {precision:.4f}")
+print(f"  Recall: {recall:.4f}")
+print(f"  F1-Score: {f1:.4f}")
+
+# Analyze and display feature importance
+print("=== FEATURE IMPORTANCE ANALYSIS ===")
+
+# Get feature importance
+if hasattr(best_model.named_steps['classifier'], 'feature_importances_'):
+    # Tree-based models
+    importance = best_model.named_steps['classifier'].feature_importances_
+elif hasattr(best_model.named_steps['classifier'], 'coef_'):
+    # Linear models
+    importance = np.abs(best_model.named_steps['classifier'].coef_[0])
+else:
+    print("Cannot extract feature importance from this model type.")
+
+# Create feature importance dataframe
+feature_importance_df = pd.DataFrame({
+    'Feature': feature_names,
+    'Importance': importance
+}).sort_values('Importance', ascending=False)
+
+print("Feature Importance (Top 10):")
+print(feature_importance_df.head(10))
+
+# Plot feature importance
+plt.figure(figsize=(10, 8))
+top_features = feature_importance_df.head(10)
+plt.barh(range(len(top_features)), top_features['Importance'])
+plt.yticks(range(len(top_features)), top_features['Feature'])
+plt.xlabel('Feature Importance')
+plt.title('Top 10 Most Important Features for Churn Prediction')
+plt.gca().invert_yaxis()
+plt.tight_layout()
+plt.savefig('img/feature_importance.png', dpi=300, bbox_inches='tight')
+plt.show()
+```

@@ -153,7 +153,10 @@ Saumya Gupta, Sathwika Karri
 <section id="business-problem" class="slide level2">
 <h2>Business Problem</h2>
 <ol type="1">
-<li>Detect clusters of customers by transaction behavior (recency, frequency, monetary) and classify risk levels (high, medium, low) <img data-src="img/credit.png" width="300" alt="credit card"></li>
+<li>Detect clusters of customers by transaction behavior (recency, frequency, monetary) and classify risk levels (high, medium, low)</li>
+</ol>
+
+<img data-src="img/credit.png" width="300" class="r-stretch quarto-figure-center"><p class="caption">credit card</p><ol start="2" type="1">
 <li>Predict which customers might churn or switch to competitors</li>
 </ol>
 </section>
@@ -169,41 +172,63 @@ Saumya Gupta, Sathwika Karri
 </section>
 <section id="business-challenges" class="slide level2">
 <h2>Business Challenges</h2>
-<p><strong>Problem 1: We Don’t Know Our Customers</strong> - Without behavioral segmentation, we treat all customers the same<br>
-- High-risk users go unnoticed; best clients are not rewarded</p>
-<p><strong>Problem 2: Customers Leave Without Warning</strong> - Customer churn is expensive: acquiring a new customer costs 5x more than retention<br>
-- Need to predict potential churners proactively</p>
+<p><strong>Problem 1: We Don’t Know Our Customers</strong></p>
+<ul>
+<li>Without behavioral segmentation, we treat all customers the same<br>
+</li>
+<li>High-risk users go unnoticed; best clients are not rewarded</li>
+</ul>
+<p><strong>Problem 2: Customers Leave Without Warning</strong></p>
+<ul>
+<li>Customer churn is expensive: acquiring a new customer costs 5x more than retention<br>
+</li>
+<li>Need to predict potential churners proactively</li>
+</ul>
 </section>
 <section id="work-flow" class="slide level2">
 <h2>Work Flow</h2>
-<p><strong>EDA</strong><br>
-↓<br>
-<strong>Data Preprocessing</strong><br>
-↓<br>
-<strong>Feature Engineering &amp; Selection</strong><br>
-↓<br>
+<p><strong>EDA</strong> ↓<br>
+<em>Data Preprocessing</em> ↓<br>
+<strong>Feature Engineering &amp; Selection</strong> ↓<br>
 <strong>Clustering &amp; Evaluation</strong><br>
 ↓<br>
 <strong>Select Best Clustering Algorithm</strong><br>
 ↓<br>
-<strong>Visualization of Clusters</strong></p>
+<strong>Visualization of Clusters</strong> ↓<br>
+<strong>Churn Prediction Modeling</strong><br>
+↓<br>
+<strong>Feature Importance Analysis</strong><br>
+↓<br>
+<strong>Business Insights &amp; Recommendations</strong></p>
 </section>
-<section id="outlier-detection-skewness" class="slide level2">
-<h2>Outlier Detection &amp; Skewness</h2>
-<h3 id="outliers">Outliers</h3>
+<section id="outlier-detection" class="slide level2">
+<h2>Outlier Detection</h2>
 
-<img data-src="img/boxplots.png" width="500" class="r-stretch"></section>
-<section class="slide level2">
+<img data-src="img/boxplots.png" width="500" class="r-stretch"><p><strong>Outlier Summary:</strong></p>
+<ul>
+<li><p><strong>BALANCE</strong>: 695 outliers</p></li>
+<li><p><strong>PURCHASES</strong>: 808 outliers</p></li>
+<li><p><strong>CASH_ADVANCE</strong>: 1,030 outliers</p></li>
+<li><p><strong>MINIMUM_PAYMENTS</strong>: 841 outliers</p></li>
+</ul>
+</section>
+<section id="distribution-analysis" class="slide level2">
+<h2>Distribution Analysis</h2>
 
-<h3 id="segments">Segments</h3>
-
-<img data-src="img/skewness_histograms.png" width="500" class="r-stretch"></section>
-<section class="slide level2">
-
-<h3 id="after-transformation">After transformation</h3>
+<img data-src="img/skewness_histograms.png" width="500" class="r-stretch"><p><strong>Skewness Issues Identified:</strong></p>
+<ul>
+<li><p><strong>MINIMUM_PAYMENTS</strong>: 13.62 (extremely skewed)</p></li>
+<li><p><strong>ONEOFF_PURCHASES</strong>: 10.05 (highly skewed)</p></li>
+<li><p><strong>PURCHASES</strong>: 8.14 (highly skewed)</p></li>
+</ul>
+</section>
+<section id="after-transformation" class="slide level2">
+<h2>After Transformation</h2>
 
 <img data-src="img/skewness.png" width="500" class="r-stretch"><ul>
 <li>After applying transformations, the skewness of most numerical features was <strong>significantly reduced</strong></li>
+<li><strong>Box-Cox</strong> and <strong>Yeo-Johnson</strong> transformations applied for highly skewed features</li>
+<li><strong>Square root</strong> and <strong>cube root</strong> transformations for moderately skewed features</li>
 </ul>
 </section>
 <section id="summary-of-cluster-algorithms" class="slide level2">
@@ -212,7 +237,7 @@ Saumya Gupta, Sathwika Karri
 <img data-src="img/Summary.png" width="500" class="r-stretch"><p><strong>K-Means (k=3) produced 3 clusters</strong> with a moderate Silhouette Score (0.233), indicating some separation between clusters but not very strong.</p>
 </section>
 <section id="cluster-elbow-curve" class="slide level2">
-<h2>Cluster Elbow curve</h2>
+<h2>Cluster Elbow Curve</h2>
 
 <img data-src="img/Elbow.png" width="500" class="r-stretch"><ul>
 <li>The Elbow Curve indicates that <strong>4 clusters</strong> capture most of the variation in the data.<br>
@@ -223,7 +248,14 @@ Saumya Gupta, Sathwika Karri
 <section id="clusters-based-on-behavior" class="slide level2">
 <h2>Clusters based on behavior</h2>
 
-<img data-src="img/cluster.png" width="700" class="r-stretch"></section>
+<img data-src="img/cluster.png" width="700" class="r-stretch"><ul>
+<li><strong>Cluster 0</strong>: Low balance, low purchases, low risk</li>
+<li><strong>Cluster 1</strong>: Medium balance, medium purchases, medium risk<br>
+</li>
+<li><strong>Cluster 2</strong>: High balance, high purchases, high risk</li>
+<li><strong>Cluster 3</strong>: Very high balance, very high purchases, extreme risk</li>
+</ul>
+</section>
 <section id="customer-risk-label-distribution" class="slide level2">
 <h2>Customer Risk Label Distribution</h2>
 
@@ -233,12 +265,63 @@ Saumya Gupta, Sathwika Karri
 <li>A smaller number of customers are in <strong>High Risk (2,453)</strong> and <strong>Extreme Risk (97)</strong></li>
 </ul>
 </section>
-<section id="limitations" class="slide level2">
-<h2>Limitations:</h2>
-<ol type="1">
-<li></li>
-<li></li>
-</ol>
+<section id="churn-prediction-analysis" class="slide level2">
+<h2>Churn Prediction Analysis</h2>
+</section>
+<section id="feature-correlation-analysis" class="slide level2">
+<h2>Feature Correlation Analysis</h2>
+<ul>
+<li><strong>Highly correlated features (&gt;0.8):</strong>
+<ul>
+<li>PURCHASES ↔︎ ONEOFF_PURCHASES: 0.917</li>
+<li>PURCHASES_FREQUENCY ↔︎ PURCHASES_INSTALLMENTS_FREQUENCY: 0.863</li>
+</ul></li>
+<li>These correlations help identify redundant features for model training</li>
+</ul>
+<p><em>Note: Correlation matrix heatmap would be generated during analysis</em></p>
+</section>
+<section id="churn-target-creation" class="slide level2">
+<h2>Churn Target Creation</h2>
+<ul>
+<li><strong>Synthetic churn target</strong> created using composite risk scoring</li>
+<li><strong>Churn rate: 25.01%</strong> (2,238 out of 8,950 customers)</li>
+</ul>
+<p><strong>Target Distribution:</strong> - <strong>Non-Churn Customers</strong>: 6,712 (74.99%) - <strong>Churn Customers</strong>: 2,238 (25.01%)</p>
+<p><strong>Risk factors considered:</strong> - Low purchase frequency - High cash advance usage - Irregular payment patterns - High balance-to-credit ratio - Risk indicators</p>
+</section>
+<section id="model-evaluation-results" class="slide level2">
+<h2>Model Evaluation Results</h2>
+
+<img data-src="img/confusion_matrix.png" width="600" class="r-stretch"><table class="caption-top">
+<thead>
+<tr class="header">
+<th>Metric</th>
+<th>Score</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Test Set ROC-AUC</strong></td>
+<td>0.9994</td>
+</tr>
+<tr class="even">
+<td><strong>Accuracy</strong></td>
+<td>98.94%</td>
+</tr>
+<tr class="odd">
+<td><strong>Precision</strong></td>
+<td>98.42%</td>
+</tr>
+<tr class="even">
+<td><strong>Recall</strong></td>
+<td>97.32%</td>
+</tr>
+<tr class="odd">
+<td><strong>F1-Score</strong></td>
+<td>97.87%</td>
+</tr>
+</tbody>
+</table>
 </section>
 <section id="acknowledgment" class="slide level2">
 <h2>Acknowledgment</h2>
