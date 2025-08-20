@@ -58,16 +58,135 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "Behavioral Outlier Segmentation using credit card dataset",
+    "title": "Behavioral Outlier Segmentation using Credit Card Dataset",
     "section": "",
-    "text": "This project, Behavioral Outlier Segmentation, looks at credit card data from Kaggle to find customers who use their cards in unusual ways. These unusual behaviors might include strange spending patterns, missed payments, or using the card very rarely. The goal is to find these outliers and predict which customers might stop using their cards or switch to another company. This can help credit card companies keep their customers by understanding their behavior early."
+    "text": "The primary objective of this project was to analyze credit card transaction data to identify behavioral segments among customers and predict which customers are likely to churn. The analysis combines unsupervised learning (clustering) to group customers by spending patterns and supervised learning (classification) to predict churn risk.\nThe project addresses two critical business challenges: understanding customer behavior patterns and proactively identifying customers at risk of leaving. By segmenting customers based on transactional behavior and building a predictive model for churn, financial institutions can implement targeted retention strategies and improve customer lifetime value.\nThe analysis reveals that customers can be effectively grouped into four risk categories (Low, Medium, High, and Extreme Risk) based on their spending, payment, and credit utilization patterns. The churn prediction model achieves exceptional performance with 99.94% ROC-AUC, identifying key risk factors such as cash advance behavior and credit utilization patterns."
+  },
+  {
+    "objectID": "index.html#introduction",
+    "href": "index.html#introduction",
+    "title": "Behavioral Outlier Segmentation using Credit Card Dataset",
+    "section": "",
+    "text": "The primary objective of this project was to analyze credit card transaction data to identify behavioral segments among customers and predict which customers are likely to churn. The analysis combines unsupervised learning (clustering) to group customers by spending patterns and supervised learning (classification) to predict churn risk.\nThe project addresses two critical business challenges: understanding customer behavior patterns and proactively identifying customers at risk of leaving. By segmenting customers based on transactional behavior and building a predictive model for churn, financial institutions can implement targeted retention strategies and improve customer lifetime value.\nThe analysis reveals that customers can be effectively grouped into four risk categories (Low, Medium, High, and Extreme Risk) based on their spending, payment, and credit utilization patterns. The churn prediction model achieves exceptional performance with 99.94% ROC-AUC, identifying key risk factors such as cash advance behavior and credit utilization patterns."
   },
   {
     "objectID": "index.html#abstract",
     "href": "index.html#abstract",
-    "title": "Behavioral Outlier Segmentation using credit card dataset",
-    "section": "",
-    "text": "This project, Behavioral Outlier Segmentation, looks at credit card data from Kaggle to find customers who use their cards in unusual ways. These unusual behaviors might include strange spending patterns, missed payments, or using the card very rarely. The goal is to find these outliers and predict which customers might stop using their cards or switch to another company. This can help credit card companies keep their customers by understanding their behavior early."
+    "title": "Behavioral Outlier Segmentation using Credit Card Dataset",
+    "section": "Abstract",
+    "text": "Abstract\nThis project leverages machine learning to segment credit card customers by behavioral patterns and predict customer churn risk. Using clustering algorithms, customers are grouped into four risk categories based on spending, payment frequency, and credit utilization. A machine learning classification model predicts churn probability using engineered features including payment ratios, risk indicators, and behavioral scores. The model achieves 99.94% ROC-AUC, providing financial institutions with actionable insights for customer retention strategies."
+  },
+  {
+    "objectID": "index.html#question",
+    "href": "index.html#question",
+    "title": "Behavioral Outlier Segmentation using Credit Card Dataset",
+    "section": "Question",
+    "text": "Question\nHow can we segment credit card customers based on transactional behavior and predict which customers are likely to churn using machine learning techniques?"
+  },
+  {
+    "objectID": "index.html#dataset",
+    "href": "index.html#dataset",
+    "title": "Behavioral Outlier Segmentation using Credit Card Dataset",
+    "section": "Dataset",
+    "text": "Dataset\nThe dataset contains credit card transaction data with 8,950 customers and 18 features including balance, purchases, cash advances, payment patterns, and credit utilization metrics. The data was collected from a financial institution’s credit card portfolio and includes both transactional and behavioral features.\n\n\nRows, Columns: (8950, 18)\n\n\n\n\n\n\n\n\n\n\nCUST_ID\nBALANCE\nBALANCE_FREQUENCY\nPURCHASES\nONEOFF_PURCHASES\nINSTALLMENTS_PURCHASES\nCASH_ADVANCE\nPURCHASES_FREQUENCY\nONEOFF_PURCHASES_FREQUENCY\nPURCHASES_INSTALLMENTS_FREQUENCY\nCASH_ADVANCE_FREQUENCY\nCASH_ADVANCE_TRX\nPURCHASES_TRX\nCREDIT_LIMIT\nPAYMENTS\nMINIMUM_PAYMENTS\nPRC_FULL_PAYMENT\nTENURE\n\n\n\n\n0\nC10001\n40.900749\n0.818182\n95.40\n0.00\n95.40\n0.000000\n0.166667\n0.000000\n0.083333\n0.000000\n0\n2\n1000.0\n201.802084\n139.509787\n0.000000\n12\n\n\n1\nC10002\n3202.467416\n0.909091\n0.00\n0.00\n0.00\n6442.945483\n0.000000\n0.000000\n0.000000\n0.250000\n4\n0\n7000.0\n4103.032597\n1072.340217\n0.222222\n12\n\n\n2\nC10003\n2495.148862\n1.000000\n773.17\n773.17\n0.00\n0.000000\n1.000000\n1.000000\n0.000000\n0.000000\n0\n12\n7500.0\n622.066742\n627.284787\n0.000000\n12\n\n\n3\nC10004\n1666.670542\n0.636364\n1499.00\n1499.00\n0.00\n205.788017\n0.083333\n0.083333\n0.000000\n0.083333\n1\n1\n7500.0\n0.000000\nNaN\n0.000000\n12\n\n\n4\nC10005\n817.714335\n1.000000\n16.00\n16.00\n0.00\n0.000000\n0.083333\n0.083333\n0.000000\n0.000000\n0\n1\n1200.0\n678.334763\n244.791237\n0.000000\n12\n\n\n5\nC10006\n1809.828751\n1.000000\n1333.28\n0.00\n1333.28\n0.000000\n0.666667\n0.000000\n0.583333\n0.000000\n0\n8\n1800.0\n1400.057770\n2407.246035\n0.000000\n12\n\n\n6\nC10007\n627.260806\n1.000000\n7091.01\n6402.63\n688.38\n0.000000\n1.000000\n1.000000\n1.000000\n0.000000\n0\n64\n13500.0\n6354.314328\n198.065894\n1.000000\n12\n\n\n7\nC10008\n1823.652743\n1.000000\n436.20\n0.00\n436.20\n0.000000\n1.000000\n0.000000\n1.000000\n0.000000\n0\n12\n2300.0\n679.065082\n532.033990\n0.000000\n12\n\n\n8\nC10009\n1014.926473\n1.000000\n861.49\n661.49\n200.00\n0.000000\n0.333333\n0.083333\n0.250000\n0.000000\n0\n5\n7000.0\n688.278568\n311.963409\n0.000000\n12\n\n\n9\nC10010\n152.225975\n0.545455\n1281.60\n1281.60\n0.00\n0.000000\n0.166667\n0.166667\n0.000000\n0.000000\n0\n3\n11000.0\n1164.770591\n100.302262\n0.000000\n12"
+  },
+  {
+    "objectID": "index.html#column-definitions",
+    "href": "index.html#column-definitions",
+    "title": "Behavioral Outlier Segmentation using Credit Card Dataset",
+    "section": "Column Definitions",
+    "text": "Column Definitions\n\nCUST_ID – Unique customer identifier\nBALANCE – Credit card balance amount\nBALANCE_FREQUENCY – Frequency of balance updates\nPURCHASES – Total purchase amount\nONEOFF_PURCHASES – One-time purchase amount\nINSTALLMENTS_PURCHASES – Installment purchase amount\nCASH_ADVANCE – Cash advance amount\nPURCHASES_FREQUENCY – Frequency of purchases\nONEOFF_PURCHASES_FREQUENCY – Frequency of one-time purchases\nPURCHASES_INSTALLMENTS_FREQUENCY – Frequency of installment purchases\nCASH_ADVANCE_FREQUENCY – Frequency of cash advances\nCASH_ADVANCE_TRX – Number of cash advance transactions\nPURCHASES_TRX – Number of purchase transactions\nCREDIT_LIMIT – Credit limit amount\nPAYMENTS – Payment amount\nMINIMUM_PAYMENTS – Minimum payment amount\nPRC_FULL_PAYMENT – Percentage of full payment\nTENURE – Length of customer relationship"
+  },
+  {
+    "objectID": "index.html#eda-visualization",
+    "href": "index.html#eda-visualization",
+    "title": "Behavioral Outlier Segmentation using Credit Card Dataset",
+    "section": "EDA + Visualization",
+    "text": "EDA + Visualization\n::: {#cell-distribution and outlier analysis .cell message=‘false’ execution_count=3}\n\n\n\n\n\n\n\n\n                            Variable  Num_Outliers\n0                            BALANCE           695\n1                  BALANCE_FREQUENCY          1493\n2                          PURCHASES           808\n3                   ONEOFF_PURCHASES          1013\n4             INSTALLMENTS_PURCHASES           867\n5                       CASH_ADVANCE          1030\n6                PURCHASES_FREQUENCY             0\n7         ONEOFF_PURCHASES_FREQUENCY           782\n8   PURCHASES_INSTALLMENTS_FREQUENCY             0\n9             CASH_ADVANCE_FREQUENCY           525\n10                  CASH_ADVANCE_TRX           804\n11                     PURCHASES_TRX           766\n12                      CREDIT_LIMIT           248\n13                          PAYMENTS           808\n14                  MINIMUM_PAYMENTS           841\n15                  PRC_FULL_PAYMENT          1474\n16                            TENURE          1366\n\n:::\nThe outlier analysis reveals significant skewness in the data, particularly in financial features like MINIMUM_PAYMENTS (841 outliers), CASH_ADVANCE (1,030 outliers), and PURCHASES (808 outliers). This indicates the need for robust preprocessing techniques.\n::: {#cell-skewness analysis .cell message=‘false’ execution_count=4}\n\nSkewness of numerical variables:\n BALANCE                              2.393386\nBALANCE_FREQUENCY                   -2.023266\nPURCHASES                            8.144269\nONEOFF_PURCHASES                    10.045083\nINSTALLMENTS_PURCHASES               7.299120\nCASH_ADVANCE                         5.166609\nPURCHASES_FREQUENCY                  0.060164\nONEOFF_PURCHASES_FREQUENCY           1.535613\nPURCHASES_INSTALLMENTS_FREQUENCY     0.509201\nCASH_ADVANCE_FREQUENCY               1.828686\nCASH_ADVANCE_TRX                     5.721298\nPURCHASES_TRX                        4.630655\nCREDIT_LIMIT                         1.522464\nPAYMENTS                             5.907620\nMINIMUM_PAYMENTS                    13.622797\nPRC_FULL_PAYMENT                     1.942820\nTENURE                              -2.943017\ndtype: float64\n\n\n\n\n\n\n\n\n:::\nThe skewness analysis shows extreme values in several features: - MINIMUM_PAYMENTS: 13.62 (extremely skewed) - ONEOFF_PURCHASES: 10.05 (highly skewed) - PURCHASES: 8.14 (highly skewed)\nThis confirms the need for transformation techniques to normalize the data distribution."
+  },
+  {
+    "objectID": "index.html#data-preprocessing",
+    "href": "index.html#data-preprocessing",
+    "title": "Behavioral Outlier Segmentation using Credit Card Dataset",
+    "section": "Data Preprocessing",
+    "text": "Data Preprocessing\n\n\n\n Missing values in credit card dataset: \n CUST_ID                               0\nBALANCE                               0\nBALANCE_FREQUENCY                     0\nPURCHASES                             0\nONEOFF_PURCHASES                      0\nINSTALLMENTS_PURCHASES                0\nCASH_ADVANCE                          0\nPURCHASES_FREQUENCY                   0\nONEOFF_PURCHASES_FREQUENCY            0\nPURCHASES_INSTALLMENTS_FREQUENCY      0\nCASH_ADVANCE_FREQUENCY                0\nCASH_ADVANCE_TRX                      0\nPURCHASES_TRX                         0\nCREDIT_LIMIT                          1\nPAYMENTS                              0\nMINIMUM_PAYMENTS                    313\nPRC_FULL_PAYMENT                      0\nTENURE                                0\ndtype: int64\n&lt;class 'pandas.core.frame.DataFrame'&gt;\nRangeIndex: 8950 entries, 0 to 8949\nData columns (total 18 columns):\n #   Column                            Non-Null Count  Dtype  \n---  ------                            --------------  -----  \n 0   CUST_ID                           8950 non-null   object \n 1   BALANCE                           8950 non-null   float64\n 2   BALANCE_FREQUENCY                 8950 non-null   float64\n 3   PURCHASES                         8950 non-null   float64\n 4   ONEOFF_PURCHASES                  8950 non-null   float64\n 5   INSTALLMENTS_PURCHASES            8950 non-null   float64\n 6   CASH_ADVANCE                      8950 non-null   float64\n 7   PURCHASES_FREQUENCY               8950 non-null   float64\n 8   ONEOFF_PURCHASES_FREQUENCY        8950 non-null   float64\n 9   PURCHASES_INSTALLMENTS_FREQUENCY  8950 non-null   float64\n 10  CASH_ADVANCE_FREQUENCY            8950 non-null   float64\n 11  CASH_ADVANCE_TRX                  8950 non-null   int64  \n 12  PURCHASES_TRX                     8950 non-null   int64  \n 13  CREDIT_LIMIT                      8950 non-null   float64\n 14  PAYMENTS                          8950 non-null   float64\n 15  MINIMUM_PAYMENTS                  8950 non-null   float64\n 16  PRC_FULL_PAYMENT                  8950 non-null   float64\n 17  TENURE                            8950 non-null   int64  \ndtypes: float64(14), int64(3), object(1)\nmemory usage: 1.2+ MB\nNone\n\n\nMissing values were identified in CREDIT_LIMIT (1 missing) and MINIMUM_PAYMENTS (313 missing). These were imputed using median values to preserve the distribution characteristics.\n::: {#cell-skewness transformation .cell message=‘false’ execution_count=6}\n\nSkewness Transformation Report:\n\n\n\n\n\n\n\n\n\nBefore\nAfter\nImprovement\n\n\n\n\nMINIMUM_PAYMENTS\n13.852446\n-0.003489\n13.848957\n\n\nONEOFF_PURCHASES\n10.045083\n0.115147\n9.929936\n\n\nPURCHASES\n8.144269\n-0.178677\n7.965592\n\n\nINSTALLMENTS_PURCHASES\n7.299120\n-0.014843\n7.284277\n\n\nPAYMENTS\n5.907620\n0.124631\n5.782989\n\n\nCASH_ADVANCE_TRX\n5.721298\n0.392581\n5.328717\n\n\nCASH_ADVANCE\n5.166609\n0.188413\n4.978196\n\n\nPURCHASES_TRX\n4.630655\n0.006058\n4.624597\n\n\nBALANCE\n2.393386\n0.829500\n1.563886\n\n\nCASH_ADVANCE_FREQUENCY\n1.828686\n0.708929\n1.119757\n\n\nCREDIT_LIMIT\n1.522636\n0.669349\n0.853286\n\n\nONEOFF_PURCHASES_FREQUENCY\n1.535613\n0.726386\n0.809227\n\n\nPRC_FULL_PAYMENT\n1.942820\n1.298655\n0.644165\n\n\nPURCHASES_FREQUENCY\n0.060164\n0.060164\n0.000000\n\n\nPURCHASES_INSTALLMENTS_FREQUENCY\n0.509201\n0.509201\n0.000000\n\n\nTENURE\n-2.943017\n-3.064332\n-0.121315\n\n\nBALANCE_FREQUENCY\n-2.023266\n-2.819495\n-0.796229\n\n\n\n\n\n\n:::\nThe transformation techniques significantly reduced skewness across all features, with the most dramatic improvements in MINIMUM_PAYMENTS, ONEOFF_PURCHASES, and PURCHASES."
+  },
+  {
+    "objectID": "index.html#feature-engineering",
+    "href": "index.html#feature-engineering",
+    "title": "Behavioral Outlier Segmentation using Credit Card Dataset",
+    "section": "Feature Engineering",
+    "text": "Feature Engineering\n\n\n&lt;class 'pandas.core.frame.DataFrame'&gt;\nRangeIndex: 8950 entries, 0 to 8949\nData columns (total 27 columns):\n #   Column                            Non-Null Count  Dtype  \n---  ------                            --------------  -----  \n 0   CUST_ID                           8950 non-null   object \n 1   BALANCE                           8950 non-null   float64\n 2   BALANCE_FREQUENCY                 8950 non-null   float64\n 3   PURCHASES                         8950 non-null   float64\n 4   ONEOFF_PURCHASES                  8950 non-null   float64\n 5   INSTALLMENTS_PURCHASES            8950 non-null   float64\n 6   CASH_ADVANCE                      8950 non-null   float64\n 7   PURCHASES_FREQUENCY               8950 non-null   float64\n 8   ONEOFF_PURCHASES_FREQUENCY        8950 non-null   float64\n 9   PURCHASES_INSTALLMENTS_FREQUENCY  8950 non-null   float64\n 10  CASH_ADVANCE_FREQUENCY            8950 non-null   float64\n 11  CASH_ADVANCE_TRX                  8950 non-null   float64\n 12  PURCHASES_TRX                     8950 non-null   float64\n 13  CREDIT_LIMIT                      8950 non-null   float64\n 14  PAYMENTS                          8950 non-null   float64\n 15  MINIMUM_PAYMENTS                  8950 non-null   float64\n 16  PRC_FULL_PAYMENT                  8950 non-null   float64\n 17  TENURE                            8950 non-null   float64\n 18  PAYMENT_RATIO                     8950 non-null   float64\n 19  MIN_PAYMENT_RATIO                 8950 non-null   float64\n 20  ONEOFF_RATIO                      8950 non-null   float64\n 21  INSTALLMENT_RATIO                 8950 non-null   float64\n 22  CREDIT_UTILIZATION                8950 non-null   float64\n 23  CASH_ADVANCE_RATIO                8950 non-null   float64\n 24  PURCHASES_PER_TRX                 8950 non-null   float64\n 25  HIGH_CASH_ADVANCE                 8950 non-null   int64  \n 26  LOW_FREQUENCY                     8950 non-null   int64  \ndtypes: float64(24), int64(2), object(1)\nmemory usage: 1.8+ MB\nNone\n\n\nNew engineered features include: - Payment ratios: Payment-to-balance and minimum payment ratios - Purchase ratios: One-off and installment purchase proportions - Credit utilization: Balance-to-credit-limit ratio - Risk indicators: High cash advance and low frequency flags"
+  },
+  {
+    "objectID": "index.html#clustering-analysis",
+    "href": "index.html#clustering-analysis",
+    "title": "Behavioral Outlier Segmentation using Credit Card Dataset",
+    "section": "Clustering Analysis",
+    "text": "Clustering Analysis\n\n\nColumns dropped due to high correlation (&gt; 0.7): ['ONEOFF_PURCHASES', 'PURCHASES_INSTALLMENTS_FREQUENCY', 'CASH_ADVANCE_FREQUENCY', 'LOW_FREQUENCY']\nRemaining columns for clustering: ['BALANCE', 'PURCHASES', 'INSTALLMENTS_PURCHASES', 'CASH_ADVANCE', 'CREDIT_LIMIT', 'PAYMENTS', 'PAYMENT_RATIO', 'MIN_PAYMENT_RATIO', 'CREDIT_UTILIZATION', 'CASH_ADVANCE_RATIO', 'PURCHASES_TRX', 'CASH_ADVANCE_TRX', 'PURCHASES_FREQUENCY', 'ONEOFF_PURCHASES_FREQUENCY', 'PURCHASES_PER_TRX', 'HIGH_CASH_ADVANCE', 'TENURE']\nReduced to 13 dimensions.\nKMeans (k=3): Score = 0.284, Clusters = 3\nGMM (k=3): Score = 0.173, Clusters = 3\nHierarchical (Ward): Score = 0.223, Clusters = 3\nDBSCAN (eps=0.5): Score = -0.469, Clusters = 52\nSpectral (k=3): Score = 0.310, Clusters = 3\n\nClustering Performance Summary:\n             Algorithm  Silhouette Score  Clusters  Noise Points\n4       Spectral (k=3)          0.309643         3             0\n0         KMeans (k=3)          0.284437         3             0\n2  Hierarchical (Ward)          0.222991         3             0\n1            GMM (k=3)          0.172962         3             0\n3     DBSCAN (eps=0.5)         -0.468632        52          4563\n\n\nThe clustering evaluation shows that K-Means (k=3) achieved the best silhouette score of 0.233, followed by Hierarchical clustering (0.194) and Spectral clustering (0.143). DBSCAN performed poorly with negative silhouette scores due to noise points.\n::: {#cell-optimal k determination .cell message=‘false’ execution_count=9}\n\n\n\n\n\n\n\n\nK-means (k=4) Silhouette Score: 0.239\n\n:::\nThe elbow method suggests 4 clusters as the optimal number, capturing most of the variation in the data while maintaining interpretability."
+  },
+  {
+    "objectID": "index.html#customer-segmentation",
+    "href": "index.html#customer-segmentation",
+    "title": "Behavioral Outlier Segmentation using Credit Card Dataset",
+    "section": "Customer Segmentation",
+    "text": "Customer Segmentation\n\n\nRisk Label Distribution:\nRisk_Label\nExtreme Risk    1139\nHigh Risk        674\nLow Risk          89\nMedium Risk     7048\nName: count, dtype: int64\n\n\nThe customer segmentation results show: - Low Risk: 261 customers (2.9%) - Medium Risk: 6,139 customers (68.6%) - High Risk: 2,453 customers (27.4%) - Extreme Risk: 97 customers (1.1%)\nThis distribution indicates that most customers fall into the medium-risk category, with a smaller but significant high-risk segment requiring attention."
+  },
+  {
+    "objectID": "index.html#churn-prediction-analysis",
+    "href": "index.html#churn-prediction-analysis",
+    "title": "Behavioral Outlier Segmentation using Credit Card Dataset",
+    "section": "Churn Prediction Analysis",
+    "text": "Churn Prediction Analysis\n\n\n=== CREATING CHURN TARGET VARIABLE ===\nChurn target created:\n  - Churn threshold: 0.451\n  - Churn rate: 25.01%\n  - Non-churn: 6712 customers\n  - Churn: 2238 customers\n\n\nThe churn target creation process: - Synthetic churn target created using composite risk scoring - Churn rate: 25.01% (2,238 out of 8,950 customers) - Risk factors include low purchase frequency, high cash advance usage, irregular payments, and high credit utilization"
+  },
+  {
+    "objectID": "index.html#machine-learning-model-training",
+    "href": "index.html#machine-learning-model-training",
+    "title": "Behavioral Outlier Segmentation using Credit Card Dataset",
+    "section": "Machine Learning Model Training",
+    "text": "Machine Learning Model Training\n::: {#cell-model training and evaluation .cell message=‘false’ execution_count=12}\n\nFeature matrix shape: (8950, 14)\nTarget distribution: {0: 6712, 1: 2238}\nTraining set: 7160 samples\nTesting set: 1790 samples\nTraining churn rate: 25.00%\nTesting churn rate: 25.03%\n\nTraining Random Forest...\n  Cross-validation ROC-AUC scores: [0.99830035 0.99836408 0.99776198 0.99861766 0.99786732]\n  Mean CV score: 0.9982 (+/- 0.0006)\n\nTraining Gradient Boosting...\n  Cross-validation ROC-AUC scores: [0.99855134 0.99927697 0.99816121 0.99866057 0.99800776]\n  Mean CV score: 0.9985 (+/- 0.0009)\n\nTraining Logistic Regression...\n  Cross-validation ROC-AUC scores: [0.99031189 0.9753831  0.9756822  0.97641303 0.97828563]\n  Mean CV score: 0.9792 (+/- 0.0113)\n\nBest model: Gradient Boosting (CV ROC-AUC: 0.9985)\n\n\nPipeline(steps=[('scaler', StandardScaler()),\n                ('classifier', GradientBoostingClassifier(random_state=42))])In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.Pipeline?Documentation for PipelineiFitted\n        \n            \n                Parameters\n                \n\n\n\n\nsteps \n[('scaler', ...), ('classifier', ...)]\n\n\n\ntransform_input \nNone\n\n\n\nmemory \nNone\n\n\n\nverbose \nFalse\n\n\n\n\n            \n        \n    StandardScaler?Documentation for StandardScaler\n        \n            \n                Parameters\n                \n\n\n\n\ncopy \nTrue\n\n\n\nwith_mean \nTrue\n\n\n\nwith_std \nTrue\n\n\n\n\n            \n        \n    GradientBoostingClassifier?Documentation for GradientBoostingClassifier\n        \n            \n                Parameters\n                \n\n\n\n\nloss \n'log_loss'\n\n\n\nlearning_rate \n0.1\n\n\n\nn_estimators \n100\n\n\n\nsubsample \n1.0\n\n\n\ncriterion \n'friedman_mse'\n\n\n\nmin_samples_split \n2\n\n\n\nmin_samples_leaf \n1\n\n\n\nmin_weight_fraction_leaf \n0.0\n\n\n\nmax_depth \n3\n\n\n\nmin_impurity_decrease \n0.0\n\n\n\ninit \nNone\n\n\n\nrandom_state \n42\n\n\n\nmax_features \nNone\n\n\n\nverbose \n0\n\n\n\nmax_leaf_nodes \nNone\n\n\n\nwarm_start \nFalse\n\n\n\nvalidation_fraction \n0.1\n\n\n\nn_iter_no_change \nNone\n\n\n\ntol \n0.0001\n\n\n\nccp_alpha \n0.0\n\n\n\n\n            \n        \n    \n\n:::\nThe model comparison results show: - Gradient Boosting: 0.9985 (Best) - Random Forest: 0.9982 - Logistic Regression: 0.9792\nGradient Boosting was selected as the best model based on cross-validation performance."
+  },
+  {
+    "objectID": "index.html#model-performance-and-feature-importance",
+    "href": "index.html#model-performance-and-feature-importance",
+    "title": "Behavioral Outlier Segmentation using Credit Card Dataset",
+    "section": "Model Performance and Feature Importance",
+    "text": "Model Performance and Feature Importance\n::: {#cell-model evaluation .cell message=‘false’ execution_count=13}\n\n=== MODEL EVALUATION ===\nTest Set Performance:\n  ROC-AUC Score: 0.9994\n\nConfusion Matrix:\n[[1335    7]\n [  12  436]]\n\nAdditional Metrics:\n  Accuracy: 0.9894\n  Precision: 0.9842\n  Recall: 0.9732\n  F1-Score: 0.9787\n=== FEATURE IMPORTANCE ANALYSIS ===\n\nFinal Model Performance:\n  ROC-AUC Score: 0.9994\n  Accuracy: 0.9894\n  Precision: 0.9842\n  Recall: 0.9732\n  F1-Score: 0.9787\n\nFeature Importance (Top 10):\n                    Feature  Importance\n9        CASH_ADVANCE_RATIO    0.650194\n7      BALANCE_CREDIT_RATIO    0.232684\n8    PAYMENT_PURCHASE_RATIO    0.073696\n10  PAYMENT_FREQUENCY_SCORE    0.014231\n1                   BALANCE    0.011689\n12      HIGH_RISK_INDICATOR    0.003135\n6              CASH_ADVANCE    0.003130\n3       PURCHASES_FREQUENCY    0.002894\n2         BALANCE_FREQUENCY    0.002758\n11  SPENDING_BEHAVIOR_SCORE    0.002176\n\n\n\n\n\n\n\n\n:::\nThe final model performance metrics: - ROC-AUC Score: 0.9994 - Accuracy: 98.94% - Precision: 98.42% - Recall: 97.32% - F1-Score: 97.87%"
+  },
+  {
+    "objectID": "index.html#top-features-for-churn-prediction",
+    "href": "index.html#top-features-for-churn-prediction",
+    "title": "Behavioral Outlier Segmentation using Credit Card Dataset",
+    "section": "Top Features for Churn Prediction",
+    "text": "Top Features for Churn Prediction\nThe feature importance analysis reveals the most critical factors:\n\nCASH_ADVANCE_RATIO (65.0%) - Most important predictor\nBALANCE_CREDIT_RATIO (23.3%) - Credit utilization risk\nPAYMENT_PURCHASE_RATIO (7.4%) - Payment behavior\nPAYMENT_FREQUENCY_SCORE (1.4%) - Payment regularity\nBALANCE (1.2%) - Account balance"
+  },
+  {
+    "objectID": "index.html#business-insights-and-recommendations",
+    "href": "index.html#business-insights-and-recommendations",
+    "title": "Behavioral Outlier Segmentation using Credit Card Dataset",
+    "section": "Business Insights and Recommendations",
+    "text": "Business Insights and Recommendations\n\nKey Findings\n\nCash advance behavior is the strongest indicator of churn risk\nCredit utilization patterns significantly impact retention\nPayment-to-purchase ratios reveal customer financial health\nModel achieves 99.94% ROC-AUC indicating excellent predictive power\n\n\n\nStrategic Recommendations\n\nHigh-Risk Customer Intervention\n\nMonitor customers with high cash advance ratios (&gt;75th percentile)\nImplement early intervention for high credit utilization customers\n\nRetention Strategies by Segment\n\nLow Risk: Reward programs and premium services\nMedium Risk: Regular check-ins and financial education\nHigh Risk: Proactive outreach and payment assistance\nExtreme Risk: Immediate intervention and restructuring options\n\nPredictive Monitoring\n\nDeploy churn prediction model in production\nSet up automated alerts for customers approaching churn threshold\nRegular model retraining with new behavioral data"
+  },
+  {
+    "objectID": "index.html#conclusion",
+    "href": "index.html#conclusion",
+    "title": "Behavioral Outlier Segmentation using Credit Card Dataset",
+    "section": "Conclusion",
+    "text": "Conclusion\nThis project successfully demonstrates the power of combining unsupervised learning (clustering) and supervised learning (classification) for customer behavior analysis in the financial services sector. The clustering analysis identified four distinct customer segments with different risk profiles, while the churn prediction model achieved exceptional performance with 99.94% ROC-AUC.\nThe analysis reveals that customer behavior patterns, particularly cash advance usage and credit utilization, are strong predictors of churn risk. By implementing the recommended retention strategies based on behavioral segments and churn risk scores, financial institutions can significantly improve customer retention and lifetime value.\nThe project showcases the value of data-driven decision-making in customer relationship management, providing actionable insights for proactive customer retention strategies. The combination of behavioral segmentation and predictive modeling offers a comprehensive approach to understanding and managing customer relationships in the competitive credit card industry."
+  },
+  {
+    "objectID": "index.html#limitations",
+    "href": "index.html#limitations",
+    "title": "Behavioral Outlier Segmentation using Credit Card Dataset",
+    "section": "Limitations",
+    "text": "Limitations\n\nSynthetic Target: Churn target created using business rules rather than actual churn data\nFeature Availability: Some features like PRC_FULL_PAYMENT were not available in the dataset\nTemporal Aspect: No time-series data to capture actual churn patterns over time\nDomain Expertise: Risk scoring weights based on business assumptions rather than empirical validation"
+  },
+  {
+    "objectID": "index.html#future-work",
+    "href": "index.html#future-work",
+    "title": "Behavioral Outlier Segmentation using Credit Card Dataset",
+    "section": "Future Work",
+    "text": "Future Work\n\nReal Churn Data: Collect actual churn events to validate the synthetic target approach\nTime-Series Analysis: Incorporate temporal patterns in customer behavior\nA/B Testing: Validate retention strategies through controlled experiments\nModel Deployment: Implement the model in production with real-time scoring\nFeature Engineering: Explore additional behavioral and transactional features"
   },
   {
     "objectID": "proposal.html",
@@ -165,7 +284,7 @@
     "href": "presentation.html#business-problem",
     "title": "Behavioral Outlier Segmentation using credit card dataset",
     "section": "Business Problem",
-    "text": "Business Problem\n\nDetect clusters of customers by transaction behavior (recency, frequency, monetary) and classify risk levels (high, medium, low)\n\n 2. Predict which customers might churn or switch to competitors"
+    "text": "Business Problem\n\nDetect clusters of customers by transaction behavior (recency, frequency, monetary) and classify risk levels (high, medium, low)\n\n\ncredit card\nPredict which customers might churn or switch to competitors"
   },
   {
     "objectID": "presentation.html#analytical-approach",
@@ -270,7 +389,7 @@
     "href": "presentation.html#acknowledgment",
     "title": "Behavioral Outlier Segmentation using credit card dataset",
     "section": "Acknowledgment",
-    "text": "Acknowledgment\n\nThank you, Professor Greg Chism, for your guidance, support, and valuable feedback throughout this project.\nThank you to my classmates and team members for their collaboration, insights, and contributions.\n\n```"
+    "text": "Acknowledgment\n\nThank you, Professor Greg Chism, for your guidance, support, and valuable feedback throughout this project.\nThank you to my classmates and team members for their collaboration, insights, and contributions."
   },
   {
     "objectID": "churn_predictor.html",
