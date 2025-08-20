@@ -28,7 +28,7 @@
         "\n",
         "This project, Behavioral Outlier Segmentation, looks at credit card data from Kaggle to find customers who use their cards in unusual ways. These unusual behaviors might include strange spending patterns, missed payments, or using the card very rarely. The goal is to find these outliers and predict which customers might stop using their cards or switch to another company. This can help credit card companies keep their customers by understanding their behavior early.\n"
       ],
-      "id": "514d014c"
+      "id": "ce6a5995"
     }
   ],
   "metadata": {

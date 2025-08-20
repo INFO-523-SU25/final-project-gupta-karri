@@ -25,7 +25,7 @@
         "jupyter: python3\n",
         "---"
       ],
-      "id": "898b03ed"
+      "id": "d1bea44a"
     },
     {
       "cell_type": "code",
@@ -47,7 +47,7 @@
       "source": [
         "## Dataset"
       ],
-      "id": "2e7a5fe4"
+      "id": "756438a6"
     },
     {
       "cell_type": "code",
@@ -177,7 +177,7 @@
         "| Week 5 | 15 August 2025 | • Evaluate clustering performance<br>• Visualize our results                                               | Completed |\n",
         "| Week 6 | 20 August 2025 | • Conduct a peer code review<br>• Present projects and turn in final write-up                              | Completed |"
       ],
-      "id": "4a538f52"
+      "id": "d76e77fa"
     }
   ],
   "metadata": {
