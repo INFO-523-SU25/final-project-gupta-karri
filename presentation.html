@@ -186,24 +186,42 @@ Saumya Gupta, Sathwika Karri
 ↓<br>
 <strong>Select Best Clustering Algorithm</strong><br>
 ↓<br>
-<strong>Visualization of Clusters</strong></p>
+<strong>Visualization of Clusters</strong> ↓<br>
+<strong>Churn Prediction Modeling</strong><br>
+↓<br>
+<strong>Feature Importance Analysis</strong><br>
+↓<br>
+<strong>Business Insights &amp; Recommendations</strong></p>
 </section>
-<section id="outlier-detection-skewness" class="slide level2">
-<h2>Outlier Detection &amp; Skewness</h2>
-<h3 id="outliers">Outliers</h3>
-
-<img data-src="img/boxplots.png" width="500" class="r-stretch"></section>
 <section class="slide level2">
 
-<h3 id="segments">Segments</h3>
+</section>
+<section>
+<section id="data-preprocessing-feature-engineering" class="title-slide slide level1 center">
+<h1>Data Preprocessing &amp; Feature Engineering</h1>
+
+</section>
+<section id="outlier-detection" class="slide level2">
+<h2>Outlier Detection</h2>
+
+<img data-src="img/boxplots.png" width="500" class="r-stretch"><p><strong>Outlier Summary:</strong> - <strong>BALANCE</strong>: 695 outliers - <strong>PURCHASES</strong>: 808 outliers<br>
+- <strong>CASH_ADVANCE</strong>: 1,030 outliers - <strong>MINIMUM_PAYMENTS</strong>: 841 outliers</p>
+</section>
+<section id="distribution-analysis" class="slide level2">
+<h2>Distribution Analysis</h2>
 
 <img data-src="img/skewness_histograms.png" width="500" class="r-stretch"></section>
 <section class="slide level2">
 
-<h3 id="after-transformation">After transformation</h3>
+<p><strong>Skewness Issues Identified:</strong> - <strong>MINIMUM_PAYMENTS</strong>: 13.62 (extremely skewed) - <strong>ONEOFF_PURCHASES</strong>: 10.05 (highly skewed) - <strong>PURCHASES</strong>: 8.14 (highly skewed)</p>
+</section>
+<section id="after-transformation" class="slide level2">
+<h2>After Transformation</h2>
 
 <img data-src="img/skewness.png" width="500" class="r-stretch"><ul>
 <li>After applying transformations, the skewness of most numerical features was <strong>significantly reduced</strong></li>
+<li><strong>Box-Cox</strong> and <strong>Yeo-Johnson</strong> transformations applied for highly skewed features</li>
+<li><strong>Square root</strong> and <strong>cube root</strong> transformations for moderately skewed features</li>
 </ul>
 </section>
 <section id="summary-of-cluster-algorithms" class="slide level2">
@@ -212,7 +230,7 @@ Saumya Gupta, Sathwika Karri
 <img data-src="img/Summary.png" width="500" class="r-stretch"><p><strong>K-Means (k=3) produced 3 clusters</strong> with a moderate Silhouette Score (0.233), indicating some separation between clusters but not very strong.</p>
 </section>
 <section id="cluster-elbow-curve" class="slide level2">
-<h2>Cluster Elbow curve</h2>
+<h2>Cluster Elbow Curve</h2>
 
 <img data-src="img/Elbow.png" width="500" class="r-stretch"><ul>
 <li>The Elbow Curve indicates that <strong>4 clusters</strong> capture most of the variation in the data.<br>
@@ -223,7 +241,14 @@ Saumya Gupta, Sathwika Karri
 <section id="clusters-based-on-behavior" class="slide level2">
 <h2>Clusters based on behavior</h2>
 
-<img data-src="img/cluster.png" width="700" class="r-stretch"></section>
+<img data-src="img/cluster.png" width="700" class="r-stretch"><ul>
+<li><strong>Cluster 0</strong>: Low balance, low purchases, low risk</li>
+<li><strong>Cluster 1</strong>: Medium balance, medium purchases, medium risk<br>
+</li>
+<li><strong>Cluster 2</strong>: High balance, high purchases, high risk</li>
+<li><strong>Cluster 3</strong>: Very high balance, very high purchases, extreme risk</li>
+</ul>
+</section>
 <section id="customer-risk-label-distribution" class="slide level2">
 <h2>Customer Risk Label Distribution</h2>
 
@@ -233,11 +258,111 @@ Saumya Gupta, Sathwika Karri
 <li>A smaller number of customers are in <strong>High Risk (2,453)</strong> and <strong>Extreme Risk (97)</strong></li>
 </ul>
 </section>
-<section id="limitations" class="slide level2">
-<h2>Limitations:</h2>
+<section id="churn-prediction-analysis" class="slide level2">
+<h2>Churn Prediction Analysis</h2>
+</section>
+<section id="feature-correlation-analysis" class="slide level2">
+<h2>Feature Correlation Analysis</h2>
+<ul>
+<li><strong>Highly correlated features (&gt;0.8):</strong>
+<ul>
+<li>PURCHASES ↔︎ ONEOFF_PURCHASES: 0.917</li>
+<li>PURCHASES_FREQUENCY ↔︎ PURCHASES_INSTALLMENTS_FREQUENCY: 0.863</li>
+</ul></li>
+<li>These correlations help identify redundant features for model training</li>
+</ul>
+<p><em>Note: Correlation matrix heatmap would be generated during analysis</em></p>
+</section>
+<section id="churn-target-creation" class="slide level2">
+<h2>Churn Target Creation</h2>
+<ul>
+<li><strong>Synthetic churn target</strong> created using composite risk scoring</li>
+<li><strong>Churn rate: 25.01%</strong> (2,238 out of 8,950 customers)</li>
+</ul>
+<p><strong>Target Distribution:</strong> - <strong>Non-Churn Customers</strong>: 6,712 (74.99%) - <strong>Churn Customers</strong>: 2,238 (25.01%)</p>
+<p><strong>Risk factors considered:</strong> - Low purchase frequency - High cash advance usage - Irregular payment patterns - High balance-to-credit ratio - Risk indicators</p>
+</section>
+<section id="machine-learning-model-performance" class="slide level2">
+<h2>Machine Learning Model Performance</h2>
+
+<img data-src="img/model_performance.png" width="700" class="r-stretch"><p><strong>Model Comparison Results:</strong> - <strong>Gradient Boosting</strong>: 0.9985 (Best) - <strong>Random Forest</strong>: 0.9982 - <strong>Logistic Regression</strong>: 0.9792</p>
+</section>
+<section id="model-evaluation-results" class="slide level2">
+<h2>Model Evaluation Results</h2>
+
+<img data-src="img/confusion_matrix.png" width="600" class="r-stretch"><table class="caption-top">
+<thead>
+<tr class="header">
+<th>Metric</th>
+<th>Score</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Test Set ROC-AUC</strong></td>
+<td>0.9994</td>
+</tr>
+<tr class="even">
+<td><strong>Accuracy</strong></td>
+<td>98.94%</td>
+</tr>
+<tr class="odd">
+<td><strong>Precision</strong></td>
+<td>98.42%</td>
+</tr>
+<tr class="even">
+<td><strong>Recall</strong></td>
+<td>97.32%</td>
+</tr>
+<tr class="odd">
+<td><strong>F1-Score</strong></td>
+<td>97.87%</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="top-features-for-churn-prediction" class="slide level2">
+<h2>Top Features for Churn Prediction</h2>
+
+<img data-src="img/important_features.png" width="700" class="r-stretch"><ol type="1">
+<li><strong>CASH_ADVANCE_RATIO</strong> (65.0%) - Most important predictor</li>
+<li><strong>BALANCE_CREDIT_RATIO</strong> (23.3%) - Credit utilization risk</li>
+<li><strong>PAYMENT_PURCHASE_RATIO</strong> (7.4%) - Payment behavior</li>
+<li><strong>PAYMENT_FREQUENCY_SCORE</strong> (1.4%) - Payment regularity</li>
+<li><strong>BALANCE</strong> (1.2%) - Account balance</li>
+</ol>
+</section>
+<section id="business-insights" class="slide level2">
+<h2>Business Insights</h2>
+
+<img data-src="img/churn_analysis.png" width="700" class="r-stretch"><ul>
+<li><strong>Cash advance behavior</strong> is the strongest indicator of churn risk</li>
+<li><strong>Credit utilization patterns</strong> significantly impact retention</li>
+<li><strong>Payment-to-purchase ratios</strong> reveal customer financial health</li>
+<li>Model achieves <strong>99.94% ROC-AUC</strong> indicating excellent predictive power</li>
+</ul>
+</section>
+<section id="strategic-recommendations" class="slide level2">
+<h2>Strategic Recommendations</h2>
 <ol type="1">
-<li></li>
-<li></li>
+<li><strong>High-Risk Customer Intervention</strong>
+<ul>
+<li>Monitor customers with high cash advance ratios (&gt;75th percentile)</li>
+<li>Implement early intervention for high credit utilization customers</li>
+</ul></li>
+<li><strong>Retention Strategies by Segment</strong>
+<ul>
+<li><strong>Low Risk</strong>: Reward programs and premium services</li>
+<li><strong>Medium Risk</strong>: Regular check-ins and financial education</li>
+<li><strong>High Risk</strong>: Proactive outreach and payment assistance</li>
+<li><strong>Extreme Risk</strong>: Immediate intervention and restructuring options</li>
+</ul></li>
+<li><strong>Predictive Monitoring</strong>
+<ul>
+<li>Deploy churn prediction model in production</li>
+<li>Set up automated alerts for customers approaching churn threshold</li>
+<li>Regular model retraining with new behavioral data</li>
+</ul></li>
 </ol>
 </section>
 <section id="acknowledgment" class="slide level2">
@@ -246,9 +371,10 @@ Saumya Gupta, Sathwika Karri
 <li><p>Thank you, Professor Greg Chism, for your guidance, support, and valuable feedback throughout this project.</p></li>
 <li><p>Thank you to my classmates and team members for their collaboration, insights, and contributions.</p></li>
 </ul>
+<p>```</p>
 
 
-</section>
+</section></section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <div class="footer footer-default">
